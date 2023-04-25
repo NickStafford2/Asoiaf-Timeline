@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RowService } from '../row/row.service';
 
 @Component({
   selector: 'app-row-label-container',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RowLabelContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(public rowService: RowService) { }
 
   ngOnInit(): void {
+
   }
 
 }

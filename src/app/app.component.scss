@@ -20,9 +20,17 @@
 }
 
 .timeline-container {
-    margin-top: 1em;
-    //display: flex;
-    //flex-flow: row;
-    //width: 100%;
+  margin-top: 1em;
+  //display: flex;
+  //flex-flow: row;
+  //width: 100%;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
 }
 
+.character-list {
+  display: flex;
+  flex-direction: column;
+  //background-color: lightpink;
+  padding: .5em;
+}

@@ -1,40 +1,53 @@
-import { Injectable } from '@angular/core';
-import * as moment from 'moment';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { of } from 'rxjs';
-import { TimelineDateService } from './timeline-date.service';
-import { TimelineChild, Event } from '../_library';
-import { TimelineService } from './timeline.service';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
+import { TimelineDateService } from "./timeline-date.service";
+import { TimelineChild, TimelineDate, XYOffset } from "../_library";
+import { TimelineService } from "./timeline.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class LinesService {
-  
-  private _month$: BehaviorSubject<Array<TimelineChild>> = new BehaviorSubject<Array<TimelineChild>>([]);
-  public readonly month$: Observable<Array<TimelineChild>> = this._month$.asObservable();
+  private _month$: BehaviorSubject<TimelineChild[]> = new BehaviorSubject<TimelineChild[]>([]);
+  public readonly month$: Observable<TimelineChild[]> = this._month$.asObservable();
 
-  private _year$: BehaviorSubject<Array<TimelineChild>> = new BehaviorSubject<Array<TimelineChild>>([]);
-  public readonly year$: Observable<Array<TimelineChild>> = this._year$.asObservable();
-  
-  constructor(private _timelineDateService: TimelineDateService,
+  private _year$: BehaviorSubject<TimelineChild[]> = new BehaviorSubject<TimelineChild[]>([]);
+  public readonly year$: Observable<TimelineChild[]> = this._year$.asObservable();
+
+  public readonly yOffset: number = 0;
+  public readonly monthWidth: number = 1;
+  public readonly yearWidth: number = 3;
+
+  constructor(
+    private _timelineDateService: TimelineDateService,
     private _timelineService: TimelineService
   ) {
     this._timelineDateService.month$.subscribe(this._onMonthsUpdate.bind(this));
     this._timelineDateService.year$.subscribe(this._onYearsUpdate.bind(this));
-    this._timelineService.redraw$.subscribe(this._onRedraw.bind(this));
+    this._timelineService.pixlesPerMillisecond$.subscribe(() => {
+      this._year$.getValue().forEach((year: TimelineChild) => {
+        const xOffset: number = this._getXOffset(year.startTime);
+        const yOffset: number = this.yOffset;
+        year.xyOffset$?.next({ xOffset, yOffset });
+      });
+      this._month$.getValue().forEach((month: TimelineChild) => {
+        const xOffset: number = this._getXOffset(month.startTime);
+        const yOffset: number = this.yOffset;
+        month.xyOffset$?.next({ xOffset, yOffset });
+      });
+    });
+    //this._timelineService.redraw$.subscribe(this._onRedraw.bind(this));
   }
 
   private _getXOffset(startTime: number): number {
+    //console.log('getXOffset()');
     const xOffset: number = this._timelineService.getPixelsForTimestamp(startTime);
     return xOffset;
   }
 
   private _sortFunction(a: TimelineChild, b: TimelineChild): number {
-    if (a.startTime < b.startTime)
-      return -1;
-    if (a.startTime > b.startTime)
-      return 1;
+    if (a.startTime < b.startTime) return -1;
+    if (a.startTime > b.startTime) return 1;
     return 0;
   }
 
@@ -45,34 +58,43 @@ export class LinesService {
   }
 
   private _onMonthsUpdate(): void {
-    const months: Array<Event> = this._timelineDateService.getMonths()
-    const monthsCopy: Array<TimelineChild> = [];
+    const months: TimelineDate[] = this._timelineDateService.getMonths();
+    const monthsCopy: TimelineChild[] = [];
 
-    months.forEach((month: Event) => {
-      monthsCopy.push({
+    months.forEach((month: TimelineDate) => {
+      const xOffset: number = this._getXOffset(month.startTime);
+      const yOffset: number = this.yOffset;
+      const newMonth: TimelineChild = {
         startTime: month.startTime,
         duration: month.duration,
-        //timeReadable: startOfYear.format('ll'),
-        width: 1,
-        xOffset: this._getXOffset(month.startTime)
-      })
-    })
-    monthsCopy.sort(this._sortFunction)
+        xyOffset$: new BehaviorSubject<XYOffset>({ xOffset, yOffset }),
+        width$: new BehaviorSubject<number>(this.monthWidth),
+        height$: new BehaviorSubject<number>(500),
+      };
+      monthsCopy.push(newMonth);
+    });
+    monthsCopy.sort(this._sortFunction);
     this._month$.next(monthsCopy);
   }
 
   private _onYearsUpdate(): void {
-    const years: Array<Event> = this._timelineDateService.getYears()
-    const yearsCopy: Array<TimelineChild> = [];
-    years.forEach((year: Event) => {
-      yearsCopy.push({
+    const years: TimelineDate[] = this._timelineDateService.getYears();
+    const yearsCopy: TimelineChild[] = [];
+
+    years.forEach((year: TimelineDate) => {
+      const xOffset: number = this._getXOffset(year.startTime);
+      const yOffset: number = this.yOffset;
+      const width: number = this.yearWidth;
+      const newYear: TimelineChild = {
         startTime: year.startTime,
         duration: year.duration,
-        width: 3,
-        xOffset: this._getXOffset(year.startTime)
-      })
-    })
-    yearsCopy.sort(this._sortFunction)
+        xyOffset$: new BehaviorSubject<XYOffset>({ xOffset, yOffset }),
+        width$: new BehaviorSubject<number>(width),
+        height$: new BehaviorSubject<number>(500),
+      };
+      yearsCopy.push(newYear);
+    });
+    yearsCopy.sort(this._sortFunction);
     this._year$.next(yearsCopy);
   }
 }

@@ -1,41 +1,43 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { MomentHttpService } from './moment/moment-http.service';
-import { LinesService } from './timeline/lines.service';
-import { TimelineDateService } from './timeline/timeline-date.service';
-import { TimelineService } from './timeline/timeline.service';
-import * as moment from 'moment';
-import { MomentService } from './moment/moment.service';
-
+import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { Observable } from "rxjs";
+import { MomentHttpService } from "./moment/moment-http.service";
+import { LinesService } from "./timeline/lines.service";
+import { TimelineDateService } from "./timeline/timeline-date.service";
+import { TimelineService } from "./timeline/timeline.service";
+import * as moment from "moment";
+import { MomentService } from "./moment/moment.service";
+import { CharacterService } from "./character/character.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
   public moments: any;
   public count: any;
-  title = 'angularapp';
+  title = "angularapp";
   public startDate = new FormControl(new Date());
   public endDate = new FormControl(new Date());
 
-  constructor(public momentStoreService: MomentService,
+  constructor(
+    public momentStoreService: MomentService,
     public timelineService: TimelineService,
-    public timelineDateService: TimelineDateService)
-  {
+    public timelineDateService: TimelineDateService,
+    public characterService: CharacterService
+  ) {
     this.timelineDateService.datesChanged$.subscribe(this._onDateChanged.bind(this));
   }
 
   ngOnInit() {
     /*
-    * Call this from a component because the timelineDataService constructor is called before
-    * the classes are. (I think) If you don't set the default date from a component,
-    * the formControl dates aren't updated. I could make a function on timelineDataService
-    * called resetDates() { this._datesChanged$.next() }, but that feels icky.'
-    */
+     * Call this from a component because the timelineDataService constructor is called before
+     * the classes are. (I think) If you don't set the default date from a component,
+     * the formControl dates aren't updated. I could make a function on timelineDataService
+     * called resetDates() { this._datesChanged$.next() }, but that feels icky.'
+     */
     this.setDateRangeDefault();
     this._loadEverything();
   }
@@ -44,10 +46,10 @@ export class AppComponent implements OnInit {
     this.startDate.setValue(new Date(this.timelineDateService.getStart()));
     this.endDate.setValue(new Date(this.timelineDateService.getEnd()));
   }
-  
-  getMoments() { 
-    console.log('test');
-    this.momentStoreService.loadAllMoments()
+
+  getMoments() {
+    console.log("test");
+    this.momentStoreService.loadAllMoments();
   }
 
   setDateRange() {
@@ -57,7 +59,8 @@ export class AppComponent implements OnInit {
   setDateRangeDefault() {
     this.timelineDateService.setDateRange(
       this.timelineDateService.defaultStartTimestamp,
-      this.timelineDateService.defaultEndTimestamp);
+      this.timelineDateService.defaultEndTimestamp
+    );
   }
 
   redrawCanvas() {
@@ -66,7 +69,5 @@ export class AppComponent implements OnInit {
 
   private _loadEverything() {
     this.momentStoreService.loadAllMoments();
-
   }
-
 }

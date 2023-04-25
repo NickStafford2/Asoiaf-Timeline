@@ -1,0 +1,26 @@
+<h3>Add New</h3>
+
+<form [formGroup]="createForm" (ngSubmit)="onCreate()">
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input formControlName="firstName" matInput placeholder="Petyr">
+    <mat-error *ngIf="firstName.errors?.['required']">required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input formControlName="lastName" matInput placeholder="Bailish">
+    <mat-error *ngIf="lastName.errors?.['required']">required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nickname</mat-label>
+    <input formControlName="nickName" matInput placeholder="Littlefinger">
+  </mat-form-field>
+
+  <mat-checkbox formControlName="isPov">POV</mat-checkbox>
+
+  <button mat-raised-button color="primary" [disabled]="!createForm.valid">Create</button>
+
+</form>
+

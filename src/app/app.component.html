@@ -33,6 +33,20 @@
   <app-timeline></app-timeline>
 </div>
 
+
+<hr />
+<h3>Characters</h3>
+<div class="character-list">
+  <app-character *ngFor="let character of this.characterService.character$ | async"
+                 [character]="character">
+  </app-character>
+</div>
+<app-character-create></app-character-create>
+
+
+<app-book></app-book>
+<hr />
+
 <app-moment-create></app-moment-create>
 
 <div class="moment-list">

@@ -2,93 +2,42 @@
 
 <app-monthline *ngFor="let m of this.lineService.month$ | async"
                appTimelineChild
-               [xOffset]="m.xOffset"
-               [width]="m.width">
+               [xyOffset$]="m.xyOffset$"
+               [width$]="m.width$">
 </app-monthline>
 
 <app-yearline *ngFor="let y of this.lineService.year$ | async"
               appTimelineChild
-              [xOffset]="y.xOffset"
-              [width]="y.width">
+              [xyOffset$]="y.xyOffset$"
+              [width$]="y.width$">
 </app-yearline>
 
 
 <app-year-label *ngFor="let y of this.timeLabelService.year$ | async"
                 appTimelineChild
-                [xOffset]="y.xOffset"
-                [width]="y.width"
+                [xyOffset$]="y.xyOffset$"
+                [width$]="y.width$"
+                [height$]="y.height$"
                 [label]="y.timeReadable">
 </app-year-label>
-<!-- todo: maybe make a single line and label component? they do the same thing-->
+
 <app-month-label *ngFor="let m of this.timeLabelService.month$ | async"
                  appTimelineChild
-                 [xOffset]="m.xOffset"
-                 [width]="m.width"
-                 [label]="m.timeReadable">
+                 [xyOffset$]="m.xyOffset$"
+                 [width$]="m.width$"
+                 [label]="m.timeReadable"
+                 [height$]="m.height$">
 </app-month-label>
+
 
 
 <app-moment-spot *ngFor="let m of this.momentSpotService.moment$ | async"
                  [moment]="m"
                  appTimelineChild
-                 [xOffset]="m.xOffset"
-                 [width]="m.width">
+                 [xyOffset$]="m.xyOffset$"
+                 [width$]="m.width$"
+                 [height$]="m.height$">
 </app-moment-spot>
 
 
-<!--
-<app-monthline *ngFor="let m of this.lineService.month$ | async"
-               appTimelineChild
-               [child]="m">
-</app-monthline>
-
-<app-yearline *ngFor="let y of this.lineService.year$ | async"
-               appTimelineChild
-               [child]="y">
-</app-yearline>
-
--->
-<!--
-<app-year-label *ngFor="let l of this.lineService.year$ | async"
-                appTimelineChild
-                [child]="l">
-</app-year-label>
-
-<app-month-label *ngFor="let l of this.lineService.month$ | async"
-                 appTimelineChild
-                 [child]="l">
-</app-month-label>
-
-
-<app-monthline *ngFor="let l of this.lineService.month$ | async"
-               appTimelineChild
-               [startTime]="l.startTime">
-</app-monthline>
-
-
-<app-moment-spot *ngFor="let m of this.momentStoreService.moment$ | async"
-                 [moment]="m"
-                 appTimelineChild
-                 [startTime]="m.timestamp">
-</app-moment-spot>
-
-<app-year-label *ngFor="let l of this.lineService.year$ | async"
-                [year]="l"
-                appTimelineChild
-                [startTime]="l.startTime"
-                [duration]="l.duration">
-</app-year-label>
-
-<app-month-label *ngFor="let l of this.lineService.month$ | async"
-                 [timestamp]="l.startTime"
-                 appTimelineChild
-                 [startTime]="l.startTime"
-                 [duration]="l.duration">
-</app-month-label>
-
-<app-yearline *ngFor="let l of this.lineService.year$ | async"
-              appTimelineChild
-              [startTime]="l.startTime">
-</app-yearline>
-
--->
+<!-- todo: maybe make a single line and label component? they do the same thing-->

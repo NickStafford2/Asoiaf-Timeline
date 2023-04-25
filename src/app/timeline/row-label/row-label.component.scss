@@ -1,0 +1,10 @@
+@import '../_library';
+
+:host {
+  @include timeline-child;
+  //border-right: solid 3px black;
+  border-bottom: solid 1px black;
+  background-color: cadetblue;
+  display: block;
+  padding: .25em;
+}

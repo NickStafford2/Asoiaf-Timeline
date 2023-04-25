@@ -1,25 +1,53 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { TimeLabel, TimelineChild } from '../_library';
-import { TimelineService } from './timeline.service';
+import {
+  ChangeDetectionStrategy,
+  Directive,
+  ElementRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from "@angular/core";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { TimeLabel, TimelineChild, XYOffset } from "../_library";
+import { TimelineService } from "./timeline.service";
 
 @Directive({
-  selector: '[appTimelineChild]'
+  selector: "[appTimelineChild]",
+  //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TimelineChildDirective implements OnChanges {
   // @Input() startTime: number = 0;
   // @Input() duration: number = 0;
   //@Input() child?: TimelineChild;
-  @Input() xOffset: number = 0;
-  @Input() width: number = 0;
 
+  // @Input() xOffset: number = 0;
+  // @Input() width: number = 0;
+
+  @Input() xyOffset$?: BehaviorSubject<XYOffset>;
+  @Input() width$?: BehaviorSubject<number>;
+  @Input() height$?: BehaviorSubject<number>;
+
+  /*  @Input() set xOffset(xOffset: number | null) {
+    console.log('set xOffset', xOffset);
+    if (xOffset)
+      this._setXOffset(xOffset);
+  }
+
+  @Input() set width(width: number | null) {
+    console.log('set width', width);
+    if (width)
+      this._setWidth(width);
+  }
+  */
+
+  /*
   private _onChange$: Subject<void> = new Subject<void>();
   public readonly onChange$: Observable<void> = this._onChange$.asObservable();
-
+  */
   constructor(private hostElement: ElementRef, private timelineService: TimelineService) {
-    timelineService.redraw$.subscribe(() => {
-      console.log('redraw called');
-      /*
+    //timelineService.redraw$.subscribe(() => {
+    //console.log('redraw called');
+    //console.log(this.xOffset, this.width, hostElement)
+    /*
       if (this.child?.xOffset) {
         this._setXOffset(this.child?.xOffset);
       }
@@ -27,15 +55,30 @@ export class TimelineChildDirective implements OnChanges {
         this.setWidth(this.child.width)
       }
       */
-      if (this.xOffset) {
+    /*      if (this.xOffset) {
         this._setXOffset(this.xOffset);
       }
       if (this.width) {
         this._setWidth(this.width)
       }
-    })
+      */
+    //})
   }
 
+  ngOnInit() {
+    this.xyOffset$?.subscribe((offset: XYOffset) => {
+      if (offset) this._setXYOffset(offset.xOffset, offset.yOffset);
+    });
+    this.width$?.subscribe((x) => {
+      if (x) this._setWidth(x);
+    });
+    this.height$?.subscribe((x) => {
+      if (x) this._setHeight(x);
+    });
+  }
+
+  // todo: use this syntax
+  //ngOnChanges({ name, email }: SimpleChanges) {
   ngOnChanges(changes: SimpleChanges): void {
     // not sure if this is needed?
     /*
@@ -45,7 +88,10 @@ export class TimelineChildDirective implements OnChanges {
       this.setWidth(child.width);
     }
     */
+    /*
     const xOffset: number = changes['xOffset'].currentValue;
+    console.log('ngOnChanges', changes);
+
     if (xOffset) {
       this._setXOffset(xOffset);
     }
@@ -53,9 +99,10 @@ export class TimelineChildDirective implements OnChanges {
     if (width) {
       this._setWidth(width);
     }
+    */
   }
 
-/*  private _setXOffset(timestamp: number) {
+  /*  private _setXOffset(timestamp: number) {
     this.xOffset = this.timelineService.getPixelsForTimestamp(timestamp);
     this.hostElement.nativeElement.style.transform = "translate(" + this.xOffset + "px, 0px)";
     this._onChange$.next();
@@ -68,13 +115,27 @@ export class TimelineChildDirective implements OnChanges {
   }
   */
 
-  private _setXOffset(xOffset: number) {
-    this.hostElement.nativeElement.style.transform = "translate(" + xOffset + "px, 0px)";
+  private _setXYOffset(x: number, y: number) {
+    const s = "translate(" + x + "px, " + y + "px)";
+    this.hostElement.nativeElement.style.transform = s;
+    //this.hostElement.nativeElement.style.transform = "translateX(100px)";
+    //this.hostElement.nativeElement.style.transform = "translate(" + x + "px " + y + "px)";
   }
 
+  /*
+  private _setXOffset(x: number) {
+    this.hostElement.nativeElement.style.transform = "translate-x(" + x + "px)";
+  }
+
+  private _setYOffset(y: number) {
+    this.hostElement.nativeElement.style.transform = "translate-y(" + y + "px)";
+  }
+  */
   private _setWidth(width: number) {
-    this.hostElement.nativeElement.style.width = "" + width + "px";//  px = // transform = "translate(" + this.xOffset + "px, 0px)";
+    this.hostElement.nativeElement.style.width = "" + width + "px"; //  px = // transform = "translate(" + this.xOffset + "px, 0px)";
   }
 
-
+  private _setHeight(height: number) {
+    this.hostElement.nativeElement.style.height = "" + height + "px"; //  px = // transform = "translate(" + this.xOffset + "px, 0px)";
+  }
 }

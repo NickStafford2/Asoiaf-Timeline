@@ -1,41 +1,38 @@
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { debug } from 'console';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, retry, timestamp } from 'rxjs/operators';
-import { NSMoment, NSMomentNoID } from '../_library';
-
+import { HttpClient, HttpErrorResponse, HttpResponse } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable, throwError } from "rxjs";
+import { catchError, retry, timestamp } from "rxjs/operators";
+import { NSMoment, NSMomentData } from "../_library";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class MomentHttpService {
+  private readonly url: string = "api/Moments";
 
-  private readonly url: string = 'api/Moments'
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public getMoment(id: string) {
-    return this.http.get('api/Moments/' + id)
+    return this.http.get("api/Moments/" + id);
   }
 
-  public getMoments(): Observable<Array<NSMoment>> {
-    return this.http.get<Array<NSMoment>>('api/Moments')
+  public getMoments(): Observable<NSMoment[]> {
+    return this.http.get<NSMoment[]>("api/Moments");
   }
 
   public deleteMoment(id: string) {
-    return this.http.delete('api/Moments/' + id)
+    return this.http.delete("api/Moments/" + id);
   }
 
   public create(newMoment: NSMoment) {
-    const copy: NSMomentNoID = {
+    const copy: NSMomentData = {
       name: newMoment.name,
-      timestamp: newMoment.timestamp
-    }
-    this.http.post<NSMomentNoID>('api/Moments', copy).subscribe((r) => {
-      let x = 0;
-    })
-      /*.pipe(
+      timestamp: newMoment.timestamp,
+    };
+    this.http.post<NSMomentData>("api/Moments", copy).subscribe((r) => {
+      const x = 0;
+    });
+    /*.pipe(
       catchError(this.handleError('create', newMoment))
     )*/
   }
