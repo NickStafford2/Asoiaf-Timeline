@@ -1,0 +1,28 @@
+$year-label-height: 30px;
+$month-label-height: 30px;
+$labels-height: calc($year-label-height + $month-label-height);
+$timeline-height: 500px;
+$month-line-width: 1px;
+
+// all objects on the timeline must include this mixin. 
+@mixin timeline-all {
+  box-sizing: border-box;
+}
+
+// ?? maybe merge with timeline-all
+@mixin timeline-child {
+  @include timeline-all;
+  position: absolute;
+}
+
+@mixin timeline-label {
+  border-bottom: solid black 3px;
+  border-left: solid black 3px;
+}
+
+@mixin vertical-lines {
+  //margin-top: $labels-height;
+  /*height: calc($timeline-height - $labels-height);*/
+  height: $timeline-height;
+}
+

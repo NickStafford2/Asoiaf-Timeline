@@ -1,0 +1,16 @@
+<form class="moment-form">
+  <mat-form-field appearance="fill">
+    <input matInput placeholder="Battle of Blood" [formControl]="name">
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <input matInput [matDatepicker]="picker" [formControl]="date">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="debug()">Save</button>
+
+</form>

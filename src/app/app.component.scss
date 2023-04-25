@@ -1,0 +1,28 @@
+:host {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  overflow-x: hidden;
+}
+
+.moment-list {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
+.timeline-date-controls {
+  display: flex;
+  width:100%;
+}
+.timeline-date-control-button {
+  flex-grow: 1;
+}
+
+.timeline-container {
+    margin-top: 1em;
+    //display: flex;
+    //flex-flow: row;
+    //width: 100%;
+}
+

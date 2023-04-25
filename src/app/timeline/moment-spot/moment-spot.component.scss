@@ -1,0 +1,9 @@
+@import '../_library';
+
+:host {
+  @include timeline-child;
+  background-color: darkred;
+  height: 40px;
+  padding-top: 100px;
+  width: 40px;
+}

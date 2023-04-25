@@ -1,0 +1,15 @@
+:host {
+    padding: .5em;
+    border: solid 1px;
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 1em;
+
+    .moment-form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+ 
+}

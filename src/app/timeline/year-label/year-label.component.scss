@@ -1,0 +1,11 @@
+@import '../_library';
+
+:host {
+  @include timeline-child;
+  @include timeline-label;
+  background-color: ghostwhite;
+  width: 300px;
+  height: $year-label-height;
+  display: block;
+  padding: .25em;
+}

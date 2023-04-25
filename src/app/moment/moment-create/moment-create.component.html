@@ -1,0 +1,16 @@
+<form class="moment-form" [formGroup]="momentForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <input matInput placeholder="Battle of Blood" formControlName="momentName" required>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <input matInput [matDatepicker]="picker" formControlName="timestamp">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker required></mat-datepicker>
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!momentForm.valid">Submit</button>
+
+</form>

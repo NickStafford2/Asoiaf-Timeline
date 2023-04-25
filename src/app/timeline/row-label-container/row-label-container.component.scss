@@ -1,0 +1,12 @@
+@import '../_library.scss';
+
+:host {
+    @include timeline-child;
+  width: 100px;
+  background-color: lightblue;
+  height: $timeline-height;
+/*  box-sizing: border-box;
+  border: solid black 1px;
+  display:block;*/
+  z-index: 1;
+}

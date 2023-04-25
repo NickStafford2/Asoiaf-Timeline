@@ -1,0 +1,14 @@
+@import '../_library';
+
+:host {
+  @include timeline-child;
+  @include timeline-label;
+  border-bottom-width: 2px;
+  border-left-width: $month-line-width;
+  background-color: aliceblue;
+  height: $month-label-height;
+  display: block;
+  padding: .25em;
+  margin-top: $year-label-height;
+  box-sizing: border-box;
+}

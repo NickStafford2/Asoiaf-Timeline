@@ -1,0 +1,16 @@
+@import '_library.scss';
+
+:host {
+  //@include timeline-all;
+  display: block;
+  width: 100%;
+  height: $timeline-height;
+  background-color: lightgray;
+  /*border: solid 2px black;*/
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  //margin-top: 1em;
+}
+

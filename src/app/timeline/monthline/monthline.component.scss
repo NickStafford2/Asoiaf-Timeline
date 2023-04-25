@@ -1,0 +1,8 @@
+@import '../_library';
+
+:host {
+  @include timeline-child;
+  @include vertical-lines;
+  background-color: black;
+  width: 1px; // set in js. this is just default. (maybe delete)
+}
