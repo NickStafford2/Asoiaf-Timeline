@@ -17,6 +17,7 @@ module.exports = {
       },
       "extends": [
         "eslint:recommended",
+        //"plugin:@typescript-eslint/reccomended"
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],

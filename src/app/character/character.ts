@@ -43,6 +43,7 @@ export class CharacterClass {
   }
 
   /*
+  // i hate visual studio more than life itself.  dasf
   private isValid(): boolean {
     if (this.id === undefined || typeof this.id !== "string") return false;
     if (this.firstName === undefined || typeof this.firstName !== "string") return false;
