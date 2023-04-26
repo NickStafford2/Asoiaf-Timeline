@@ -1,20 +1,23 @@
-import { Injectable } from "@angular/core";
-import * as moment from "moment";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
-import { MomentService } from "../moment/moment.service";
-import { TimelineDateService } from "./timeline-date.service";
+import { Injectable } from '@angular/core';
+import * as moment from 'moment';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { MomentService } from '../moment/moment.service';
+import { TimelineDateService } from './timeline-date.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class TimelineService {
   public readonly rowLabelWidth: number = 100; // pixels
 
-  private _widthInPixles$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  public readonly widthInPixles$: Observable<number> = this._widthInPixles$.asObservable();
+  private _widthInPixles$: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
+  public readonly widthInPixles$: Observable<number> =
+    this._widthInPixles$.asObservable();
 
   // todo: make this a normal private variable
-  private _pixlesPerMillisecond$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private _pixlesPerMillisecond$: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
   public readonly pixlesPerMillisecond$: Observable<number> =
     this._pixlesPerMillisecond$.asObservable();
 
@@ -27,7 +30,9 @@ export class TimelineService {
     private momentService: MomentService
   ) {
     this._widthInPixles$.subscribe(this._onWidthChanged.bind(this));
-    this.timelineDateService.datesChanged$.subscribe(this._onDatesChanged.bind(this));
+    this.timelineDateService.datesChanged$.subscribe(
+      this._onDatesChanged.bind(this)
+    );
     this.momentService.onUpdate$.subscribe(this._updateDateRange.bind(this));
   }
 
@@ -36,7 +41,8 @@ export class TimelineService {
     const start: number = this.timelineDateService.getStart();
     const timeDifference: number = timestamp - start;
     const offset: number =
-      timeDifference * this._pixlesPerMillisecond$.getValue() + this.rowLabelWidth;
+      timeDifference * this._pixlesPerMillisecond$.getValue() +
+      this.rowLabelWidth;
     return offset;
   }
 
@@ -45,12 +51,12 @@ export class TimelineService {
   }
 
   public setFullTimelineWidth(width: number): void {
-    console.log("setFullTimelineWidth: ", width);
+    console.log('setFullTimelineWidth: ', width);
     this._widthInPixles$.next(width);
   }
 
   public redrawCanvas(): void {
-    console.log("redraw called");
+    console.log('redraw called');
     this._redraw$.next();
   }
 
@@ -71,8 +77,8 @@ export class TimelineService {
     const min: number = this.momentService.getEarliestTimestamp();
     const max: number = this.momentService.getLatestTimestamp();
 
-    const newMin: number = moment(min).startOf("month").valueOf();
-    const newMax: number = moment(max).endOf("month").valueOf();
+    const newMin: number = moment(min).startOf('month').valueOf();
+    const newMax: number = moment(max).endOf('month').valueOf();
 
     this.timelineDateService.setDateRange(newMin, newMax);
   }

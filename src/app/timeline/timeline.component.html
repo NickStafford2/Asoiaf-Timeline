@@ -1,43 +1,44 @@
 <app-row-label-container></app-row-label-container>
 
-<app-monthline *ngFor="let m of this.lineService.month$ | async"
-               appTimelineChild
-               [xyOffset$]="m.xyOffset$"
-               [width$]="m.width$">
+<app-monthline
+  *ngFor="let m of this.lineService.month$ | async"
+  appTimelineChild
+  [xyOffset$]="m.xyOffset$"
+  [width$]="m.width$">
 </app-monthline>
 
-<app-yearline *ngFor="let y of this.lineService.year$ | async"
-              appTimelineChild
-              [xyOffset$]="y.xyOffset$"
-              [width$]="y.width$">
+<app-yearline
+  *ngFor="let y of this.lineService.year$ | async"
+  appTimelineChild
+  [xyOffset$]="y.xyOffset$"
+  [width$]="y.width$">
 </app-yearline>
 
-
-<app-year-label *ngFor="let y of this.timeLabelService.year$ | async"
-                appTimelineChild
-                [xyOffset$]="y.xyOffset$"
-                [width$]="y.width$"
-                [height$]="y.height$"
-                [label]="y.timeReadable">
+<app-year-label
+  *ngFor="let y of this.timeLabelService.year$ | async"
+  appTimelineChild
+  [xyOffset$]="y.xyOffset$"
+  [width$]="y.width$"
+  [height$]="y.height$"
+  [label]="y.timeReadable">
 </app-year-label>
 
-<app-month-label *ngFor="let m of this.timeLabelService.month$ | async"
-                 appTimelineChild
-                 [xyOffset$]="m.xyOffset$"
-                 [width$]="m.width$"
-                 [label]="m.timeReadable"
-                 [height$]="m.height$">
+<app-month-label
+  *ngFor="let m of this.timeLabelService.month$ | async"
+  appTimelineChild
+  [xyOffset$]="m.xyOffset$"
+  [width$]="m.width$"
+  [label]="m.timeReadable"
+  [height$]="m.height$">
 </app-month-label>
 
-
-
-<app-moment-spot *ngFor="let m of this.momentSpotService.moment$ | async"
-                 [moment]="m"
-                 appTimelineChild
-                 [xyOffset$]="m.xyOffset$"
-                 [width$]="m.width$"
-                 [height$]="m.height$">
+<app-moment-spot
+  *ngFor="let m of this.momentSpotService.moment$ | async"
+  [moment]="m"
+  appTimelineChild
+  [xyOffset$]="m.xyOffset$"
+  [width$]="m.width$"
+  [height$]="m.height$">
 </app-moment-spot>
-
 
 <!-- todo: maybe make a single line and label component? they do the same thing-->

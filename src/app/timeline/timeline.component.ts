@@ -1,18 +1,24 @@
-import { AfterViewInit, Component, ElementRef, HostBinding, OnInit } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostBinding,
+  OnInit,
+} from '@angular/core';
 
-import { MomentHttpService } from "../moment/moment-http.service";
-import { MomentService } from "../moment/moment.service";
-import { LinesService } from "./lines.service";
-import { MomentSpotService } from "./moment-spot/moment-spot.service";
-import { TimeLabelService } from "./time-label.service";
-import { TimelineService } from "./timeline.service";
+import { MomentHttpService } from '../moment/moment-http.service';
+import { MomentService } from '../moment/moment.service';
+import { LinesService } from './lines.service';
+import { MomentSpotService } from './moment-spot/moment-spot.service';
+import { TimeLabelService } from './time-label.service';
+import { TimelineService } from './timeline.service';
 
 @Component({
-  selector: "app-timeline",
-  templateUrl: "./timeline.component.html",
-  styleUrls: ["./timeline.component.scss"],
+  selector: 'app-timeline',
+  templateUrl: './timeline.component.html',
+  styleUrls: ['./timeline.component.scss'],
 })
-export class TimelineComponent implements  AfterViewInit {
+export class TimelineComponent implements AfterViewInit {
   constructor(
     private hostElement: ElementRef,
     public timelineService: TimelineService,
@@ -31,7 +37,7 @@ export class TimelineComponent implements  AfterViewInit {
 
   // tell the timelineService if the canvas size ever changes.
   private configureCanvasResize() {
-    const obs = new ResizeObserver((entries) => {
+    const obs = new ResizeObserver(entries => {
       //console.log(entries)
       for (const entry of entries) {
         const width = entry.contentRect.width;

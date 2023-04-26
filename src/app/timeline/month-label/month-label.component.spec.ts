@@ -8,9 +8,8 @@ describe('MonthLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MonthLabelComponent ]
-    })
-    .compileComponents();
+      declarations: [MonthLabelComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

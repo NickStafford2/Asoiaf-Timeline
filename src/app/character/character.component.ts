@@ -1,35 +1,47 @@
-import { FormControl, FormGroup, Validators, ReactiveFormsModule, NgForm } from "@angular/forms";
-import {} from "@angular/forms";
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+  NgForm,
+} from '@angular/forms';
+import {} from '@angular/forms';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
-import { CharacterService } from "./character.service";
-import { CharacterHttpService } from "./character-http.service";
-import { CharacterClass, CharacterData } from "./character";
+import { CharacterService } from './character.service';
+import { CharacterHttpService } from './character-http.service';
+import { CharacterClass, CharacterData } from './character';
 
 @Component({
-  selector: "app-character",
-  templateUrl: "./character.component.html",
-  styleUrls: ["./character.component.scss"],
+  selector: 'app-character',
+  templateUrl: './character.component.html',
+  styleUrls: ['./character.component.scss'],
 })
 export class CharacterComponent implements OnChanges {
   @Input() character!: CharacterClass;
 
   public updateForm: FormGroup = new FormGroup({
-    firstName: new FormControl("", [Validators.required]), // add updateOn: 'blur'
-    lastName: new FormControl("", [Validators.required]),
-    nickName: new FormControl(""),
+    firstName: new FormControl('', [Validators.required]), // add updateOn: 'blur'
+    lastName: new FormControl('', [Validators.required]),
+    nickName: new FormControl(''),
     isPov: new FormControl(false),
   });
   constructor(private _characterService: CharacterService) {}
 
   public ngOnChanges(changes: SimpleChanges): void {
-    const character: CharacterClass = changes["character"].currentValue;
+    const character: CharacterClass = changes['character'].currentValue;
     if (character) {
       //console.log(character);
-      this.updateForm.controls["firstName"].setValue(character.firstName);
-      this.updateForm.controls["lastName"].setValue(character.lastName);
-      this.updateForm.controls["nickName"].setValue(character.nickName);
-      this.updateForm.controls["isPov"].setValue(character.isPov);
+      this.updateForm.controls['firstName'].setValue(character.firstName);
+      this.updateForm.controls['lastName'].setValue(character.lastName);
+      this.updateForm.controls['nickName'].setValue(character.nickName);
+      this.updateForm.controls['isPov'].setValue(character.isPov);
       this.updateForm.markAsPristine();
     }
   }
@@ -39,11 +51,11 @@ export class CharacterComponent implements OnChanges {
     const c = this.updateForm.value;
     const updatedCharacter: CharacterData = {
       id: this.character.id,
-      firstName: c["firstName"],
-      lastName: c["lastName"],
-      nickName: c["nickName"],
-      isPov: c["isPov"],
-      //houses: c["houses"], 
+      firstName: c['firstName'],
+      lastName: c['lastName'],
+      nickName: c['nickName'],
+      isPov: c['isPov'],
+      //houses: c["houses"],
     };
     this._characterService.update(updatedCharacter);
   }
@@ -53,10 +65,10 @@ export class CharacterComponent implements OnChanges {
   }
 
   get firstName() {
-    return this.updateForm.controls["firstName"];
+    return this.updateForm.controls['firstName'];
   }
 
   get lastName() {
-    return this.updateForm.controls["lastName"];
+    return this.updateForm.controls['lastName'];
   }
 }

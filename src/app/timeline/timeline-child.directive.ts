@@ -5,13 +5,13 @@ import {
   Input,
   OnChanges,
   SimpleChanges,
-} from "@angular/core";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
-import { TimeLabel, TimelineChild, XYOffset } from "../_library";
-import { TimelineService } from "./timeline.service";
+} from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { TimeLabel, TimelineChild, XYOffset } from '../_library';
+import { TimelineService } from './timeline.service';
 
 @Directive({
-  selector: "[appTimelineChild]",
+  selector: '[appTimelineChild]',
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TimelineChildDirective implements OnChanges {
@@ -43,7 +43,10 @@ export class TimelineChildDirective implements OnChanges {
   private _onChange$: Subject<void> = new Subject<void>();
   public readonly onChange$: Observable<void> = this._onChange$.asObservable();
   */
-  constructor(private hostElement: ElementRef, private timelineService: TimelineService) {
+  constructor(
+    private hostElement: ElementRef,
+    private timelineService: TimelineService
+  ) {
     //timelineService.redraw$.subscribe(() => {
     //console.log('redraw called');
     //console.log(this.xOffset, this.width, hostElement)
@@ -69,10 +72,10 @@ export class TimelineChildDirective implements OnChanges {
     this.xyOffset$?.subscribe((offset: XYOffset) => {
       if (offset) this._setXYOffset(offset.xOffset, offset.yOffset);
     });
-    this.width$?.subscribe((x) => {
+    this.width$?.subscribe(x => {
       if (x) this._setWidth(x);
     });
-    this.height$?.subscribe((x) => {
+    this.height$?.subscribe(x => {
       if (x) this._setHeight(x);
     });
   }
@@ -116,7 +119,7 @@ export class TimelineChildDirective implements OnChanges {
   */
 
   private _setXYOffset(x: number, y: number) {
-    const s = "translate(" + x + "px, " + y + "px)";
+    const s = 'translate(' + x + 'px, ' + y + 'px)';
     this.hostElement.nativeElement.style.transform = s;
     //this.hostElement.nativeElement.style.transform = "translateX(100px)";
     //this.hostElement.nativeElement.style.transform = "translate(" + x + "px " + y + "px)";
@@ -132,10 +135,10 @@ export class TimelineChildDirective implements OnChanges {
   }
   */
   private _setWidth(width: number) {
-    this.hostElement.nativeElement.style.width = "" + width + "px"; //  px = // transform = "translate(" + this.xOffset + "px, 0px)";
+    this.hostElement.nativeElement.style.width = '' + width + 'px'; //  px = // transform = "translate(" + this.xOffset + "px, 0px)";
   }
 
   private _setHeight(height: number) {
-    this.hostElement.nativeElement.style.height = "" + height + "px"; //  px = // transform = "translate(" + this.xOffset + "px, 0px)";
+    this.hostElement.nativeElement.style.height = '' + height + 'px'; //  px = // transform = "translate(" + this.xOffset + "px, 0px)";
   }
 }

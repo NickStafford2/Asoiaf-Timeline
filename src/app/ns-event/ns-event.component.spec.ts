@@ -8,9 +8,8 @@ describe('NsEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NsEventComponent ]
-    })
-    .compileComponents();
+      declarations: [NsEventComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

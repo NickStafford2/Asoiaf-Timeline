@@ -1,19 +1,23 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import * as moment from 'moment';
 
 @Component({
   selector: 'app-month-label',
   templateUrl: './month-label.component.html',
-  styleUrls: ['./month-label.component.scss']
+  styleUrls: ['./month-label.component.scss'],
 })
 export class MonthLabelComponent implements OnInit, OnChanges {
   @Input() label: string = 'month here';
 
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges) {
     /*
@@ -24,5 +28,4 @@ export class MonthLabelComponent implements OnInit, OnChanges {
     }
     */
   }
-
 }

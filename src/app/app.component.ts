@@ -1,24 +1,24 @@
-import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { Observable } from "rxjs";
-import { MomentHttpService } from "./moment/moment-http.service";
-import { LinesService } from "./timeline/lines.service";
-import { TimelineDateService } from "./timeline/timeline-date.service";
-import { TimelineService } from "./timeline/timeline.service";
-import * as moment from "moment";
-import { MomentService } from "./moment/moment.service";
-import { CharacterService } from "./character/character.service";
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { MomentHttpService } from './moment/moment-http.service';
+import { LinesService } from './timeline/lines.service';
+import { TimelineDateService } from './timeline/timeline-date.service';
+import { TimelineService } from './timeline/timeline.service';
+import * as moment from 'moment';
+import { MomentService } from './moment/moment.service';
+import { CharacterService } from './character/character.service';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   public moments: any;
   public count: any;
-  title = "angularapp";
+  title = 'angularapp';
   public startDate = new FormControl(new Date());
   public endDate = new FormControl(new Date());
 
@@ -28,7 +28,9 @@ export class AppComponent implements OnInit {
     public timelineDateService: TimelineDateService,
     public characterService: CharacterService
   ) {
-    this.timelineDateService.datesChanged$.subscribe(this._onDateChanged.bind(this));
+    this.timelineDateService.datesChanged$.subscribe(
+      this._onDateChanged.bind(this)
+    );
   }
 
   ngOnInit() {
@@ -48,12 +50,15 @@ export class AppComponent implements OnInit {
   }
 
   getMoments() {
-    console.log("test");
+    console.log('test');
     this.momentStoreService.loadAllMoments();
   }
 
   setDateRange() {
-    this.timelineDateService.setDateRange(this.startDate.value, this.endDate.value);
+    this.timelineDateService.setDateRange(
+      this.startDate.value,
+      this.endDate.value
+    );
   }
 
   setDateRangeDefault() {

@@ -10,28 +10,27 @@ import {
   OnInit,
   SimpleChanges,
   ViewChild,
-} from "@angular/core";
-import * as moment from "moment";
-import { TimelineDate } from "../../_library";
-import { LinesService } from "../lines.service";
-import { TimelineChildDirective } from "../timeline-child.directive";
-import { TimelineDateService } from "../timeline-date.service";
-import { TimelineService } from "../timeline.service";
+} from '@angular/core';
+import * as moment from 'moment';
+import { TimelineDate } from '../../_library';
+import { LinesService } from '../lines.service';
+import { TimelineChildDirective } from '../timeline-child.directive';
+import { TimelineDateService } from '../timeline-date.service';
+import { TimelineService } from '../timeline.service';
 
 @Component({
-  selector: "app-year-label",
-  templateUrl: "./year-label.component.html",
-  styleUrls: ["./year-label.component.scss"],
+  selector: 'app-year-label',
+  templateUrl: './year-label.component.html',
+  styleUrls: ['./year-label.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class YearLabelComponent implements OnInit, OnChanges {
   //@Input() year: Event = { startTime: 0, duration: 0 };
-  @Input() label = "year here";
-  @ViewChild("yearText") yearTextDiv?: ElementRef;
+  @Input() label = 'year here';
+  @ViewChild('yearText') yearTextDiv?: ElementRef;
   //@ViewChild(TimelineChildDirective) vc?: TimelineChildDirective;
 
-  public padding = "0px";
-
+  public padding = '0px';
 
   // not sure if this needs to be afterViewInit.
   ngOnInit(): void {

@@ -8,9 +8,8 @@ describe('RowLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RowLabelComponent ]
-    })
-    .compileComponents();
+      declarations: [RowLabelComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

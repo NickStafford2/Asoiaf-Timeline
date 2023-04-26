@@ -1,14 +1,16 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, min, Observable, Subject } from "rxjs";
-import { MomentHttpService } from "./moment-http.service";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, min, Observable, Subject } from 'rxjs';
+import { MomentHttpService } from './moment-http.service';
 
-import { NSMoment, timelineItemStore } from "../_library";
+import { NSMoment, timelineItemStore } from '../_library';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class MomentService implements timelineItemStore {
-  private _moment$: BehaviorSubject<NSMoment[]> = new BehaviorSubject<NSMoment[]>([]);
+  private _moment$: BehaviorSubject<NSMoment[]> = new BehaviorSubject<
+    NSMoment[]
+  >([]);
   public readonly moment$: Observable<any> = this._moment$.asObservable();
 
   private _onUpdate$: Subject<void> = new Subject();
@@ -19,7 +21,7 @@ export class MomentService implements timelineItemStore {
   public loadAllMoments() {
     this.momentService.getMoments().subscribe((response: NSMoment[]) => {
       this._moment$.next(response);
-      console.log("MomentStore loaded All Moments");
+      console.log('MomentStore loaded All Moments');
       this._onUpdate$.next();
     });
   }

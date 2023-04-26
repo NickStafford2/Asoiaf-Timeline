@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface timelineItemStore {
   getEarliestTimestamp(): number;
@@ -70,7 +70,6 @@ export interface Book {
   author: string;
   price: string;
 }
-
 
 // ideas ==================================================================
 /*

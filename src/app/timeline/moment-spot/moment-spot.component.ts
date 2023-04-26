@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ElementRef,
+} from '@angular/core';
 import * as moment from 'moment';
 import { MomentHttpService } from '../../moment/moment-http.service';
 import { NSMoment, TimelineMoment } from '../../_library';
@@ -9,14 +16,13 @@ import { TimelineService } from '../timeline.service';
 @Component({
   selector: 'app-moment-spot',
   templateUrl: './moment-spot.component.html',
-  styleUrls: ['./moment-spot.component.scss']
+  styleUrls: ['./moment-spot.component.scss'],
 })
 export class MomentSpotComponent /*implements OnChanges*/ {
   @Input() moment!: TimelineMoment;
   public name: string = 'test';
 
   constructor() {
-
     /*this.timelineDateService.datesChanged$.subscribe(() => {
       console.log(this);
       const t = this.moment.timestamp;
@@ -31,7 +37,7 @@ export class MomentSpotComponent /*implements OnChanges*/ {
     debugger; 
   }
   */
-/*
+  /*
   ngOnInit(): void {
     //console.log(this.xOffset)
   }-*
@@ -51,10 +57,9 @@ export class MomentSpotComponent /*implements OnChanges*/ {
   }
 */
 
- /*public setPosition(x: number) {
+  /*public setPosition(x: number) {
     const y = this.hostElement.nativeElement.style;
     this.hostElement.nativeElement.style.transform = "translate(" + x + "px, 0px)";
   }
   */
-
 }

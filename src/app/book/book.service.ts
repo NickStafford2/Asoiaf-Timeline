@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { Book } from "../_library";
-import { BookHttpService } from "./book-http.service";
+import { Book } from '../_library';
+import { BookHttpService } from './book-http.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class BookService {
   private _book$: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>([]);
@@ -21,12 +21,12 @@ export class BookService {
       .loadAll()
       .pipe(
         // sort them by book.order
-        map((things) => {
+        map(things => {
           console.log(things);
           return things.sort(this._compareFn);
         })
       )
-      .subscribe((results) => {
+      .subscribe(results => {
         this._book$.next(results);
       });
   }

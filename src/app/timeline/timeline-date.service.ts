@@ -1,26 +1,37 @@
-import { Injectable } from "@angular/core";
-import * as moment from "moment";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
-import { TimelineDate } from "../_library";
+import { Injectable } from '@angular/core';
+import * as moment from 'moment';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { TimelineDate } from '../_library';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class TimelineDateService {
-  public readonly defaultStartTimestamp: number = new Date("01/01/2020").getTime();
-  public readonly defaultEndTimestamp: number = new Date("01/01/2024").getTime();
+  public readonly defaultStartTimestamp: number = new Date(
+    '01/01/2020'
+  ).getTime();
+  public readonly defaultEndTimestamp: number = new Date(
+    '01/01/2024'
+  ).getTime();
 
-  private _month$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<TimelineDate[]>([]);
-  public readonly month$: Observable<TimelineDate[]> = this._month$.asObservable();
+  private _month$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<
+    TimelineDate[]
+  >([]);
+  public readonly month$: Observable<TimelineDate[]> =
+    this._month$.asObservable();
 
-  private _year$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<TimelineDate[]>([]);
-  public readonly year$: Observable<TimelineDate[]> = this._year$.asObservable();
+  private _year$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<
+    TimelineDate[]
+  >([]);
+  public readonly year$: Observable<TimelineDate[]> =
+    this._year$.asObservable();
 
   private _startDate: number = this.defaultStartTimestamp;
   private _endDate: number = this.defaultEndTimestamp;
 
   private _datesChanged$: Subject<void> = new Subject();
-  public readonly datesChanged$: Observable<void> = this._datesChanged$.asObservable();
+  public readonly datesChanged$: Observable<void> =
+    this._datesChanged$.asObservable();
 
   constructor() {
     this._datesChanged$.subscribe(this.onDatesChanged.bind(this));
@@ -49,9 +60,10 @@ export class TimelineDateService {
 
     for (let year = fromYear; year <= toYear; year++) {
       const nextYear: number = year + 1;
-      const startOfYear: moment.Moment = moment("01/01/" + year);
-      const startOfNextYear: moment.Moment = moment("01/01/" + nextYear);
-      const duration: number = startOfNextYear.valueOf() - startOfYear.valueOf();
+      const startOfYear: moment.Moment = moment('01/01/' + year);
+      const startOfNextYear: moment.Moment = moment('01/01/' + nextYear);
+      const duration: number =
+        startOfNextYear.valueOf() - startOfYear.valueOf();
       const startTime = startOfYear.valueOf();
 
       years.push({
@@ -86,10 +98,11 @@ export class TimelineDateService {
       for (; monthNum <= monthLimit; monthNum++) {
         const month = monthNum + 1;
 
-        const startOfMonth: moment.Moment = moment("" + month + "/01/" + year);
+        const startOfMonth: moment.Moment = moment('' + month + '/01/' + year);
         const startOfNextMonth: moment.Moment = moment(startOfMonth.valueOf());
-        startOfNextMonth.add(1, "month"); // moment.js is mutable. :(
-        const duration: number = startOfNextMonth.valueOf() - startOfMonth.valueOf();
+        startOfNextMonth.add(1, 'month'); // moment.js is mutable. :(
+        const duration: number =
+          startOfNextMonth.valueOf() - startOfMonth.valueOf();
         const startTime: number = startOfMonth.valueOf();
 
         months.push({
@@ -118,7 +131,7 @@ export class TimelineDateService {
 
   public setDateRange(startTimestamp: number, endTimestamp: number): void {
     if (endTimestamp < startTimestamp) {
-      throw "end date < start date";
+      throw 'end date < start date';
     }
     this._startDate = startTimestamp;
     this._endDate = endTimestamp;
@@ -139,30 +152,38 @@ export class TimelineDateService {
     return this._endDate;
   }
 
-  public editStart(operation: string, positiveInt: number, duration: string): void {
+  public editStart(
+    operation: string,
+    positiveInt: number,
+    duration: string
+  ): void {
     const m: moment.Moment = moment(this._startDate);
-    if (operation === "add") {
-      if (duration === "year") m.add(positiveInt, "year");
-      else if (duration === "month") m.add(positiveInt, "month");
-      else if (duration === "day") m.add(positiveInt, "day");
-    } else if (operation === "subtract") {
-      if (duration === "year") m.subtract(positiveInt, "year");
-      else if (duration === "month") m.subtract(positiveInt, "month");
-      else if (duration === "day") m.subtract(positiveInt, "day");
+    if (operation === 'add') {
+      if (duration === 'year') m.add(positiveInt, 'year');
+      else if (duration === 'month') m.add(positiveInt, 'month');
+      else if (duration === 'day') m.add(positiveInt, 'day');
+    } else if (operation === 'subtract') {
+      if (duration === 'year') m.subtract(positiveInt, 'year');
+      else if (duration === 'month') m.subtract(positiveInt, 'month');
+      else if (duration === 'day') m.subtract(positiveInt, 'day');
     }
     this.setDateRange(m.valueOf(), this._endDate);
   }
 
-  public editEnd(operation: string, positiveInt: number, duration: string): void {
+  public editEnd(
+    operation: string,
+    positiveInt: number,
+    duration: string
+  ): void {
     const m: moment.Moment = moment(this._endDate);
-    if (operation === "add") {
-      if (duration === "year") m.add(positiveInt, "year");
-      else if (duration === "month") m.add(positiveInt, "month");
-      else if (duration === "day") m.add(positiveInt, "day");
-    } else if (operation === "subtract") {
-      if (duration === "year") m.subtract(positiveInt, "year");
-      else if (duration === "month") m.subtract(positiveInt, "month");
-      else if (duration === "day") m.subtract(positiveInt, "day");
+    if (operation === 'add') {
+      if (duration === 'year') m.add(positiveInt, 'year');
+      else if (duration === 'month') m.add(positiveInt, 'month');
+      else if (duration === 'day') m.add(positiveInt, 'day');
+    } else if (operation === 'subtract') {
+      if (duration === 'year') m.subtract(positiveInt, 'year');
+      else if (duration === 'month') m.subtract(positiveInt, 'month');
+      else if (duration === 'day') m.subtract(positiveInt, 'day');
     }
     this.setDateRange(this._startDate, m.valueOf());
   }

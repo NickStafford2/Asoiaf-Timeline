@@ -8,9 +8,8 @@ describe('YearLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ YearLabelComponent ]
-    })
-    .compileComponents();
+      declarations: [YearLabelComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
