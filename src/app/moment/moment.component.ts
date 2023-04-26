@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { MomentHttpService } from './moment-http.service';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NSMoment } from '../_library';
 
@@ -16,12 +9,14 @@ import { NSMoment } from '../_library';
 })
 export class MomentComponent implements OnChanges {
   @Input() moment!: NSMoment;
-  public currentMoment!: NSMoment;
-  public selectedDate: any;
-  date = new FormControl(new Date());
-  name = new FormControl('');
 
-  constructor() {}
+  public currentMoment!: NSMoment;
+
+  public selectedDate: any;
+
+  date = new FormControl(new Date());
+
+  name = new FormControl('');
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
@@ -32,8 +27,7 @@ export class MomentComponent implements OnChanges {
   }
 
   debug() {
-    const x = this.selectedDate;
-    const y = 0;
+    console.log(this.selectedDate);
   }
 
   setFormDate(timestamp: number) {

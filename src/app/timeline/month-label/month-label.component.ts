@@ -1,11 +1,5 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import * as moment from 'moment';
+import { Component, Input } from '@angular/core';
+//import * as moment from 'moment';
 
 @Component({
   selector: 'app-month-label',
@@ -15,7 +9,6 @@ import * as moment from 'moment';
 export class MonthLabelComponent {
   @Input() label: string = 'month here';
 
-  constructor() {}
   /*
   ngOnChanges(changes: SimpleChanges) {
     

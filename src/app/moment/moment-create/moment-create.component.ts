@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NSMoment } from '../../_library';
 import { MomentHttpService } from '../moment-http.service';
@@ -21,11 +21,10 @@ export class MomentCreateComponent {
 
   public onSubmit() {
     //console.warn(this.momentForm.value);
-    const ts: Date = this.momentForm.value['timestamp'];
-    const y = ts.getTime();
+    const ts: Date = this.momentForm.value.timestamp;
     const newMoment: NSMoment = {
       id: 'new',
-      name: this.momentForm.value['momentName'],
+      name: this.momentForm.value.momentName,
       timestamp: ts.getTime(),
     };
     this.momentService.create(newMoment);

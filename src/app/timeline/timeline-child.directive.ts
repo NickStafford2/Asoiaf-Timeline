@@ -1,14 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Directive,
-  ElementRef,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { TimeLabel, TimelineChild, XYOffset } from '../_library';
+import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { XYOffset } from '../_library';
 import { TimelineService } from './timeline.service';
 
 @Directive({
@@ -24,7 +16,9 @@ export class TimelineChildDirective implements OnInit {
   // @Input() width: number = 0;
 
   @Input() xyOffset$?: BehaviorSubject<XYOffset>;
+
   @Input() width$?: BehaviorSubject<number>;
+
   @Input() height$?: BehaviorSubject<number>;
 
   /*  @Input() set xOffset(xOffset: number | null) {

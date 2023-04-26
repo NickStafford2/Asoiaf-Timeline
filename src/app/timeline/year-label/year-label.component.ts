@@ -1,22 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  Input,
-  NgZone,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  ViewChild,
-} from '@angular/core';
-import * as moment from 'moment';
-import { TimelineDate } from '../../_library';
-import { LinesService } from '../lines.service';
-import { TimelineChildDirective } from '../timeline-child.directive';
-import { TimelineDateService } from '../timeline-date.service';
-import { TimelineService } from '../timeline.service';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-year-label',
@@ -27,6 +9,7 @@ import { TimelineService } from '../timeline.service';
 export class YearLabelComponent {
   //@Input() year: Event = { startTime: 0, duration: 0 };
   @Input() label = 'year here';
+
   @ViewChild('yearText') yearTextDiv?: ElementRef;
   //@ViewChild(TimelineChildDirective) vc?: TimelineChildDirective;
 
