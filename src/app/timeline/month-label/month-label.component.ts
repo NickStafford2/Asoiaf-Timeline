@@ -12,20 +12,19 @@ import * as moment from 'moment';
   templateUrl: './month-label.component.html',
   styleUrls: ['./month-label.component.scss'],
 })
-export class MonthLabelComponent implements OnInit, OnChanges {
+export class MonthLabelComponent {
   @Input() label: string = 'month here';
 
   constructor() {}
-
-  ngOnInit(): void {}
-
+  /*
   ngOnChanges(changes: SimpleChanges) {
-    /*
+    
     if (changes['timestamp']) {
       const ts: number = changes['timestamp'].currentValue;
       const m: moment.Moment = moment(ts);
       this.label = m.format('MMM');
     }
-    */
+    
   }
+  */
 }

@@ -63,6 +63,34 @@ module.exports = {
         'prettier/prettier': ['error', { parser: 'angular' }],
       },
     },
+    // Configuration for unit and e2e spec files
+    {
+      files: ['*.spec.ts'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
+    {
+      files: ['src/**/*.spec.ts', 'src/**/*.d.ts'],
+      parserOptions: {
+        project: './tsconfig.spec.json',
+      },
+      extends: ['plugin:jasmine/recommended'],
+      // Plugin to run Jasmine rules
+      plugins: ['jasmine'],
+      env: { jasmine: true },
+    },
+    {
+      files: ['e2e/**/*.e2e-spec.ts', 'e2e/**/*.po.ts'],
+      parserOptions: {
+        project: './e2e/tsconfig.json',
+      },
+      extends: ['plugin:protractor/recommended'],
+      plugins: ['protractor'],
+      rules: {
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+      },
+    },
   ],
 };
 

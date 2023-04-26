@@ -24,7 +24,7 @@ import { TimelineService } from '../timeline.service';
   styleUrls: ['./year-label.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class YearLabelComponent implements OnInit, OnChanges {
+export class YearLabelComponent {
   //@Input() year: Event = { startTime: 0, duration: 0 };
   @Input() label = 'year here';
   @ViewChild('yearText') yearTextDiv?: ElementRef;
@@ -32,26 +32,29 @@ export class YearLabelComponent implements OnInit, OnChanges {
 
   public padding = '0px';
 
+  /*
   // not sure if this needs to be afterViewInit.
   ngOnInit(): void {
     // if (this.timelineChildDirective?.onChange$) {
     //this.timelineChildDirective.onChange$.subscribe(this._maybeAdjustSize.bind(this))
-    /*this.timelineChildDirective.onChange$.subscribe(() => {
+    this.timelineChildDirective.onChange$.subscribe(() => {
         this.padding = '100px';
         this.ref.detectChanges();
-      })*/
+      })
     //}
   }
-
+  */
+  /*
   ngOnChanges(changes: SimpleChanges) {
-    /*if (changes['year']) {
+    if (changes['year']) {
       const yearEvent: Event = changes['year'].currentValue as Event;
       const ts: number = yearEvent.startTime;
       const m: moment.Moment = moment(ts);
       //this.label = m.format('YYYY') + this.year.timeReadable;
     }
-    */
+    
   }
+  */
   /*
   private _maybeAdjustSize() {
     this.ngZone.run(() => {

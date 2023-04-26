@@ -14,7 +14,7 @@ import { NSMoment } from '../_library';
   templateUrl: './moment.component.html',
   styleUrls: ['./moment.component.scss'],
 })
-export class MomentComponent implements OnInit, OnChanges {
+export class MomentComponent implements OnChanges {
   @Input() moment!: NSMoment;
   public currentMoment!: NSMoment;
   public selectedDate: any;
@@ -22,8 +22,6 @@ export class MomentComponent implements OnInit, OnChanges {
   name = new FormControl('');
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);

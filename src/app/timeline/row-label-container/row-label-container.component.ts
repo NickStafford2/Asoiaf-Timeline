@@ -6,8 +6,6 @@ import { RowService } from '../row/row.service';
   templateUrl: './row-label-container.component.html',
   styleUrls: ['./row-label-container.component.scss'],
 })
-export class RowLabelContainerComponent implements OnInit {
+export class RowLabelContainerComponent {
   constructor(public rowService: RowService) {}
-
-  ngOnInit(): void {}
 }

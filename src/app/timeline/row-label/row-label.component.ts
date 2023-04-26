@@ -5,8 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './row-label.component.html',
   styleUrls: ['./row-label.component.scss'],
 })
-export class RowLabelComponent implements OnInit {
+export class RowLabelComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }

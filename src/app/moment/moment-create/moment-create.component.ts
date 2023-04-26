@@ -8,7 +8,7 @@ import { MomentHttpService } from '../moment-http.service';
   templateUrl: './moment-create.component.html',
   styleUrls: ['./moment-create.component.scss'],
 })
-export class MomentCreateComponent implements OnInit {
+export class MomentCreateComponent {
   // date = new FormControl(new Date());
   //name = new FormControl('');
 
@@ -18,8 +18,6 @@ export class MomentCreateComponent implements OnInit {
   });
 
   constructor(private momentService: MomentHttpService) {}
-
-  ngOnInit(): void {}
 
   public onSubmit() {
     //console.warn(this.momentForm.value);

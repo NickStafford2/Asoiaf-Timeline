@@ -4,6 +4,7 @@ import {
   ElementRef,
   Input,
   OnChanges,
+  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -14,7 +15,7 @@ import { TimelineService } from './timeline.service';
   selector: '[appTimelineChild]',
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TimelineChildDirective implements OnChanges {
+export class TimelineChildDirective implements OnInit {
   // @Input() startTime: number = 0;
   // @Input() duration: number = 0;
   //@Input() child?: TimelineChild;
@@ -82,16 +83,16 @@ export class TimelineChildDirective implements OnChanges {
 
   // todo: use this syntax
   //ngOnChanges({ name, email }: SimpleChanges) {
-  ngOnChanges(changes: SimpleChanges): void {
-    // not sure if this is needed?
-    /*
+  //ngOnChanges(changes: SimpleChanges): void {
+  // not sure if this is needed?
+  /*
     const child: TimelineChild = changes['child'].currentValue;
     if (child) {
       this._setXOffset(child.xOffset);
       this.setWidth(child.width);
     }
     */
-    /*
+  /*
     const xOffset: number = changes['xOffset'].currentValue;
     console.log('ngOnChanges', changes);
 
@@ -103,7 +104,7 @@ export class TimelineChildDirective implements OnChanges {
       this._setWidth(width);
     }
     */
-  }
+  //}
 
   /*  private _setXOffset(timestamp: number) {
     this.xOffset = this.timelineService.getPixelsForTimestamp(timestamp);
