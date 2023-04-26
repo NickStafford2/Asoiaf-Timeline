@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: 'standard-with-typescript',
+  extends: ['standard-with-typescript'],
   overrides: [
   ],
   parserOptions: {
@@ -19,62 +19,59 @@ module.exports = {
   }
 }
 
-/*
-module.exports = {
+
+const x = {
   "root": true,
-  "ignorePatterns": [ */
-//  "projects/**/* "
-/*  ],
-"overrides": [
-  {
-    "files": [
-      "*.ts"
-    ],
-    "parserOptions": {
-      "project": [
-        "tsconfig.json"
+  "ignorePatterns": [
+    "projects/**/* "
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
       ],
-      "tsconfigRootDir": __dirname,
-      "createDefaultProgram": true
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "tsconfigRootDir": __dirname,
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "eslint:recommended",
+        //"plugin:@typescript-eslint/reccomended"
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        //"@typescript-eslint/array-type": "warn",
+        //"member-access": [true, "no-public"],
+      }
     },
-    "extends": [
-      "eslint:recommended",
-      //"plugin:@typescript-eslint/reccomended"
-      "plugin:@angular-eslint/recommended",
-      "plugin:@angular-eslint/template/process-inline-templates"
-    ],
-    "rules": {
-      "@angular-eslint/directive-selector": [
-        "error",
-        {
-          "type": "attribute",
-          "prefix": "app",
-          "style": "camelCase"
-        }
+    {
+      "files": [
+        "*.html"
       ],
-      "@angular-eslint/component-selector": [
-        "error",
-        {
-          "type": "element",
-          "prefix": "app",
-          "style": "kebab-case"
-        }
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
       ],
-      //"@typescript-eslint/array-type": "warn",
-      //"member-access": [true, "no-public"],
-
+      "rules": {}
     }
-  },
-  {
-    "files": [
-      "*.html"
-    ],
-    "extends": [
-      "plugin:@angular-eslint/template/recommended"
-    ],
-    "rules": {}
-  }
-]
+  ]
 }
-
-*/
