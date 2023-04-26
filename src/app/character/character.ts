@@ -7,17 +7,23 @@ export class CharacterClass {
 
   constructor(data: CharacterData) {
     if (!data.id) {
-      throw "id does not exist";
+      throw 'id does not exist';
     }
-    this.id = typeof data.id === "string" && data.id ? data.id : "";
-    this.firstName = typeof data.firstName === "string" && data.firstName ? data.firstName : "";
-    this.lastName = typeof data.lastName === "string" && data.lastName ? data.lastName : "";
-    this.isPov = typeof data.isPov === "boolean" && data.isPov ? data.isPov : false;
-    this.nickName = typeof data.nickName === "string" && data.nickName ? data.nickName : "";
+    this.id = typeof data.id === 'string' && data.id ? data.id : '';
+    this.firstName =
+      typeof data.firstName === 'string' && data.firstName
+        ? data.firstName
+        : '';
+    this.lastName =
+      typeof data.lastName === 'string' && data.lastName ? data.lastName : '';
+    this.isPov =
+      typeof data.isPov === 'boolean' && data.isPov ? data.isPov : false;
+    this.nickName =
+      typeof data.nickName === 'string' && data.nickName ? data.nickName : '';
   }
 
   get fullName(): string {
-    return this.firstName + " " + this.lastName;
+    return this.firstName + ' ' + this.lastName;
   }
 
   public toObject() {
@@ -37,7 +43,8 @@ export class CharacterClass {
   }
 
   static fromSerialized(serialized: string) {
-    const character: ReturnType<CharacterClass["toObject"]> = JSON.parse(serialized);
+    const character: ReturnType<CharacterClass['toObject']> =
+      JSON.parse(serialized);
 
     return new CharacterClass(character);
   }
@@ -63,5 +70,4 @@ export interface CharacterCreateData {
 
 export interface CharacterData extends CharacterCreateData {
   id: string;
-
 }
