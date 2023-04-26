@@ -1,9 +1,15 @@
 export class CharacterClass {
   readonly id: string;
+
   readonly firstName: string;
+
   readonly lastName: string;
+
   readonly nickName: string;
+
   readonly isPov: boolean;
+
+  readonly houses: string[];
 
   constructor(data: CharacterData) {
     if (!data.id) {
@@ -20,6 +26,10 @@ export class CharacterClass {
       typeof data.isPov === 'boolean' && data.isPov ? data.isPov : false;
     this.nickName =
       typeof data.nickName === 'string' && data.nickName ? data.nickName : '';
+    this.houses =
+      CharacterClass.isStringArray(data.houses) && data.houses
+        ? data.houses
+        : [];
   }
 
   get fullName(): string {
@@ -33,6 +43,7 @@ export class CharacterClass {
       lastName: this.lastName,
       nickName: this.nickName,
       isPov: this.isPov, // todo: rename isPOV --> isPov in mongoDB
+      houses: this.houses,
     };
   }
 
@@ -47,6 +58,18 @@ export class CharacterClass {
       JSON.parse(serialized);
 
     return new CharacterClass(character);
+  }
+
+  static isStringArray(arr: string[]): boolean {
+    if (Array.isArray(arr)) {
+      const isStringArray =
+        arr.length > 0 &&
+        arr.every(value => {
+          return typeof value === 'string';
+        });
+      return isStringArray;
+    }
+    return false;
   }
 
   /*
@@ -65,7 +88,7 @@ export interface CharacterCreateData {
   lastName: string;
   nickName: string; // maybe change to alias. make array?
   isPov: boolean;
-  //houses: string[];
+  houses: string[];
 }
 
 export interface CharacterData extends CharacterCreateData {

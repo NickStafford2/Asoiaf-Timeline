@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
-import { CharacterClass, CharacterData } from './character';
+import {
+  CharacterClass,
+  CharacterData,
+  CharacterCreateData,
+} from './character';
 import { CharacterHttpService } from './character-http.service';
 
 @Injectable({
@@ -9,13 +13,22 @@ import { CharacterHttpService } from './character-http.service';
 })
 export class CharacterService {
   private _character$ = new BehaviorSubject<CharacterClass[]>([]);
+
   readonly character$ = this._character$.asObservable();
 
+  // todo: use this to show during http requests.
   private _progres$ = new BehaviorSubject<any>({});
+
   public readonly progress$ = this._progres$.asObservable();
 
   constructor(private characterHttpService: CharacterHttpService) {
     this.fetchData();
+  }
+
+  public create(newCharacter: CharacterCreateData) {
+    this.characterHttpService.create(newCharacter).subscribe(() => {
+      this.fetchData();
+    });
   }
 
   public update(updatedCharacter: CharacterData) {

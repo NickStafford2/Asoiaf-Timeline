@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 import {
   CharacterClass,
@@ -25,7 +25,7 @@ export class CharacterHttpService {
 
   getAll(): Observable<CharacterData[]> {
     return this._http.get<CharacterData[]>(CharacterHttpService.URL).pipe(
-      tap(_ => console.log('loadAll')),
+      tap(() => console.log('loadAll')),
       catchError(this.handleError<CharacterData[]>('loadAll', []))
     );
   }
@@ -35,7 +35,7 @@ export class CharacterHttpService {
     return this._http
       .post<CharacterCreateData>(CharacterHttpService.URL, newCharacter)
       .pipe(
-        tap(_ => console.log('loadAll')),
+        tap(() => console.log('loadAll')),
         catchError(this.handleError<CharacterData[]>('loadAll', []))
       );
   }
@@ -53,7 +53,7 @@ export class CharacterHttpService {
     return this._http
       .put<CharacterData>(CharacterHttpService.URL + '/' + cbody2.id, cbody2)
       .pipe(
-        tap(_ => console.log('loadAll')),
+        tap(() => console.log('loadAll')),
         catchError(this.handleError<CharacterData[]>('loadAll', []))
       );
   }
@@ -62,7 +62,7 @@ export class CharacterHttpService {
     return this._http
       .delete<CharacterData>(CharacterHttpService.URL + '/' + characterId)
       .pipe(
-        tap(_ => console.log('loadAll')),
+        tap(() => console.log('loadAll')),
         catchError(this.handleError<CharacterData[]>('loadAll', []))
       );
   }

@@ -1,16 +1,9 @@
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-  NgForm,
-} from '@angular/forms';
-import {} from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
 
 import { CharacterService } from '../character.service';
 import { CharacterHttpService } from '../character-http.service';
-import { CharacterCreateData, CharacterData } from '../character';
+import { CharacterCreateData } from '../character';
 
 @Component({
   selector: 'app-character-create',
@@ -23,23 +16,22 @@ export class CharacterCreateComponent {
     lastName: new FormControl('', [Validators.required]),
     nickName: new FormControl(''),
     isPov: new FormControl(false, [Validators.required]),
+    houses: new FormControl([]),
   });
-  constructor(
-    public characterService: CharacterService,
-    private _characterHttpService: CharacterHttpService
-  ) {}
+
+  constructor(public characterService: CharacterService) {}
 
   public onCreate() {
     console.log(this.createForm);
     const f = this.createForm.value;
     const newCharacter: CharacterCreateData = {
-      firstName: f['firstName'],
-      lastName: f['lastName'],
-      nickName: f['nickName'],
-      isPov: f['isPov'],
-      //houses: f["houses"],
+      firstName: f.firstName,
+      lastName: f.lastName,
+      nickName: f.nickName,
+      isPov: f.isPov,
+      houses: f.houses,
     };
-    this._characterHttpService.create(newCharacter);
+    this.characterService.create(newCharacter);
   }
 
   get firstName() {

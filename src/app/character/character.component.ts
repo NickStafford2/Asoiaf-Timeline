@@ -1,21 +1,7 @@
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-  NgForm,
-} from '@angular/forms';
-import {} from '@angular/forms';
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { CharacterService } from './character.service';
-import { CharacterHttpService } from './character-http.service';
 import { CharacterClass, CharacterData } from './character';
 
 @Component({
@@ -28,10 +14,12 @@ export class CharacterComponent implements OnChanges {
 
   public updateForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]), // add updateOn: 'blur'
-    lastName: new FormControl('', [Validators.required]),
+    lastName: new FormControl(''),
     nickName: new FormControl(''),
     isPov: new FormControl(false),
+    houses: new FormControl([]),
   });
+
   constructor(private _characterService: CharacterService) {}
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -42,6 +30,7 @@ export class CharacterComponent implements OnChanges {
       this.updateForm.controls['lastName'].setValue(character.lastName);
       this.updateForm.controls['nickName'].setValue(character.nickName);
       this.updateForm.controls['isPov'].setValue(character.isPov);
+      this.updateForm.controls['houses'].setValue(character.houses);
       this.updateForm.markAsPristine();
     }
   }
@@ -51,11 +40,11 @@ export class CharacterComponent implements OnChanges {
     const c = this.updateForm.value;
     const updatedCharacter: CharacterData = {
       id: this.character.id,
-      firstName: c['firstName'],
-      lastName: c['lastName'],
-      nickName: c['nickName'],
-      isPov: c['isPov'],
-      //houses: c["houses"],
+      firstName: c.firstName,
+      lastName: c.lastName,
+      nickName: c.nickName,
+      isPov: c.isPov,
+      houses: c.houses,
     };
     this._characterService.update(updatedCharacter);
   }
