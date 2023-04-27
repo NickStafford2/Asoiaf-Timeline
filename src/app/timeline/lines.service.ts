@@ -9,15 +9,11 @@ import { TimelineService } from './timeline.service';
   providedIn: 'root',
 })
 export class LinesService {
-  private _month$ = new BehaviorSubject<
-    TimelineChild[]
-  >([]);
+  private _month$ = new BehaviorSubject<TimelineChild[]>([]);
 
   readonly month$: Observable<TimelineChild[]> = this._month$.asObservable();
 
-  private _year$ = new BehaviorSubject<
-    TimelineChild[]
-  >([]);
+  private _year$ = new BehaviorSubject<TimelineChild[]>([]);
 
   readonly year$: Observable<TimelineChild[]> = this._year$.asObservable();
 

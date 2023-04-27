@@ -34,6 +34,7 @@ import { TimelineChildDirective } from './timeline/timeline-child.directive';
 import { TimelineComponent } from './timeline/timeline.component';
 import { YearLabelComponent } from './timeline/year-label/year-label.component';
 import { YearlineComponent } from './timeline/yearline/yearline.component';
+import { HouseComponent } from './house/house.component';
 
 //import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
@@ -58,6 +59,7 @@ import { YearlineComponent } from './timeline/yearline/yearline.component';
     CharacterComponent,
     CharacterCreateComponent,
     HouseCreateComponent,
+    HouseComponent,
   ],
   imports: [
     BrowserModule,
