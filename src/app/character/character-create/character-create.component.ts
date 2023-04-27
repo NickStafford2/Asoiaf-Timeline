@@ -1,8 +1,8 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { CharacterService } from '../character.service';
 import { CharacterCreateData } from '../character';
+import { CharacterService } from '../character.service';
 
 @Component({
   selector: 'app-character-create',

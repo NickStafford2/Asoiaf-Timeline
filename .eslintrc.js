@@ -8,6 +8,13 @@ module.exports = {
   root: true,
   ignorePatterns: ['projects/**/*'],
   plugins: ["import"],
+  settings: {
+    'import/resolver': {
+      typescript: {
+        project: './tsconfig.json',
+      },
+    },
+  },
   overrides: [
     {
       files: ['*.ts'],
@@ -47,6 +54,26 @@ module.exports = {
         ],
         '@typescript-eslint/member-ordering': 0,
         '@typescript-eslint/naming-convention': 0,
+        "import/order": [
+          "error",
+          {
+            groups: [
+              'builtin', // Built-in imports (come from NodeJS native) go first
+              'external', // <- External imports
+              'internal', // <- Absolute imports
+              ['sibling', 'parent'], // <- Relative imports, the sibling and parent types they can be mingled together
+              'index', // <- index imports
+              'unknown', // <- unknown
+            ],
+            'newlines-between': 'always',
+            alphabetize: {
+              /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
+              order: 'asc',
+              /* ignore case. Options: [true, false] */
+              caseInsensitive: true,
+            },
+          },
+        ]
       },
     },
     // NOTE: WE ARE NOT APPLYING PRETTIER IN THIS OVERRIDE, ONLY @ANGULAR-ESLINT/TEMPLATE

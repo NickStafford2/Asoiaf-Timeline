@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { ConfigService } from '../config.service';
+
 import { House, HouseData } from './house.service';
+import { ConfigService } from '../config.service';
 
 @Injectable({
   providedIn: 'root',
