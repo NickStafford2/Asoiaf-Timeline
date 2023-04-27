@@ -13,19 +13,7 @@ export class HouseService {
   readonly house$ = this._house$.asObservable();
 
   constructor(private houseHttpService: HouseHttpService) {
-    const x: House[] = [
-      {
-        id: 'dfaksdfa',
-        name: 'stark',
-        type: HouseType.great,
-      },
-      {
-        id: 'dff',
-        name: 'Fossaway',
-        type: HouseType.normal,
-      },
-    ];
-    this._house$.next(x);
+    this.fetchData();
   }
 
   createFromName(name: string): void {
@@ -36,6 +24,12 @@ export class HouseService {
     };
     this.houseHttpService.create(houseData).subscribe(result => {
       console.log(result);
+    });
+  }
+
+  private fetchData() {
+    this.houseHttpService.getAll().subscribe((results: House[]) => {
+      this._house$.next(results);
     });
   }
 }

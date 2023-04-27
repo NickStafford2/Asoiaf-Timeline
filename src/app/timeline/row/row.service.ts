@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { TimelineRow, XYOffset } from '../../_library';
+import { CharacterClass } from '../../character/character';
+import { CharacterService } from '../../character/character.service';
 import { TimeLabelService } from '../time-label.service';
 
 @Injectable({
@@ -18,15 +20,27 @@ export class RowService {
 
   readonly xOffset: number = 0;
 
-  constructor(private _timeLabelService: TimeLabelService) {
-    this._addRow();
-    this._addRow();
-    this._addRow();
-    this._addRow();
+  constructor(
+    private timeLabelService: TimeLabelService,
+    private characterService: CharacterService
+  ) {
+    this.characterService.character$.subscribe(
+      (characters: CharacterClass[]) => {
+        characters.forEach((character: CharacterClass) => {
+          console.log(character);
+          this.addRow();
+        });
+      }
+    );
+
+    this.addRow();
+    this.addRow();
+    this.addRow();
+    this.addRow();
   }
 
-  private _addRow() {
-    const yOffset: number = this._getHeight();
+  private addRow() {
+    const yOffset: number = this.getHeight();
     const xyOffset: XYOffset = { xOffset: this.xOffset, yOffset };
 
     const newRow: TimelineRow = {
@@ -39,9 +53,9 @@ export class RowService {
     this._row$.next(rows);
   }
 
-  private _getHeight(): number {
+  private getHeight(): number {
     let total: number = 0;
-    total += this._timeLabelService.getTimeLabelRowHeight(); // rows are below the time Label rows.
+    total += this.timeLabelService.getTimeLabelRowHeight(); // rows are below the time Label rows.
     this._row$.getValue().forEach((row: TimelineRow) => {
       total += row.height$.getValue();
     });
