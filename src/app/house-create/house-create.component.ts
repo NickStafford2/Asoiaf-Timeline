@@ -24,7 +24,7 @@ export class HouseCreateComponent implements OnInit {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map((value) => {
-        console.log(value)
+        //console.log(value)
         return this._filter(value || '')
       }),
     );
@@ -35,12 +35,21 @@ export class HouseCreateComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter((option) => {
-      console.log(option)
+      //console.log(option)
       return option.name.toLowerCase().includes(filterValue)
     });
   }
+
   getOptionText(option: House) {
-    return option.name;
+    if (option)
+      return option.name;
+    return '';
+  }
+
+  createHouse() {
+    let x = this.myControl.value
+    console.log('created');
+    this.houseService.createFromName(x);
   }
 }
 

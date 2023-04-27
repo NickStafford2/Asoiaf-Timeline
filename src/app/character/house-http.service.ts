@@ -21,8 +21,8 @@ export class HouseHttpService {
     );
   }
 
-  create(newHouse: House) {
-    return this.http.post<House>(HouseHttpService.URL, newHouse).pipe(
+  create(newHouse: HouseData) {
+    return this.http.post<HouseData>(HouseHttpService.URL, newHouse).pipe(
       tap(() => console.log('create')),
       catchError(ConfigService.handleError<House[]>('create', []))
     );

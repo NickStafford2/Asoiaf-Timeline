@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { HouseHttpService } from './house-http.service';
-import { House, HouseType } from './house.interface';
+import { House, HouseData, HouseType } from './house.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +27,15 @@ export class HouseService {
     ];
     this._house$.next(x);
   }
-  //create()
+
+  createFromName(name: string): void {
+    const newType: HouseType = HouseType.normal;
+    const houseData: HouseData = {
+      name,
+      type: newType,
+    };
+    this.houseHttpService.create(houseData).subscribe(result => {
+      console.log(result);
+    });
+  }
 }
