@@ -1,14 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  ElementRef,
-} from '@angular/core';
-
-import { LinesService } from '../lines.service';
-import { TimelineService } from '../timeline.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-yearline',

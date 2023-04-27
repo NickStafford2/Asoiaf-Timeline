@@ -1,18 +1,6 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  ElementRef,
-} from '@angular/core';
-import * as moment from 'moment';
+import { Component, Input } from '@angular/core';
 
-import { NSMoment, TimelineMoment } from '../../_library';
-import { MomentHttpService } from '../../moment/moment-http.service';
-import { LinesService } from '../lines.service';
-import { TimelineDateService } from '../timeline-date.service';
-import { TimelineService } from '../timeline.service';
+import { TimelineMoment } from '../../_library';
 
 @Component({
   selector: 'app-moment-spot',

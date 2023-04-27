@@ -1,17 +1,9 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  HostBinding,
-  OnInit,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
 
 import { LinesService } from './lines.service';
 import { MomentSpotService } from './moment-spot/moment-spot.service';
 import { TimeLabelService } from './time-label.service';
 import { TimelineService } from './timeline.service';
-import { MomentHttpService } from '../moment/moment-http.service';
-import { MomentService } from '../moment/moment.service';
 
 @Component({
   selector: 'app-timeline',

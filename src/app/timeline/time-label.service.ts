@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { TimelineDateService } from './timeline-date.service';
 import { TimelineService } from './timeline.service';

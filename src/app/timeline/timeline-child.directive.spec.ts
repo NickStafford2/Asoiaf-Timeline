@@ -1,4 +1,3 @@
-import { TimelineChildDirective } from './timeline-child.directive';
 /*
 describe('TimelineChildDirective', () => {
   it('should create an instance', () => {

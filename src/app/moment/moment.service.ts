@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, min, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { MomentHttpService } from './moment-http.service';
 import { NSMoment, timelineItemStore } from '../_library';
