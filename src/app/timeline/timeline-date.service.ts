@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+
 import { TimelineDate } from '../_library';
 
 @Injectable({
@@ -10,6 +11,7 @@ export class TimelineDateService {
   public readonly defaultStartTimestamp: number = new Date(
     '01/01/2020'
   ).getTime();
+
   public readonly defaultEndTimestamp: number = new Date(
     '01/01/2024'
   ).getTime();
@@ -17,19 +19,23 @@ export class TimelineDateService {
   private _month$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<
     TimelineDate[]
   >([]);
+
   public readonly month$: Observable<TimelineDate[]> =
     this._month$.asObservable();
 
   private _year$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<
     TimelineDate[]
   >([]);
+
   public readonly year$: Observable<TimelineDate[]> =
     this._year$.asObservable();
 
   private _startDate: number = this.defaultStartTimestamp;
+
   private _endDate: number = this.defaultEndTimestamp;
 
   private _datesChanged$: Subject<void> = new Subject();
+
   public readonly datesChanged$: Observable<void> =
     this._datesChanged$.asObservable();
 
@@ -117,13 +123,16 @@ export class TimelineDateService {
   public getSmallestYear(): number {
     return this._year$.getValue()[0].startTime;
   }
+
   public getLargestYear(): number {
     const x = this._year$.getValue();
     return x[x.length].startTime;
   }
+
   public getSmallestMonth(): number {
     return this._month$.getValue()[0].startTime;
   }
+
   public getLargestMonth(): number {
     const x = this._month$.getValue();
     return x[x.length].startTime;

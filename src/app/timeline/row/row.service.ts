@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+
 import { TimelineRow, XYOffset } from '../../_library';
 import { TimeLabelService } from '../time-label.service';
 
@@ -10,10 +11,12 @@ export class RowService {
   private _row$: BehaviorSubject<Array<TimelineRow>> = new BehaviorSubject<
     Array<TimelineRow>
   >([]);
+
   public readonly row$: Observable<Array<TimelineRow>> =
     this._row$.asObservable();
 
   public readonly defaultHeight: number = 80;
+
   public readonly xOffset: number = 0;
 
   constructor(private _timeLabelService: TimeLabelService) {

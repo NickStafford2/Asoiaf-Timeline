@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+
 import { TimelineDateService } from './timeline-date.service';
-import { TimelineChild, TimelineDate, XYOffset } from '../_library';
 import { TimelineService } from './timeline.service';
+import { TimelineChild, TimelineDate, XYOffset } from '../_library';
 
 @Injectable({
   providedIn: 'root',
@@ -11,17 +12,21 @@ export class LinesService {
   private _month$: BehaviorSubject<TimelineChild[]> = new BehaviorSubject<
     TimelineChild[]
   >([]);
+
   public readonly month$: Observable<TimelineChild[]> =
     this._month$.asObservable();
 
   private _year$: BehaviorSubject<TimelineChild[]> = new BehaviorSubject<
     TimelineChild[]
   >([]);
+
   public readonly year$: Observable<TimelineChild[]> =
     this._year$.asObservable();
 
   public readonly yOffset: number = 0;
+
   public readonly monthWidth: number = 1;
+
   public readonly yearWidth: number = 3;
 
   constructor(

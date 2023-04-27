@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { of } from 'rxjs';
+
 import { TimelineDateService } from './timeline-date.service';
+import { TimelineService } from './timeline.service';
 import {
   TimelineTimeLabel,
   TimelineDate,
   TimelineChild,
   XYOffset,
 } from '../_library';
-import { TimelineService } from './timeline.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,15 +18,18 @@ import { TimelineService } from './timeline.service';
 export class TimeLabelService {
   private _month$: BehaviorSubject<Array<TimelineTimeLabel>> =
     new BehaviorSubject<Array<TimelineTimeLabel>>([]);
+
   public readonly month$: Observable<Array<TimelineTimeLabel>> =
     this._month$.asObservable();
 
   private _year$: BehaviorSubject<Array<TimelineTimeLabel>> =
     new BehaviorSubject<Array<TimelineTimeLabel>>([]);
+
   public readonly year$: Observable<Array<TimelineTimeLabel>> =
     this._year$.asObservable();
 
   public readonly yearLabelHeight: number = 30;
+
   public readonly monthLabelHeight: number = 30;
 
   constructor(
@@ -100,6 +104,7 @@ export class TimeLabelService {
     monthsCopy.sort(this._sortFunction);
     this._month$.next(monthsCopy);
   }
+
   private _onYearsUpdate(): void {
     const years: Array<TimelineDate> = this._timelineDateService.getYears();
     const yearsCopy: Array<TimelineTimeLabel> = [];
@@ -122,6 +127,7 @@ export class TimeLabelService {
     yearsCopy.sort(this._sortFunction);
     this._year$.next(yearsCopy);
   }
+
   public getTimeLabelRowHeight() {
     return this.yearLabelHeight + this.monthLabelHeight;
   }

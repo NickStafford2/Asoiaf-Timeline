@@ -1,15 +1,14 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ConfigService {
-
   static readonly HTTP_OPTIONS = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-
 
   /**
    * Handle Http operation that failed.

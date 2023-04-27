@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Book } from '../_library';
 import { BookHttpService } from './book-http.service';
+import { Book } from '../_library';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
   private _book$: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>([]);
+
   public book$: Observable<Book[]> = this._book$.asObservable();
 
   constructor(private _bookHttpService: BookHttpService) {

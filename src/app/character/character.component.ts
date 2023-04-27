@@ -1,3 +1,4 @@
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -5,10 +6,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
-import { CharacterService } from './character.service';
 import { CharacterClass, CharacterData } from './character';
+import { CharacterService } from './character.service';
 
 @Component({
   selector: 'app-character',

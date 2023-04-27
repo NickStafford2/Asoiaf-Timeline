@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, min, Observable, Subject } from 'rxjs';
-import { MomentHttpService } from './moment-http.service';
 
+import { MomentHttpService } from './moment-http.service';
 import { NSMoment, timelineItemStore } from '../_library';
 
 @Injectable({
@@ -11,9 +11,11 @@ export class MomentService implements timelineItemStore {
   private _moment$: BehaviorSubject<NSMoment[]> = new BehaviorSubject<
     NSMoment[]
   >([]);
+
   public readonly moment$: Observable<any> = this._moment$.asObservable();
 
   private _onUpdate$: Subject<void> = new Subject();
+
   public readonly onUpdate$: Observable<void> = this._onUpdate$.asObservable();
 
   constructor(private momentService: MomentHttpService) {}

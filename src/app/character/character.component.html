@@ -20,11 +20,9 @@
 
   <ng-container formArrayName="houses">
     <ng-container *ngFor="let houseForm of houses.controls; let i = index">
-      <div [formGroupName]="i" >
+      <div [formGroupName]="i">
         <mat-form-field appearance="fill">
-          <input matInput
-                 formControlName="houseName"
-                 placeholder="Baratheon" />
+          <input matInput formControlName="houseName" placeholder="Baratheon" />
         </mat-form-field>
         <mat-icon class="delete-btn" (click)="deleteHouse(i)">
           delete_forever
@@ -54,10 +52,11 @@
   <button mat-mini-fab (click)="addHouse()">
     <mat-icon class="add-course-btn">add</mat-icon>
   </button>
-  <button mat-raised-button
-          color="primary"
-          [disabled]="!updateForm.valid || updateForm.pristine"
-          (click)="onUpdate()">
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!updateForm.valid || updateForm.pristine"
+    (click)="onUpdate()">
     Update
   </button>
 

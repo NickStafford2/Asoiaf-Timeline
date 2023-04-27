@@ -7,8 +7,9 @@ import {
   ElementRef,
 } from '@angular/core';
 import * as moment from 'moment';
-import { MomentHttpService } from '../../moment/moment-http.service';
+
 import { NSMoment, TimelineMoment } from '../../_library';
+import { MomentHttpService } from '../../moment/moment-http.service';
 import { LinesService } from '../lines.service';
 import { TimelineDateService } from '../timeline-date.service';
 import { TimelineService } from '../timeline.service';
@@ -20,6 +21,7 @@ import { TimelineService } from '../timeline.service';
 })
 export class MomentSpotComponent /*implements OnChanges*/ {
   @Input() moment!: TimelineMoment;
+
   public name: string = 'test';
 
   constructor() {

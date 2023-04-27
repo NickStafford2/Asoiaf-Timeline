@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+
+import { CharacterService } from './character/character.service';
+import { MomentService } from './moment/moment.service';
 import { TimelineDateService } from './timeline/timeline-date.service';
 import { TimelineService } from './timeline/timeline.service';
-import { MomentService } from './moment/moment.service';
-import { CharacterService } from './character/character.service';
 
 @Component({
   selector: 'app-root',

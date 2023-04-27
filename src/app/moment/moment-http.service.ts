@@ -6,6 +6,7 @@ import {
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry, timestamp } from 'rxjs/operators';
+
 import { NSMoment, NSMomentData } from '../_library';
 
 @Injectable({

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { MomentService } from '../moment/moment.service';
+
 import { TimelineDateService } from './timeline-date.service';
+import { MomentService } from '../moment/moment.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,17 +13,20 @@ export class TimelineService {
 
   private _widthInPixles$: BehaviorSubject<number> =
     new BehaviorSubject<number>(0);
+
   public readonly widthInPixles$: Observable<number> =
     this._widthInPixles$.asObservable();
 
   // todo: make this a normal private variable
   private _pixlesPerMillisecond$: BehaviorSubject<number> =
     new BehaviorSubject<number>(0);
+
   public readonly pixlesPerMillisecond$: Observable<number> =
     this._pixlesPerMillisecond$.asObservable();
 
   // tell timeline to redraw the canvas
   private _redraw$: Subject<void> = new Subject();
+
   public readonly redraw$: Observable<void> = this._redraw$.asObservable();
 
   constructor(
@@ -82,6 +86,7 @@ export class TimelineService {
 
     this.timelineDateService.setDateRange(newMin, newMax);
   }
+
   private _onWidthChanged(newWidth: number): void {
     this._updatePixelsPerMillisecond(newWidth);
     //this._redraw$.next();

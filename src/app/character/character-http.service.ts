@@ -3,13 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { ConfigService } from '../config.service';
-
 import {
   CharacterClass,
   CharacterCreateData,
   CharacterData,
 } from './character';
+import { ConfigService } from '../config.service';
 
 @Injectable({
   providedIn: 'root',
