@@ -4,14 +4,16 @@
   *ngFor="let m of this.lineService.month$ | async"
   appTimelineChild
   [xyOffset$]="m.xyOffset$"
-  [width$]="m.width$">
+  [width$]="m.width$"
+  [height$]="m.height$">
 </app-monthline>
 
 <app-yearline
   *ngFor="let y of this.lineService.year$ | async"
   appTimelineChild
   [xyOffset$]="y.xyOffset$"
-  [width$]="y.width$">
+  [width$]="y.width$"
+  [height$]="y.height$">
 </app-yearline>
 
 <app-year-label

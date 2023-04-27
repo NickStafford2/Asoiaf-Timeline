@@ -101,37 +101,8 @@ export class TimelineService {
   setHeight(height: number): void {
     this._heightInPixles$.next(height);
   }
+
+  getHeight(): number {
+    return this._heightInPixles$.getValue();
+  }
 }
-
-/*
-TimelineService
-TimelineDateService
-?TimelineCanvasService
-
-how timeline objects know when to reposition
- push position to all subscribers.
-
- TimelineService
-   has function widthChanged()
-     update Pixels/Ms
-     tell Timeline Component to refreshObjects
-
- TimelineComponent
-   has function refreshChildren()
-     for each child()
-       refresh()
-
-   notify timelineService when width changes
-
-   has array of elements
-   this.timelineService.datesChanged.subscribe(() => {
-     load/delete viewchildren based on dates
-     push new position to all children
-   })
-
- TimelineChildComponent
-   has a function setPosition(x)
-
-  needs no Timelien services. TimelineComponent tells them what their pos is
-  optional services like Moment/Event/MonthLine/Yearline/Moon
-*/

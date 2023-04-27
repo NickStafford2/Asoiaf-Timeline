@@ -9,13 +9,13 @@ import { TimelineService } from './timeline.service';
   providedIn: 'root',
 })
 export class LinesService {
-  private _month$: BehaviorSubject<TimelineChild[]> = new BehaviorSubject<
+  private _month$ = new BehaviorSubject<
     TimelineChild[]
   >([]);
 
   readonly month$: Observable<TimelineChild[]> = this._month$.asObservable();
 
-  private _year$: BehaviorSubject<TimelineChild[]> = new BehaviorSubject<
+  private _year$ = new BehaviorSubject<
     TimelineChild[]
   >([]);
 
@@ -45,6 +45,14 @@ export class LinesService {
         month.xyOffset$?.next({ xOffset, yOffset });
       });
     });
+    this._timelineService.heightInPixles$.subscribe((height: number) => {
+      this._year$.getValue().forEach((year: TimelineChild) => {
+        year.height$.next(height);
+      });
+      this._month$.getValue().forEach((month: TimelineChild) => {
+        month.height$.next(height);
+      });
+    });
     //this._timelineService.redraw$.subscribe(this._onRedraw.bind(this));
   }
 
@@ -61,13 +69,8 @@ export class LinesService {
     return 0;
   }
 
-  private _onRedraw() {
-    // todo: maybe just update the XOffset and width? I'm undecided if constant deep copies is bad
-    this._onMonthsUpdate();
-    this._onYearsUpdate();
-  }
-
   private _onMonthsUpdate(): void {
+    const height = this._timelineService.getHeight();
     const months: TimelineDate[] = this._timelineDateService.getMonths();
     const monthsCopy: TimelineChild[] = [];
 
@@ -79,7 +82,7 @@ export class LinesService {
         duration: month.duration,
         xyOffset$: new BehaviorSubject<XYOffset>({ xOffset, yOffset }),
         width$: new BehaviorSubject<number>(this.monthWidth),
-        height$: new BehaviorSubject<number>(500),
+        height$: new BehaviorSubject<number>(height),
       };
       monthsCopy.push(newMonth);
     });
@@ -88,6 +91,7 @@ export class LinesService {
   }
 
   private _onYearsUpdate(): void {
+    const height = this._timelineService.getHeight();
     const years: TimelineDate[] = this._timelineDateService.getYears();
     const yearsCopy: TimelineChild[] = [];
 
@@ -100,7 +104,7 @@ export class LinesService {
         duration: year.duration,
         xyOffset$: new BehaviorSubject<XYOffset>({ xOffset, yOffset }),
         width$: new BehaviorSubject<number>(width),
-        height$: new BehaviorSubject<number>(500),
+        height$: new BehaviorSubject<number>(height),
       };
       yearsCopy.push(newYear);
     });
