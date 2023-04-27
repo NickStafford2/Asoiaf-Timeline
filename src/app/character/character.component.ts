@@ -1,4 +1,10 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { CharacterService } from './character.service';
@@ -17,10 +23,14 @@ export class CharacterComponent implements OnChanges {
     lastName: new FormControl(''),
     nickName: new FormControl(''),
     isPov: new FormControl(false),
-    houses: new FormControl([]),
+    //houses: new FormControl([]),
+    houses: this.fb.array([]),
   });
 
-  constructor(private _characterService: CharacterService) {}
+  constructor(
+    private characterService: CharacterService,
+    private fb: FormBuilder
+  ) {}
 
   public ngOnChanges(changes: SimpleChanges): void {
     const character: CharacterClass = changes['character'].currentValue;
@@ -31,6 +41,7 @@ export class CharacterComponent implements OnChanges {
       this.updateForm.controls['nickName'].setValue(character.nickName);
       this.updateForm.controls['isPov'].setValue(character.isPov);
       this.updateForm.controls['houses'].setValue(character.houses);
+      //this.updateForm.controls['houses'].setValue(['stark', 'lannister', 'baratheon', 'snow']);
       this.updateForm.markAsPristine();
     }
   }
@@ -46,11 +57,11 @@ export class CharacterComponent implements OnChanges {
       isPov: c.isPov,
       houses: c.houses,
     };
-    this._characterService.update(updatedCharacter);
+    this.characterService.update(updatedCharacter);
   }
 
   public onDelete() {
-    this._characterService.delete(this.character.id);
+    this.characterService.delete(this.character.id);
   }
 
   get firstName() {
@@ -59,5 +70,24 @@ export class CharacterComponent implements OnChanges {
 
   get lastName() {
     return this.updateForm.controls['lastName'];
+  }
+
+  get houses() {
+    return this.updateForm.controls['houses'] as FormArray;
+    //console.log(this.updateForm.controls['houses']);
+    //return this.updateForm.controls['houses'];
+  }
+
+  addHouse() {
+    console.log('addHouse');
+    const houseForm = this.fb.group({
+      houseName: ['', Validators.required],
+      //level: ['beginner', Validators.required]
+    });
+    this.houses.push(houseForm);
+  }
+
+  deleteHouse(houseIndex: number) {
+    this.houses.removeAt(houseIndex);
   }
 }

@@ -2,7 +2,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 
 import { CharacterService } from '../character.service';
-import { CharacterHttpService } from '../character-http.service';
 import { CharacterCreateData } from '../character';
 
 @Component({

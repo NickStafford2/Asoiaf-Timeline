@@ -83,6 +83,7 @@ export class CharacterClass {
     return true;
   }*/
 }
+
 export interface CharacterCreateData {
   firstName: string;
   lastName: string;
@@ -93,4 +94,19 @@ export interface CharacterCreateData {
 
 export interface CharacterData extends CharacterCreateData {
   id: string;
+}
+
+export interface Alias {
+  name: string;
+  type: AliasType;
+}
+
+export enum AliasType {
+  known,
+  suspected,
+}
+
+export interface CharacterHouse {
+  houseId: string;
+  isPrimary: boolean;
 }

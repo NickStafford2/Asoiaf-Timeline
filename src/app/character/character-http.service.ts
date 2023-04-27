@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+
+import { ConfigService } from '../config.service';
 
 import {
   CharacterClass,
@@ -15,33 +17,25 @@ import {
 export class CharacterHttpService {
   private static readonly URL: string = 'api/Characters';
 
-  constructor(private _http: HttpClient) {}
-
-  /*
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-  */
+  constructor(private http: HttpClient) {}
 
   getAll(): Observable<CharacterData[]> {
-    return this._http.get<CharacterData[]>(CharacterHttpService.URL).pipe(
-      tap(() => console.log('loadAll')),
-      catchError(this.handleError<CharacterData[]>('loadAll', []))
+    return this.http.get<CharacterData[]>(CharacterHttpService.URL).pipe(
+      tap(() => console.log('getAll')),
+      catchError(ConfigService.handleError<CharacterData[]>('getAll', []))
     );
   }
 
   create(newCharacter: CharacterCreateData) {
-    // console.log("create: ", newCharacter);
-    return this._http
+    return this.http
       .post<CharacterCreateData>(CharacterHttpService.URL, newCharacter)
       .pipe(
-        tap(() => console.log('loadAll')),
-        catchError(this.handleError<CharacterData[]>('loadAll', []))
+        tap(() => console.log('create')),
+        catchError(ConfigService.handleError<CharacterData[]>('create', []))
       );
   }
 
   update(updatedCharacter: CharacterData) {
-    console.log('update: ', updatedCharacter);
     const c = new CharacterClass(updatedCharacter);
     //const cbody = c.serialize();
     const cbody2 = c.toObject();
@@ -50,41 +44,21 @@ export class CharacterHttpService {
     //console.log(this._body);
     //console.log(this._body2);
     //const body = JSON.stringify(updatedCharacter);
-    return this._http
+    return this.http
       .put<CharacterData>(CharacterHttpService.URL + '/' + cbody2.id, cbody2)
       .pipe(
-        tap(() => console.log('loadAll')),
-        catchError(this.handleError<CharacterData[]>('loadAll', []))
+        tap(() => console.log('update')),
+        catchError(ConfigService.handleError<CharacterData[]>('update', []))
       );
   }
 
   delete(characterId: string) {
-    return this._http
+    return this.http
       .delete<CharacterData>(CharacterHttpService.URL + '/' + characterId)
       .pipe(
-        tap(() => console.log('loadAll')),
-        catchError(this.handleError<CharacterData[]>('loadAll', []))
+        tap(() => console.log('delete')),
+        catchError(ConfigService.handleError<CharacterData[]>('delete', []))
       );
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   *
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 
   /*

@@ -1,12 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { MomentHttpService } from './moment/moment-http.service';
-import { LinesService } from './timeline/lines.service';
+import { FormControl } from '@angular/forms';
 import { TimelineDateService } from './timeline/timeline-date.service';
 import { TimelineService } from './timeline/timeline.service';
-import * as moment from 'moment';
 import { MomentService } from './moment/moment.service';
 import { CharacterService } from './character/character.service';
 
@@ -17,9 +12,13 @@ import { CharacterService } from './character/character.service';
 })
 export class AppComponent implements OnInit {
   public moments: any;
+
   public count: any;
+
   title = 'angularapp';
+
   public startDate = new FormControl(new Date());
+
   public endDate = new FormControl(new Date());
 
   constructor(

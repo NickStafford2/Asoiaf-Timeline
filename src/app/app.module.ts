@@ -31,6 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
 //import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CharacterCreateComponent } from './character/character-create/character-create.component';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 //testing again
 @NgModule({
@@ -58,16 +60,18 @@ import { CharacterCreateComponent } from './character/character-create/character
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatListModule,
+    MatIconModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
