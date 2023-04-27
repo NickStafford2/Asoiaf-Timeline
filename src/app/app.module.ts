@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { CharacterCreateComponent } from './character/character-create/character-create.component';
 import { CharacterComponent } from './character/character.component';
+import { HouseCreateComponent } from './house-create/house-create.component';
 import { MomentCreateComponent } from './moment/moment-create/moment-create.component';
 import { MomentComponent } from './moment/moment.component';
 import { NsEventComponent } from './ns-event/ns-event.component';
@@ -55,6 +57,7 @@ import { YearlineComponent } from './timeline/yearline/yearline.component';
     BookComponent,
     CharacterComponent,
     CharacterCreateComponent,
+    HouseCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +76,7 @@ import { YearlineComponent } from './timeline/yearline/yearline.component';
     MatProgressBarModule,
     MatListModule,
     MatIconModule,
+    MatAutocompleteModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],

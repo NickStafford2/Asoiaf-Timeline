@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { House, HouseData } from './house.service';
+import { House, HouseData } from './house.interface';
 import { ConfigService } from '../config.service';
 
 @Injectable({

@@ -1,4 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
+// todo: get rid of this file.
 
 export interface timelineItemStore {
   getEarliestTimestamp(): number;
