@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
-import { TimelineDate } from '../_library';
+import { TimelineDate } from './timeline.interface';
 
 @Injectable({
   providedIn: 'root',

@@ -2,5 +2,6 @@
   *ngFor="let r of this.rowService.row$ | async"
   appTimelineChild
   [xyOffset$]="r.xyOffset$"
-  [height$]="r.height$">
+  [height$]="r.height$"
+  [character]="r.character">
 </app-row-label>

@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { MomentHttpService } from './moment-http.service';
-import { NSMoment, timelineItemStore } from '../_library';
+import { NSMoment } from '../_library';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MomentService implements timelineItemStore {
+export class MomentService {
   private _moment$: BehaviorSubject<NSMoment[]> = new BehaviorSubject<
     NSMoment[]
   >([]);

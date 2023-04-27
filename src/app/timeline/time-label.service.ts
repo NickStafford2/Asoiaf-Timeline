@@ -3,13 +3,13 @@ import * as moment from 'moment';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { TimelineDateService } from './timeline-date.service';
-import { TimelineService } from './timeline.service';
 import {
   TimelineTimeLabel,
   TimelineDate,
   TimelineChild,
   XYOffset,
-} from '../_library';
+} from './timeline.interface';
+import { TimelineService } from './timeline.service';
 
 @Injectable({
   providedIn: 'root',

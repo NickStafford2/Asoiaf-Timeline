@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { TimelineDateService } from './timeline-date.service';
+import { TimelineChild, TimelineDate, XYOffset } from './timeline.interface';
 import { TimelineService } from './timeline.service';
-import { TimelineChild, TimelineDate, XYOffset } from '../_library';
 
 @Injectable({
   providedIn: 'root',

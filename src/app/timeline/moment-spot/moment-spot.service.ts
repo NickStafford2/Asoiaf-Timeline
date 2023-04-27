@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { NSMoment, TimelineMoment, XYOffset } from '../../_library';
+import { NSMoment } from '../../_library';
 import { MomentService } from '../../moment/moment.service';
 import { RowService } from '../row/row.service';
 import { TimeLabelService } from '../time-label.service';
 import { TimelineService } from '../timeline.service';
+import { TimelineMoment, XYOffset } from '../timeline.interface';
 
 @Injectable({
   providedIn: 'root',

@@ -21,10 +21,14 @@ export class TimelineComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // tell the timelineService the current canvas size
-    const width = this.hostElement.nativeElement.offsetWidth;
+    const el = this.hostElement.nativeElement as HTMLElement;
+    const width = el.offsetWidth;
     this.timelineService.setFullTimelineWidth(width);
 
     this.configureCanvasResize();
+    this.timelineService.heightInPixles$.subscribe((height: number) => {
+      el.style.height = height + 'px';
+    });
   }
 
   // tell the timelineService if the canvas size ever changes.

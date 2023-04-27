@@ -17,6 +17,12 @@ export class TimelineService {
   readonly widthInPixles$: Observable<number> =
     this._widthInPixles$.asObservable();
 
+  private _heightInPixles$: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
+
+  readonly heightInPixles$: Observable<number> =
+    this._heightInPixles$.asObservable();
+
   // todo: make this a normal private variable
   private _pixlesPerMillisecond$: BehaviorSubject<number> =
     new BehaviorSubject<number>(0);
@@ -90,6 +96,10 @@ export class TimelineService {
   private _onWidthChanged(newWidth: number): void {
     this._updatePixelsPerMillisecond(newWidth);
     //this._redraw$.next();
+  }
+
+  setHeight(height: number): void {
+    this._heightInPixles$.next(height);
   }
 }
 
