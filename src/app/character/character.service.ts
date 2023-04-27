@@ -19,25 +19,25 @@ export class CharacterService {
   // todo: use this to show during http requests.
   private _progres$ = new BehaviorSubject<any>({});
 
-  public readonly progress$ = this._progres$.asObservable();
+  readonly progress$ = this._progres$.asObservable();
 
   constructor(private characterHttpService: CharacterHttpService) {
     this.fetchData();
   }
 
-  public create(newCharacter: CharacterCreateData) {
+  create(newCharacter: CharacterCreateData) {
     this.characterHttpService.create(newCharacter).subscribe(() => {
       this.fetchData();
     });
   }
 
-  public update(updatedCharacter: CharacterData) {
+  update(updatedCharacter: CharacterData) {
     this.characterHttpService.update(updatedCharacter).subscribe(() => {
       this.fetchData();
     });
   }
 
-  public delete(characterId: string) {
+  delete(characterId: string) {
     this.characterHttpService.delete(characterId).subscribe(() => {
       this.fetchData();
     });

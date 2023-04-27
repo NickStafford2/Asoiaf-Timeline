@@ -54,6 +54,10 @@ module.exports = {
         ],
         '@typescript-eslint/member-ordering': 0,
         '@typescript-eslint/naming-convention': 0,
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          { accessibility: 'no-public' }
+        ],
         // these next 4 unused-imports rulse make the -fix work. 
         "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
         "unused-imports/no-unused-imports": "error",
