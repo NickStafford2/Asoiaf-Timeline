@@ -7,7 +7,7 @@
 module.exports = {
   root: true,
   ignorePatterns: ['projects/**/*'],
-  plugins: ["import"],
+  plugins: ["import", "unused-imports"],
   settings: {
     'import/resolver': {
       typescript: {
