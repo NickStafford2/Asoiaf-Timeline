@@ -29,8 +29,8 @@ export class MomentHttpService {
       name: newMoment.name,
       timestamp: newMoment.timestamp,
     };
-    this.http.post<NSMomentData>('api/Moments', copy).subscribe(r => {
-      const x = 0;
+    this.http.post<NSMomentData>('api/Moments', copy).subscribe(() => {
+      console.log('moment.post');
     });
     /*.pipe(
       catchError(this.handleError('create', newMoment))

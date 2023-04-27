@@ -13,7 +13,7 @@ export class CharacterClass {
 
   constructor(data: CharacterData) {
     if (!data.id) {
-      throw 'id does not exist';
+      console.error('id does not exist');
     }
     this.id = typeof data.id === 'string' && data.id ? data.id : '';
     this.firstName =

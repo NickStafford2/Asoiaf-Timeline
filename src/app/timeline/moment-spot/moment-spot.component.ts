@@ -12,15 +12,6 @@ export class MomentSpotComponent /*implements OnChanges*/ {
 
   public name: string = 'test';
 
-  constructor() {
-    /*this.timelineDateService.datesChanged$.subscribe(() => {
-      console.log(this);
-      const t = this.moment.timestamp;
-      const m: moment.Moment = moment();
-      let x = 0;
-    })
-    */
-  }
   /*
   ngOnChanges(changes: SimpleChanges): void {
     changes

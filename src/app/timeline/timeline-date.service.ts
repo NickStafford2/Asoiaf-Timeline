@@ -48,7 +48,7 @@ export class TimelineDateService {
     const end: number = this.getEnd();
 
     if (start < end) {
-      const x = 0;
+      console.log('error');
     }
 
     this._setMonths(start, end);
@@ -140,7 +140,7 @@ export class TimelineDateService {
 
   public setDateRange(startTimestamp: number, endTimestamp: number): void {
     if (endTimestamp < startTimestamp) {
-      throw 'end date < start date';
+      console.error('end date < start date');
     }
     this._startDate = startTimestamp;
     this._endDate = endTimestamp;

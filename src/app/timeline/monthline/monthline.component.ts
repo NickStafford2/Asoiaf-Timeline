@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './monthline.component.html',
   styleUrls: ['./monthline.component.scss'],
 })
-export class MonthlineComponent {
-  constructor() {}
-}
+export class MonthlineComponent {}
