@@ -10,7 +10,7 @@ import { TimelineMoment } from '../../_library';
 export class MomentSpotComponent /*implements OnChanges*/ {
   @Input() moment!: TimelineMoment;
 
-  public name: string = 'test';
+  name: string = 'test';
 
   /*
   ngOnChanges(changes: SimpleChanges): void {

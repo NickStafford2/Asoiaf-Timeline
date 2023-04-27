@@ -10,7 +10,7 @@ import { CharacterService } from '../character.service';
   styleUrls: ['./character-create.component.scss'],
 })
 export class CharacterCreateComponent {
-  public createForm: FormGroup = new FormGroup({
+  createForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]), // add updateOn: 'blur'
     lastName: new FormControl('', [Validators.required]),
     nickName: new FormControl(''),
@@ -20,7 +20,7 @@ export class CharacterCreateComponent {
 
   constructor(public characterService: CharacterService) {}
 
-  public onCreate() {
+  onCreate() {
     console.log(this.createForm);
     const f = this.createForm.value;
     const newCharacter: CharacterCreateData = {

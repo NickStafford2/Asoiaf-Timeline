@@ -13,7 +13,7 @@ export class YearLabelComponent {
   @ViewChild('yearText') yearTextDiv?: ElementRef;
   //@ViewChild(TimelineChildDirective) vc?: TimelineChildDirective;
 
-  public padding = '0px';
+  padding = '0px';
 
   /*
   // not sure if this needs to be afterViewInit.

@@ -18,18 +18,18 @@ export class TimeLabelService {
   private _month$: BehaviorSubject<Array<TimelineTimeLabel>> =
     new BehaviorSubject<Array<TimelineTimeLabel>>([]);
 
-  public readonly month$: Observable<Array<TimelineTimeLabel>> =
+  readonly month$: Observable<Array<TimelineTimeLabel>> =
     this._month$.asObservable();
 
   private _year$: BehaviorSubject<Array<TimelineTimeLabel>> =
     new BehaviorSubject<Array<TimelineTimeLabel>>([]);
 
-  public readonly year$: Observable<Array<TimelineTimeLabel>> =
+  readonly year$: Observable<Array<TimelineTimeLabel>> =
     this._year$.asObservable();
 
-  public readonly yearLabelHeight: number = 30;
+  readonly yearLabelHeight: number = 30;
 
-  public readonly monthLabelHeight: number = 30;
+  readonly monthLabelHeight: number = 30;
 
   constructor(
     private _timelineDateService: TimelineDateService,
@@ -127,7 +127,7 @@ export class TimeLabelService {
     this._year$.next(yearsCopy);
   }
 
-  public getTimeLabelRowHeight() {
+  getTimeLabelRowHeight() {
     return this.yearLabelHeight + this.monthLabelHeight;
   }
 }

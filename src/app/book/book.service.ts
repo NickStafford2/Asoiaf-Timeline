@@ -11,7 +11,7 @@ import { Book } from '../_library';
 export class BookService {
   private _book$: BehaviorSubject<Book[]> = new BehaviorSubject<Book[]>([]);
 
-  public book$: Observable<Book[]> = this._book$.asObservable();
+  book$: Observable<Book[]> = this._book$.asObservable();
 
   constructor(private _bookHttpService: BookHttpService) {
     this._loadAll();

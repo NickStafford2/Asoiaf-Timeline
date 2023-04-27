@@ -13,21 +13,19 @@ export class LinesService {
     TimelineChild[]
   >([]);
 
-  public readonly month$: Observable<TimelineChild[]> =
-    this._month$.asObservable();
+  readonly month$: Observable<TimelineChild[]> = this._month$.asObservable();
 
   private _year$: BehaviorSubject<TimelineChild[]> = new BehaviorSubject<
     TimelineChild[]
   >([]);
 
-  public readonly year$: Observable<TimelineChild[]> =
-    this._year$.asObservable();
+  readonly year$: Observable<TimelineChild[]> = this._year$.asObservable();
 
-  public readonly yOffset: number = 0;
+  readonly yOffset: number = 0;
 
-  public readonly monthWidth: number = 1;
+  readonly monthWidth: number = 1;
 
-  public readonly yearWidth: number = 3;
+  readonly yearWidth: number = 3;
 
   constructor(
     private _timelineDateService: TimelineDateService,

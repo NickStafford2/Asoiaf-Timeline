@@ -14,10 +14,10 @@ export class MomentSpotService {
   private _moment$: BehaviorSubject<Array<TimelineMoment>> =
     new BehaviorSubject<Array<TimelineMoment>>([]);
 
-  public readonly moment$: Observable<Array<TimelineMoment>> =
+  readonly moment$: Observable<Array<TimelineMoment>> =
     this._moment$.asObservable();
 
-  public readonly width: number = 40;
+  readonly width: number = 40;
 
   constructor(
     private _timelineService: TimelineService,

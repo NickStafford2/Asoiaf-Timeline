@@ -9,25 +9,25 @@ import { MomentService } from '../moment/moment.service';
   providedIn: 'root',
 })
 export class TimelineService {
-  public readonly rowLabelWidth: number = 100; // pixels
+  readonly rowLabelWidth: number = 100; // pixels
 
   private _widthInPixles$: BehaviorSubject<number> =
     new BehaviorSubject<number>(0);
 
-  public readonly widthInPixles$: Observable<number> =
+  readonly widthInPixles$: Observable<number> =
     this._widthInPixles$.asObservable();
 
   // todo: make this a normal private variable
   private _pixlesPerMillisecond$: BehaviorSubject<number> =
     new BehaviorSubject<number>(0);
 
-  public readonly pixlesPerMillisecond$: Observable<number> =
+  readonly pixlesPerMillisecond$: Observable<number> =
     this._pixlesPerMillisecond$.asObservable();
 
   // tell timeline to redraw the canvas
   private _redraw$: Subject<void> = new Subject();
 
-  public readonly redraw$: Observable<void> = this._redraw$.asObservable();
+  readonly redraw$: Observable<void> = this._redraw$.asObservable();
 
   constructor(
     private timelineDateService: TimelineDateService,
@@ -40,7 +40,7 @@ export class TimelineService {
     this.momentService.onUpdate$.subscribe(this._updateDateRange.bind(this));
   }
 
-  public getPixelsForTimestamp(timestamp: number): number {
+  getPixelsForTimestamp(timestamp: number): number {
     // todo: make room for row labels
     const start: number = this.timelineDateService.getStart();
     const timeDifference: number = timestamp - start;
@@ -50,16 +50,16 @@ export class TimelineService {
     return offset;
   }
 
-  public getPixelsForDuration(duration: number): number {
+  getPixelsForDuration(duration: number): number {
     return duration * this._pixlesPerMillisecond$.getValue();
   }
 
-  public setFullTimelineWidth(width: number): void {
+  setFullTimelineWidth(width: number): void {
     console.log('setFullTimelineWidth: ', width);
     this._widthInPixles$.next(width);
   }
 
-  public redrawCanvas(): void {
+  redrawCanvas(): void {
     console.log('redraw called');
     this._redraw$.next();
   }

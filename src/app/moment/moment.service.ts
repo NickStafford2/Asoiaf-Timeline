@@ -12,15 +12,15 @@ export class MomentService implements timelineItemStore {
     NSMoment[]
   >([]);
 
-  public readonly moment$: Observable<any> = this._moment$.asObservable();
+  readonly moment$: Observable<any> = this._moment$.asObservable();
 
   private _onUpdate$: Subject<void> = new Subject();
 
-  public readonly onUpdate$: Observable<void> = this._onUpdate$.asObservable();
+  readonly onUpdate$: Observable<void> = this._onUpdate$.asObservable();
 
   constructor(private momentService: MomentHttpService) {}
 
-  public loadAllMoments() {
+  loadAllMoments() {
     this.momentService.getMoments().subscribe((response: NSMoment[]) => {
       this._moment$.next(response);
       console.log('MomentStore loaded All Moments');
@@ -28,7 +28,7 @@ export class MomentService implements timelineItemStore {
     });
   }
 
-  public getEarliestTimestamp(): number {
+  getEarliestTimestamp(): number {
     let earliest = Infinity;
     this._moment$.getValue().forEach((m: NSMoment) => {
       earliest = Math.min(earliest, m.timestamp);
@@ -36,7 +36,7 @@ export class MomentService implements timelineItemStore {
     return earliest;
   }
 
-  public getLatestTimestamp(): number {
+  getLatestTimestamp(): number {
     let latest = 0;
     this._moment$.getValue().forEach((m: NSMoment) => {
       latest = Math.max(latest, m.timestamp);
@@ -44,7 +44,7 @@ export class MomentService implements timelineItemStore {
     return latest;
   }
 
-  public getMoments(): NSMoment[] {
+  getMoments(): NSMoment[] {
     const copy: NSMoment[] = [];
     this._moment$.getValue().forEach((moment: NSMoment) => {
       copy.push(Object.assign({}, moment));

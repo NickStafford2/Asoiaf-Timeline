@@ -12,15 +12,15 @@ import { TimelineService } from './timeline/timeline.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  public moments: any;
+  moments: any;
 
-  public count: any;
+  count: any;
 
   title = 'angularapp';
 
-  public startDate = new FormControl(new Date());
+  startDate = new FormControl(new Date());
 
-  public endDate = new FormControl(new Date());
+  endDate = new FormControl(new Date());
 
   constructor(
     public momentStoreService: MomentService,

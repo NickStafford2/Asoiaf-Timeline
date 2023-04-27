@@ -12,7 +12,7 @@ export class BookHttpService {
 
   constructor(private _http: HttpClient) {}
 
-  public loadAll(): Observable<Book[]> {
+  loadAll(): Observable<Book[]> {
     return this._http.get<Book[]>(this.url);
   }
 }

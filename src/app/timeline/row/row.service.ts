@@ -12,12 +12,11 @@ export class RowService {
     Array<TimelineRow>
   >([]);
 
-  public readonly row$: Observable<Array<TimelineRow>> =
-    this._row$.asObservable();
+  readonly row$: Observable<Array<TimelineRow>> = this._row$.asObservable();
 
-  public readonly defaultHeight: number = 80;
+  readonly defaultHeight: number = 80;
 
-  public readonly xOffset: number = 0;
+  readonly xOffset: number = 0;
 
   constructor(private _timeLabelService: TimeLabelService) {
     this._addRow();

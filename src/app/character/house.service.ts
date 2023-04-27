@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
 import { HouseHttpService } from './house-http.service';
 
 @Injectable({
@@ -11,10 +11,9 @@ export class HouseService {
 
   readonly house$ = this._house$.asObservable();
 
-  constructor(private houseHttpService: HouseHttpService) { }
+  constructor(private houseHttpService: HouseHttpService) {}
 
-  //create() 
-
+  //create()
 }
 
 export interface House extends HouseData {

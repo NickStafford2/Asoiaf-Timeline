@@ -8,27 +8,21 @@ import { TimelineDate } from '../_library';
   providedIn: 'root',
 })
 export class TimelineDateService {
-  public readonly defaultStartTimestamp: number = new Date(
-    '01/01/2020'
-  ).getTime();
+  readonly defaultStartTimestamp: number = new Date('01/01/2020').getTime();
 
-  public readonly defaultEndTimestamp: number = new Date(
-    '01/01/2024'
-  ).getTime();
+  readonly defaultEndTimestamp: number = new Date('01/01/2024').getTime();
 
   private _month$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<
     TimelineDate[]
   >([]);
 
-  public readonly month$: Observable<TimelineDate[]> =
-    this._month$.asObservable();
+  readonly month$: Observable<TimelineDate[]> = this._month$.asObservable();
 
   private _year$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<
     TimelineDate[]
   >([]);
 
-  public readonly year$: Observable<TimelineDate[]> =
-    this._year$.asObservable();
+  readonly year$: Observable<TimelineDate[]> = this._year$.asObservable();
 
   private _startDate: number = this.defaultStartTimestamp;
 
@@ -36,8 +30,7 @@ export class TimelineDateService {
 
   private _datesChanged$: Subject<void> = new Subject();
 
-  public readonly datesChanged$: Observable<void> =
-    this._datesChanged$.asObservable();
+  readonly datesChanged$: Observable<void> = this._datesChanged$.asObservable();
 
   constructor() {
     this._datesChanged$.subscribe(this.onDatesChanged.bind(this));
@@ -120,25 +113,25 @@ export class TimelineDateService {
     this._month$.next(months); // array should be sorted
   }
 
-  public getSmallestYear(): number {
+  getSmallestYear(): number {
     return this._year$.getValue()[0].startTime;
   }
 
-  public getLargestYear(): number {
+  getLargestYear(): number {
     const x = this._year$.getValue();
     return x[x.length].startTime;
   }
 
-  public getSmallestMonth(): number {
+  getSmallestMonth(): number {
     return this._month$.getValue()[0].startTime;
   }
 
-  public getLargestMonth(): number {
+  getLargestMonth(): number {
     const x = this._month$.getValue();
     return x[x.length].startTime;
   }
 
-  public setDateRange(startTimestamp: number, endTimestamp: number): void {
+  setDateRange(startTimestamp: number, endTimestamp: number): void {
     if (endTimestamp < startTimestamp) {
       console.error('end date < start date');
     }
@@ -148,24 +141,20 @@ export class TimelineDateService {
     this._datesChanged$.next();
   }
 
-  public getDuration(): number {
+  getDuration(): number {
     return this._endDate - this._startDate;
     //return this._endDate$.getValue().getTime() - this._startDate$.getValue().getTime();
   }
 
-  public getStart(): number {
+  getStart(): number {
     return this._startDate;
   }
 
-  public getEnd(): number {
+  getEnd(): number {
     return this._endDate;
   }
 
-  public editStart(
-    operation: string,
-    positiveInt: number,
-    duration: string
-  ): void {
+  editStart(operation: string, positiveInt: number, duration: string): void {
     const m: moment.Moment = moment(this._startDate);
     if (operation === 'add') {
       if (duration === 'year') m.add(positiveInt, 'year');
@@ -179,11 +168,7 @@ export class TimelineDateService {
     this.setDateRange(m.valueOf(), this._endDate);
   }
 
-  public editEnd(
-    operation: string,
-    positiveInt: number,
-    duration: string
-  ): void {
+  editEnd(operation: string, positiveInt: number, duration: string): void {
     const m: moment.Moment = moment(this._endDate);
     if (operation === 'add') {
       if (duration === 'year') m.add(positiveInt, 'year');
@@ -197,7 +182,7 @@ export class TimelineDateService {
     this.setDateRange(this._startDate, m.valueOf());
   }
 
-  public getMonths(): TimelineDate[] {
+  getMonths(): TimelineDate[] {
     // deep copy
     const copy: TimelineDate[] = [];
     this._month$.getValue().forEach((month: TimelineDate) => {
@@ -206,7 +191,7 @@ export class TimelineDateService {
     return copy;
   }
 
-  public getYears(): TimelineDate[] {
+  getYears(): TimelineDate[] {
     const copy: TimelineDate[] = [];
     this._year$.getValue().forEach((year: TimelineDate) => {
       copy.push(Object.assign({}, year));

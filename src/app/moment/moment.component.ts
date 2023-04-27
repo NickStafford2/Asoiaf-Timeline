@@ -11,9 +11,9 @@ import { NSMoment } from '../_library';
 export class MomentComponent implements OnChanges {
   @Input() moment!: NSMoment;
 
-  public currentMoment!: NSMoment;
+  currentMoment!: NSMoment;
 
-  public selectedDate: any;
+  selectedDate: any;
 
   date = new FormControl(new Date());
 

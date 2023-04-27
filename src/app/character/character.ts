@@ -36,7 +36,7 @@ export class CharacterClass {
     return this.firstName + ' ' + this.lastName;
   }
 
-  public toObject() {
+  toObject() {
     return {
       id: this.id,
       firstName: this.firstName,
@@ -47,7 +47,7 @@ export class CharacterClass {
     };
   }
 
-  public serialize() {
+  serialize() {
     // the backend expects all these types to be correct. don't allow null in place
     // of an number or something.
     return JSON.stringify(this.toObject());

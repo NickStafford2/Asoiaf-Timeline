@@ -18,7 +18,7 @@ import { CharacterService } from './character.service';
 export class CharacterComponent implements OnChanges {
   @Input() character!: CharacterClass;
 
-  public updateForm: FormGroup = new FormGroup({
+  updateForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]), // add updateOn: 'blur'
     lastName: new FormControl(''),
     nickName: new FormControl(''),
@@ -32,7 +32,7 @@ export class CharacterComponent implements OnChanges {
     private fb: FormBuilder
   ) {}
 
-  public ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges): void {
     const character: CharacterClass = changes['character'].currentValue;
     if (character) {
       //console.log(character);
@@ -46,7 +46,7 @@ export class CharacterComponent implements OnChanges {
     }
   }
 
-  public onUpdate() {
+  onUpdate() {
     console.log(this.updateForm);
     const c = this.updateForm.value;
     const updatedCharacter: CharacterData = {
@@ -60,7 +60,7 @@ export class CharacterComponent implements OnChanges {
     this.characterService.update(updatedCharacter);
   }
 
-  public onDelete() {
+  onDelete() {
     this.characterService.delete(this.character.id);
   }
 

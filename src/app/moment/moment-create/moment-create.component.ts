@@ -20,7 +20,7 @@ export class MomentCreateComponent {
 
   constructor(private momentService: MomentHttpService) {}
 
-  public onSubmit() {
+  onSubmit() {
     //console.warn(this.momentForm.value);
     const ts: Date = this.momentForm.value.timestamp;
     const newMoment: NSMoment = {

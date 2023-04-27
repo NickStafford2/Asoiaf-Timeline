@@ -12,19 +12,19 @@ export class MomentHttpService {
 
   constructor(private http: HttpClient) {}
 
-  public getMoment(id: string) {
+  getMoment(id: string) {
     return this.http.get('api/Moments/' + id);
   }
 
-  public getMoments(): Observable<NSMoment[]> {
+  getMoments(): Observable<NSMoment[]> {
     return this.http.get<NSMoment[]>('api/Moments');
   }
 
-  public deleteMoment(id: string) {
+  deleteMoment(id: string) {
     return this.http.delete('api/Moments/' + id);
   }
 
-  public create(newMoment: NSMoment) {
+  create(newMoment: NSMoment) {
     const copy: NSMomentData = {
       name: newMoment.name,
       timestamp: newMoment.timestamp,
