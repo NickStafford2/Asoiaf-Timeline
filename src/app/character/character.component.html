@@ -20,7 +20,7 @@
 
   <ng-container formArrayName="houses">
     <ng-container *ngFor="let houseForm of houses.controls; let i = index">
-      <div [formGroupName]="i">
+      <div class="houses-container" [formGroupName]="i">
         <mat-form-field appearance="fill">
           <input matInput formControlName="houseName" placeholder="Baratheon" />
         </mat-form-field>

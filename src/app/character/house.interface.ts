@@ -12,4 +12,5 @@ export enum HouseType {
   great = 'Great',
   normal = 'Normal',
   exile = 'Exile',
+  extinct = 'Extinct',
 }
