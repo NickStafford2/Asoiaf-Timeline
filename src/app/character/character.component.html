@@ -18,6 +18,9 @@
 
   <mat-checkbox formControlName="isPov">POV</mat-checkbox>
 
+  <app-character-houses [houseIds]="character?.houses"></app-character-houses>
+
+  <!--
   <ng-container formArrayName="houses">
     <ng-container *ngFor="let houseForm of houses.controls; let i = index">
       <div class="houses-container" [formGroupName]="i">
@@ -30,6 +33,8 @@
       </div>
     </ng-container>
   </ng-container>
+
+  -->
   <!--
 
   <mat-list >
@@ -47,16 +52,16 @@
       </ng-container>
     </mat-list-item>
   </mat-list>
-    -->
+
 
   <button mat-mini-fab (click)="addHouse()">
     <mat-icon class="add-course-btn">add</mat-icon>
   </button>
-  <button
-    mat-raised-button
-    color="primary"
-    [disabled]="!updateForm.valid || updateForm.pristine"
-    (click)="onUpdate()">
+    -->
+  <button mat-raised-button
+          color="primary"
+          [disabled]="!updateForm.valid || updateForm.pristine"
+          (click)="onUpdate()">
     Update
   </button>
 

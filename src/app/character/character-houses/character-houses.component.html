@@ -1,0 +1,31 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let house of characterHouses">{{house.name}}</mat-list-item>
+</mat-list>
+
+<form class="house-add-form">
+  <mat-form-field>
+    <mat-label>House</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto" />
+    <mat-autocomplete #auto="matAutocomplete"
+                      [displayWith]="getOptionText"
+                      (valueChanges)="getPosts($event)">
+      <mat-option *ngFor="let option of filteredOptions | async"
+                  [value]="option.id"
+                  (click)="getSelectedCountry($event)"
+                 >
+        {{ option.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<!--
+<button mat-mini-fab (click)="addHouse()">
+  <mat-icon class="add-course-btn">add</mat-icon>
+</button>
+
+-->

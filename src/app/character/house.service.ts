@@ -39,4 +39,10 @@ export class HouseService {
       this._house$.next(results);
     });
   }
+
+  public getHouseFromId(id: string): House | undefined {
+    return this._house$.getValue().find((house: House) => {
+      return house.id === id;
+    });
+  }
 }
