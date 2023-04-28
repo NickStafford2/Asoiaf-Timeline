@@ -20,7 +20,9 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { CharacterCreateComponent } from './character/character-create/character-create.component';
 import { CharacterComponent } from './character/character.component';
+import { HouseComponent } from './house/house.component';
 import { HouseCreateComponent } from './house-create/house-create.component';
+import { HousesComponent } from './houses/houses.component';
 import { MomentCreateComponent } from './moment/moment-create/moment-create.component';
 import { MomentComponent } from './moment/moment.component';
 import { NsEventComponent } from './ns-event/ns-event.component';
@@ -34,8 +36,8 @@ import { TimelineChildDirective } from './timeline/timeline-child.directive';
 import { TimelineComponent } from './timeline/timeline.component';
 import { YearLabelComponent } from './timeline/year-label/year-label.component';
 import { YearlineComponent } from './timeline/yearline/yearline.component';
-import { HouseComponent } from './house/house.component';
-
+import { MatMenuModule } from '@angular/material/menu'; 
+import { MatSelectModule } from '@angular/material/select';
 //import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 //testing again
@@ -60,6 +62,7 @@ import { HouseComponent } from './house/house.component';
     CharacterCreateComponent,
     HouseCreateComponent,
     HouseComponent,
+    HousesComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,8 @@ import { HouseComponent } from './house/house.component';
     MatListModule,
     MatIconModule,
     MatAutocompleteModule,
+    MatMenuModule,
+    MatSelectModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],

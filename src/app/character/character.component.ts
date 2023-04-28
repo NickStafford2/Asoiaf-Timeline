@@ -90,4 +90,5 @@ export class CharacterComponent implements OnChanges {
   deleteHouse(houseIndex: number) {
     this.houses.removeAt(houseIndex);
   }
+
 }

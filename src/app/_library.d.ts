@@ -1,6 +1,3 @@
-import { BehaviorSubject } from 'rxjs';
-
-
 // todo: get rid of this file. or rename it to timeline.interface.ts
 
 export interface NSMoment extends NSMomentData {

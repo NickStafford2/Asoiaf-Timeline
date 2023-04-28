@@ -5,8 +5,8 @@ import { NSMoment } from '../../_library';
 import { MomentService } from '../../moment/moment.service';
 import { RowService } from '../row/row.service';
 import { TimeLabelService } from '../time-label.service';
-import { TimelineService } from '../timeline.service';
 import { TimelineMoment, XYOffset } from '../timeline.interface';
+import { TimelineService } from '../timeline.service';
 
 @Injectable({
   providedIn: 'root',

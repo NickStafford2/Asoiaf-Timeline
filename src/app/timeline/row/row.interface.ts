@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
-import { CharacterClass } from '../../character/character';
 
+import { CharacterClass } from '../../character/character';
 import { XYOffset } from '../timeline.interface';
 
 export interface TimelineRow {

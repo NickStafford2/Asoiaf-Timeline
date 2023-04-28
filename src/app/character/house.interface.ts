@@ -8,7 +8,8 @@ export interface HouseData {
 }
 
 export enum HouseType {
-  bastard = 'bastard',
-  great = 'great',
-  normal = 'normal',
+  bastard = 'Bastard',
+  great = 'Great',
+  normal = 'Normal',
+  exile = 'Exile',
 }

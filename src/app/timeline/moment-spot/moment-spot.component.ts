@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { TimelineMoment } from '../timeline.interface';
 
+import { TimelineMoment } from '../timeline.interface';
 
 @Component({
   selector: 'app-moment-spot',

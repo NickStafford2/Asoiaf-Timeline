@@ -1,1 +1,45 @@
-<p>house works!</p>
+<form [formGroup]="updateForm">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Petyr" />
+    <mat-error *ngIf="updateForm.controls['name']?.errors?.['required']">required</mat-error>
+  </mat-form-field>
+
+  <mat-select [(value)]="selected" formControlName="type"> 
+    <mat-option *ngFor="let p of types" [value]="p">
+      {{ p }}
+    </mat-option>
+  </mat-select>
+
+  <button mat-raised-button
+          color="primary"
+          [disabled]="!updateForm.valid || updateForm.pristine"
+          (click)="onUpdate()">
+    Update
+  </button>
+
+  <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
+
+
+
+  <!--
+  <mat-select [(value)]="selectedProfile">
+    <mat-option *ngFor="let p of profiles" [value]="p">
+      {{ p.name }}
+    </mat-option>
+  </mat-select>
+
+
+
+  <mat-form-field >
+    <mat-label>Type</mat-label>
+    <mat-select formControlName="type"tabindex=" matNativeControl">
+      <mat-option *ngFor="let type of propertyType | keyvalue"
+                  [value]="type">
+                        {{type.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  -->
+
+</form>

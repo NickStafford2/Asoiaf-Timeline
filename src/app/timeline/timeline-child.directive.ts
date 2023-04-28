@@ -1,8 +1,8 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { TimelineService } from './timeline.service';
 import { XYOffset } from './timeline.interface';
+import { TimelineService } from './timeline.service';
 
 @Directive({
   selector: '[appTimelineChild]',

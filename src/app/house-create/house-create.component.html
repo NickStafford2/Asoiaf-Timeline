@@ -1,15 +1,18 @@
 <form class="house-create-form">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>House</mat-label>
-    <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
-           matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto">
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Number"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto" />
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="getOptionText">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option.name}}
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option">
+        {{ option.name }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

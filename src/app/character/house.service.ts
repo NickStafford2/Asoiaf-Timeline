@@ -27,8 +27,15 @@ export class HouseService {
     });
   }
 
+  update(updatedHouse: House) {
+    this.houseHttpService.update(updatedHouse).subscribe(() => {
+      this.fetchData();
+    });
+  }
+
   private fetchData() {
     this.houseHttpService.getAll().subscribe((results: House[]) => {
+      console.log(results);
       this._house$.next(results);
     });
   }

@@ -1,7 +1,7 @@
 import { AfterViewInit, Directive, ElementRef, OnInit } from '@angular/core';
 
+import { TimelineService } from './timeline.service';
 
-import { TimelineService } from './timeline.service';
 @Directive({
   selector: '[appTimelineFullHeight]',
 })
