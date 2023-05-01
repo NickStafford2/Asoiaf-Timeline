@@ -40,9 +40,38 @@ export class HouseService {
     });
   }
 
-  public getHouseFromId(id: string): House | undefined {
+  private getHouse(id: string): House | undefined {
     return this._house$.getValue().find((house: House) => {
       return house.id === id;
     });
+  }
+
+  public getHouseFromId(id: string): House | undefined {
+    const real: House | undefined = this._house$
+      .getValue()
+      .find((house: House) => {
+        return house.id === id;
+      });
+    if (!real) {
+      return real;
+    } else {
+      const copy = Object.assign({}, real);
+      return copy;
+    }
+  }
+
+  public getHouses(): House[] {
+    const copy: House[] = [];
+    this._house$.getValue().forEach((house: House) => {
+      const c = Object.assign({}, house);
+      copy.push(c);
+    });
+    return copy;
+  }
+
+  public getHouseName(id: string): string {
+    const house = this.getHouse(id);
+    if (house) return house.name;
+    return '';
   }
 }

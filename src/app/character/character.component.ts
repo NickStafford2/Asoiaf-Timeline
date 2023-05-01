@@ -18,13 +18,15 @@ import { CharacterService } from './character.service';
 export class CharacterComponent implements OnChanges {
   @Input() character!: CharacterClass;
 
+  private houseIdsFromChild: string[] = [];
+
   updateForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]), // add updateOn: 'blur'
     lastName: new FormControl(''),
     nickName: new FormControl(''),
     isPov: new FormControl(false),
     //houses: new FormControl([]),
-    houses: this.fb.array([]),
+    //houses: this.fb.array([]),
   });
 
   constructor(
@@ -40,7 +42,7 @@ export class CharacterComponent implements OnChanges {
       this.updateForm.controls['lastName'].setValue(character.lastName);
       this.updateForm.controls['nickName'].setValue(character.nickName);
       this.updateForm.controls['isPov'].setValue(character.isPov);
-      this.updateForm.controls['houses'].setValue(character.houses);
+      //this.updateForm.controls['houses'].setValue(character.houses);
       //this.updateForm.controls['houses'].setValue(['stark', 'lannister', 'baratheon', 'snow']);
       this.updateForm.markAsPristine();
     }
@@ -55,7 +57,7 @@ export class CharacterComponent implements OnChanges {
       lastName: c.lastName,
       nickName: c.nickName,
       isPov: c.isPov,
-      houses: c.houses,
+      houses: this.houseIdsFromChild,
     };
     this.characterService.update(updatedCharacter);
   }
@@ -72,6 +74,7 @@ export class CharacterComponent implements OnChanges {
     return this.updateForm.controls['lastName'];
   }
 
+  /*
   get houses() {
     return this.updateForm.controls['houses'] as FormArray;
     //console.log(this.updateForm.controls['houses']);
@@ -85,9 +88,19 @@ export class CharacterComponent implements OnChanges {
       //level: ['beginner', Validators.required]
     });
     this.houses.push(houseForm);
+    this.updateForm.markAsDirty ();
+
   }
+
 
   deleteHouse(houseIndex: number) {
     this.houses.removeAt(houseIndex);
+  }
+  */
+
+  // called from child element
+  onHouseIdsChanged(ids: string[]) {
+    this.houseIdsFromChild = ids;
+    this.updateForm.markAsDirty();
   }
 }

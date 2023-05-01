@@ -19,74 +19,67 @@
 </button>
 
 <div class="timeline-date-controls">
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="timelineDateService.editStart('subtract', 1, 'year')"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="timelineDateService.editStart('subtract', 1, 'year')"
+          class="timeline-date-control-button">
     -year
   </button>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="timelineDateService.editStart('subtract', 1, 'month')"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="timelineDateService.editStart('subtract', 1, 'month')"
+          class="timeline-date-control-button">
     -month
   </button>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="timelineDateService.editStart('add', 1, 'month')"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="timelineDateService.editStart('add', 1, 'month')"
+          class="timeline-date-control-button">
     +month
   </button>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="timelineDateService.editStart('add', 1, 'year')"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="timelineDateService.editStart('add', 1, 'year')"
+          class="timeline-date-control-button">
     +year
   </button>
 
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="setDateRangeDefault()"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="setDateRangeDefault()"
+          class="timeline-date-control-button">
     Set Default Date Range
   </button>
 
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="timelineDateService.editEnd('subtract', 1, 'year')"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="timelineDateService.editEnd('subtract', 1, 'year')"
+          class="timeline-date-control-button">
     -year
   </button>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="timelineDateService.editEnd('subtract', 1, 'month')"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="timelineDateService.editEnd('subtract', 1, 'month')"
+          class="timeline-date-control-button">
     -month
   </button>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="timelineDateService.editEnd('add', 1, 'month')"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="timelineDateService.editEnd('add', 1, 'month')"
+          class="timeline-date-control-button">
     +month
   </button>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="timelineDateService.editEnd('add', 1, 'year')"
-    class="timeline-date-control-button">
+  <button mat-raised-button
+          color="primary"
+          (click)="timelineDateService.editEnd('add', 1, 'year')"
+          class="timeline-date-control-button">
     +year
   </button>
 </div>
 
 <br />
+<app-filter></app-filter>
+
 <div class="timeline-containter">
   <app-timeline></app-timeline>
 </div>
@@ -97,9 +90,8 @@
 
 <h3>Characters</h3>
 <div class="character-list">
-  <app-character
-    *ngFor="let character of this.characterService.character$ | async"
-    [character]="character">
+  <app-character *ngFor="let character of this.characterService.character$ | async"
+                 [character]="character">
   </app-character>
 </div>
 <app-character-create></app-character-create>
@@ -110,7 +102,6 @@
 <app-moment-create></app-moment-create>
 
 <div class="moment-list">
-  <app-moment
-    *ngFor="let m of momentStoreService.moment$ | async"
-    [moment]="m"></app-moment>
+  <app-moment *ngFor="let m of momentStoreService.moment$ | async"
+              [moment]="m"></app-moment>
 </div>

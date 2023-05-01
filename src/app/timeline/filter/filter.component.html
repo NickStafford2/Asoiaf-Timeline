@@ -1,0 +1,22 @@
+<div class="filter-list">
+  <h3>Houses</h3>
+  <ul>
+    <li *ngFor="let houseId of filterService.houseId$ | async">
+      <mat-checkbox>
+        {{this.houseService.getHouseName(houseId)}}
+      </mat-checkbox>
+    </li>
+  </ul>
+</div>
+
+
+<div class="filter-list">
+  <h3>Characters</h3>
+  <ul>
+    <li *ngFor="let characterId of filterService.characterId$ | async">
+      <mat-checkbox>
+        {{this.characterService.getCharacterName(characterId)}}
+      </mat-checkbox>
+    </li>
+  </ul>
+</div>

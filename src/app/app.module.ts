@@ -39,6 +39,7 @@ import { YearlineComponent } from './timeline/yearline/yearline.component';
 import { MatMenuModule } from '@angular/material/menu'; 
 import { MatSelectModule } from '@angular/material/select';
 import { CharacterHousesComponent } from './character/character-houses/character-houses.component';
+import { FilterComponent } from './timeline/filter/filter.component';
 //import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 //testing again
@@ -65,6 +66,7 @@ import { CharacterHousesComponent } from './character/character-houses/character
     HouseComponent,
     HousesComponent,
     CharacterHousesComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

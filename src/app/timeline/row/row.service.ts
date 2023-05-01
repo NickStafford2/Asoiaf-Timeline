@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { TimelineCharacterRow } from './row.interface';
 import { CharacterClass } from '../../character/character';
 import { CharacterService } from '../../character/character.service';
+import { FilterService } from '../filter/filter.service';
 import { TimeLabelService } from '../time-label.service';
 import { XYOffset } from '../timeline.interface';
 import { TimelineService } from '../timeline.service';
@@ -24,10 +25,13 @@ export class RowService {
   constructor(
     private timeLabelService: TimeLabelService,
     private characterService: CharacterService,
-    private timelineService: TimelineService
+    private timelineService: TimelineService,
+    private filterService: FilterService
   ) {
     this.characterService.character$.subscribe(
       (characters: CharacterClass[]) => {
+        //const newRows: TimelineCharacterRow = [];
+        this._row$.next([]);
         characters.forEach((character: CharacterClass) => {
           console.log(character);
           this.addRow(character);

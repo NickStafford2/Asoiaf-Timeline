@@ -14,3 +14,9 @@ export enum HouseType {
   exile = 'Exile',
   extinct = 'Extinct',
 }
+
+export function houseSortCompareFn(a: House, b: House): number {
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+}

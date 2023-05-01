@@ -52,4 +52,17 @@ export class CharacterService {
       this._character$.next(characters);
     });
   }
+
+  // todo: make a copy if made public
+  private getCharacterFromId(id: string): CharacterClass | undefined {
+    return this._character$.getValue().find((character: CharacterClass) => {
+      return character.id === id;
+    });
+  }
+
+  getCharacterName(id: string): string {
+    const character: CharacterClass | undefined = this.getCharacterFromId(id);
+    if (character) return character.fullName;
+    return '';
+  }
 }
