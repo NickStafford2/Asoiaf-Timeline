@@ -45,7 +45,7 @@ export class CharacterHousesComponent implements OnInit, OnChanges {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => {
-        console.log('map', value);
+        //console.log('map', value);
         return this._filter(value);
       })
     );
@@ -64,7 +64,7 @@ export class CharacterHousesComponent implements OnInit, OnChanges {
 
   // value is what is entered into the textbox???
   private _filter(value: string): House[] {
-    console.log(value);
+    //console.log(value);
     const filterValue = value.toLowerCase();
     const allHouses: House[] = this.houseService.getHouses();
 

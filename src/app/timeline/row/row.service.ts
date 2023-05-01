@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { TimelineCharacterRow } from './row.interface';
-import { CharacterClass } from '../../character/character';
 import { CharacterService } from '../../character/character.service';
 import { FilterService } from '../filter/filter.service';
 import { TimeLabelService } from '../time-label.service';
@@ -28,28 +27,26 @@ export class RowService {
     private timelineService: TimelineService,
     private filterService: FilterService
   ) {
-    this.characterService.character$.subscribe(
-      (characters: CharacterClass[]) => {
-        //const newRows: TimelineCharacterRow = [];
-        this._row$.next([]);
-        characters.forEach((character: CharacterClass) => {
-          console.log(character);
-          this.addRow(character);
-        });
-        const height = this.getHeight();
-        this.timelineService.setHeight(height);
-      }
-    );
+    this.filterService.selectedCharacterId$.subscribe((characterIds: string[]) => {
+      //const newRows: TimelineCharacterRow = [];
+      this._row$.next([]);
+      characterIds.forEach((id: string) => {
+        //console.log(character);
+        this.addRow(id);
+      });
+      const height = this.getHeight();
+      this.timelineService.setHeight(height);
+    });
   }
 
-  private addRow(character: CharacterClass) {
+  private addRow(characterId: string) {
     const yOffset: number = this.getHeight();
     const xyOffset: XYOffset = { xOffset: this.xOffset, yOffset };
 
     const newRow: TimelineCharacterRow = {
       height$: new BehaviorSubject<number>(this.defaultHeight),
       xyOffset$: new BehaviorSubject<XYOffset>(xyOffset),
-      character: character,
+      characterId: characterId,
     };
 
     const rows: Array<TimelineCharacterRow> = this._row$.getValue();

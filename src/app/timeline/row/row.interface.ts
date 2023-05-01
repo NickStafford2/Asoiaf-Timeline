@@ -1,6 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
 
-import { CharacterClass } from '../../character/character';
 import { XYOffset } from '../timeline.interface';
 
 export interface TimelineRow {
@@ -9,5 +8,5 @@ export interface TimelineRow {
 }
 
 export interface TimelineCharacterRow extends TimelineRow {
-  character: CharacterClass;
+  characterId: string;
 }

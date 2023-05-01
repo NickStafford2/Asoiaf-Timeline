@@ -13,9 +13,10 @@
 <div class="filter-list">
   <h3>Characters</h3>
   <ul>
-    <li *ngFor="let characterId of filterService.characterId$ | async">
-      <mat-checkbox>
-        {{this.characterService.getCharacterName(characterId)}}
+    <li *ngFor="let character of characterService.character$ | async">
+      <mat-checkbox (change)="onCheckboxClicked($event, character.id)"
+                    [checked]="filterService.getHouseSelected(character.id)">
+        {{this.characterService.getCharacterName(character.id)}}
       </mat-checkbox>
     </li>
   </ul>
