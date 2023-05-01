@@ -19,9 +19,6 @@ export class FilterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.filterService.characterId$.subscribe((x: any) => {
-      console.log(x);
-    })
   }
 
   onCheckboxClicked($event: MatCheckboxChange, characterId: string) {

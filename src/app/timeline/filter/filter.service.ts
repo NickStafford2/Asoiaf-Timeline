@@ -12,8 +12,6 @@ export class FilterService {
 
   private _characterId$ = new BehaviorSubject<Map<string, boolean>>(new Map<string, boolean>());
 
-  readonly characterId$ = this._characterId$.asObservable();
-
   private _selectedCharacterId$ = new BehaviorSubject<string[]>([]);
 
   readonly selectedCharacterId$ = this._selectedCharacterId$.asObservable();
