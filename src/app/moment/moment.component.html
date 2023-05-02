@@ -10,7 +10,8 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <app-character-list [characterIds]="moment?.characters"></app-character-list>
+  <app-character-list [characterIds]="characters"></app-character-list>
+  <app-character-select-autocomplete (selectedCharacter)="addCharacter($event)"></app-character-select-autocomplete>
 
   <button mat-raised-button color="primary" (click)="save()">Save</button>
 </form>

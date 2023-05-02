@@ -1,5 +1,3 @@
-<p>character-select-autocomplete works!</p>
-
 <form class="house-add-form">
   <mat-form-field>
     <mat-label>House</mat-label>
@@ -15,8 +13,8 @@
                       [displayWith]="getOptionText">
 
       <mat-option *ngFor="let option of filteredOption$ | async"
-                  [value]="option.id"
-                  (click)="characterSelected($event)">
+                  [value]="option"
+                  (click)="characterSelected()">
         {{ option.fullName }}
       </mat-option>
     </mat-autocomplete>

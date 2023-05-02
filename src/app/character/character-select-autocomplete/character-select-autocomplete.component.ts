@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { map, Observable, startWith, tap } from 'rxjs';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { filter, map, Observable, startWith, tap } from 'rxjs';
 import { CharacterClass } from '../character';
 import { FormControl } from '@angular/forms';
 
@@ -11,24 +11,29 @@ import { CharacterService } from '../character.service';
   styleUrls: ['./character-select-autocomplete.component.scss'],
 })
 export class CharacterSelectAutocompleteComponent implements OnInit {
+  @Output() selectedCharacter = new EventEmitter<string>();
 
   myControl = new FormControl(null);
   filteredOption$?: Observable<CharacterClass[]>;
 
   constructor(private characterService: CharacterService) { }
 
-  
-
   ngOnInit(): void {
     this.filteredOption$ = this.myControl.valueChanges.pipe(
+      // sometimes is a character or a string
+      filter(value => {
+        return typeof value === 'string';
+      }),
       map((filterValue: string) => {
         return this.characterService.getCharactersMatching(filterValue);
       })
     )
   }
 
-  characterSelected($event: any) {
-    console.log($event)
+  characterSelected() {
+    const c: CharacterClass = this.myControl.value;
+    this.selectedCharacter.emit(c.id);
+    this.myControl.setValue('');
   }
 
   getOptionText(option: CharacterClass) {

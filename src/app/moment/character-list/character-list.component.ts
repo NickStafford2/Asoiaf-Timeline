@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
+import { CharacterClass } from '../../character/character';
 import { CharacterService } from '../../character/character.service';
 
 @Component({
@@ -23,5 +24,9 @@ export class CharacterListComponent implements OnInit {
 
   constructor(public characterService: CharacterService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  addCharacter($event: any) {
+    console.log($event);
+  }
 }
