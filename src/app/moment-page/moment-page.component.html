@@ -1,6 +1,7 @@
 <app-moment-create></app-moment-create>
 
 <div class="moment-list">
-  <app-moment *ngFor="let m of momentService.moment$ | async"
-              [moment]="m"></app-moment>
+  <app-moment
+    *ngFor="let m of momentService.moment$ | async"
+    [moment]="m"></app-moment>
 </div>

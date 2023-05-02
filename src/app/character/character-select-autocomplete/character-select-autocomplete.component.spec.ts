@@ -8,9 +8,8 @@ describe('CharacterSelectAutocompleteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharacterSelectAutocompleteComponent ]
-    })
-    .compileComponents();
+      declarations: [CharacterSelectAutocompleteComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter, from, map, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+
 import { CharacterClass } from '../../character/character';
 import { CharacterService } from '../../character/character.service';
-import { House, houseSortCompareFn } from '../../character/house.interface';
 import { HouseService } from '../../character/house.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilterService {
-
-  private _characterId$ = new BehaviorSubject<Map<string, boolean>>(new Map<string, boolean>());
+  private _characterId$ = new BehaviorSubject<Map<string, boolean>>(
+    new Map<string, boolean>()
+  );
 
   private _selectedCharacterId$ = new BehaviorSubject<string[]>([]);
 
@@ -25,12 +26,13 @@ export class FilterService {
 
   readonly visibleHouseId$ = this._visibleHouseId$.asObservable();
   */
-  constructor(private houseService: HouseService,
+  constructor(
+    private houseService: HouseService,
     private characterService: CharacterService
   ) {
     //this.houseService.house$.subscribe(this.setHouseIds.bind(this));
     this.characterService.character$.subscribe(this.setCharacters.bind(this));
-    this._characterId$.subscribe(this.setSelectedCharacterIds.bind(this))
+    this._characterId$.subscribe(this.setSelectedCharacterIds.bind(this));
   }
   /*
   private setHouseIds(houses: House[]) {
@@ -47,7 +49,7 @@ export class FilterService {
     const ids: Map<string, boolean> = new Map<string, boolean>();
     characters.forEach((character: CharacterClass) => {
       ids.set(character.id, true);
-    })
+    });
     //copy.sort(houseSortCompareFn)
     this._characterId$.next(ids);
   }
@@ -57,7 +59,7 @@ export class FilterService {
     ids.forEach((isSelected, id) => {
       console.log(id, isSelected);
       if (isSelected) {
-        selectedIds.push(id)
+        selectedIds.push(id);
       }
     });
     this._selectedCharacterId$.next(selectedIds);
@@ -69,8 +71,8 @@ export class FilterService {
     const mapCopy = new Map<string, boolean>();
     map.forEach((isChecked: boolean, id: string) => {
       mapCopy.set(id, isChecked);
-    })
-    const x = (mapCopy === map);
+    });
+    const x = mapCopy === map;
     this._characterId$.next(mapCopy);
   }
 

@@ -17,65 +17,72 @@
 </button>
 
 <div class="timeline-date-controls">
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editStart('subtract', 1, 'year')"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="timelineDateService.editStart('subtract', 1, 'year')"
+    class="timeline-date-control-button">
     -year
   </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editStart('subtract', 1, 'month')"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="timelineDateService.editStart('subtract', 1, 'month')"
+    class="timeline-date-control-button">
     -month
   </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editStart('add', 1, 'month')"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="timelineDateService.editStart('add', 1, 'month')"
+    class="timeline-date-control-button">
     +month
   </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editStart('add', 1, 'year')"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="timelineDateService.editStart('add', 1, 'year')"
+    class="timeline-date-control-button">
     +year
   </button>
 
-  <button mat-raised-button
-          color="primary"
-          (click)="setDateRangeDefault()"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="setDateRangeDefault()"
+    class="timeline-date-control-button">
     Set Default Date Range
   </button>
 
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editEnd('subtract', 1, 'year')"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="timelineDateService.editEnd('subtract', 1, 'year')"
+    class="timeline-date-control-button">
     -year
   </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editEnd('subtract', 1, 'month')"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="timelineDateService.editEnd('subtract', 1, 'month')"
+    class="timeline-date-control-button">
     -month
   </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editEnd('add', 1, 'month')"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="timelineDateService.editEnd('add', 1, 'month')"
+    class="timeline-date-control-button">
     +month
   </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editEnd('add', 1, 'year')"
-          class="timeline-date-control-button">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="timelineDateService.editEnd('add', 1, 'year')"
+    class="timeline-date-control-button">
     +year
   </button>
 </div>
-
-
 
 <div class="timeline-containter">
   <app-timeline></app-timeline>

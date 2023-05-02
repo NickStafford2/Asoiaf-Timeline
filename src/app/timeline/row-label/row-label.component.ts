@@ -13,9 +13,10 @@ export class RowLabelComponent implements OnChanges {
 
   public nameLabel: string = '';
 
-  constructor(public characterService: CharacterService,
+  constructor(
+    public characterService: CharacterService,
     private filterService: FilterService
-  ) { }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     const c = changes['characterId'].currentValue;

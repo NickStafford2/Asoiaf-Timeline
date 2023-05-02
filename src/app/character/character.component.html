@@ -18,8 +18,9 @@
 
   <mat-checkbox formControlName="isPov">POV</mat-checkbox>
 
-  <app-character-houses [houseIds]="character?.houses"
-                        (changeEvent)="onHouseIdsChanged($event)"></app-character-houses>
+  <app-character-houses
+    [houseIds]="character?.houses"
+    (changeEvent)="onHouseIdsChanged($event)"></app-character-houses>
 
   <!--
   <ng-container formArrayName="houses">
@@ -59,10 +60,11 @@
     <mat-icon class="add-course-btn">add</mat-icon>
   </button>
     -->
-  <button mat-raised-button
-          color="primary"
-          [disabled]="!updateForm.valid || updateForm.pristine"
-          (click)="onUpdate()">
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!updateForm.valid || updateForm.pristine"
+    (click)="onUpdate()">
     Update
   </button>
 

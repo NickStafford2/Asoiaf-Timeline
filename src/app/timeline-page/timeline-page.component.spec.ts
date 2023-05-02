@@ -8,9 +8,8 @@ describe('TimelinePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimelinePageComponent ]
-    })
-    .compileComponents();
+      declarations: [TimelinePageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

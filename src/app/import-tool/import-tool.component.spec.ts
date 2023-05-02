@@ -8,9 +8,8 @@ describe('ImportToolComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImportToolComponent ]
-    })
-    .compileComponents();
+      declarations: [ImportToolComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { filter, map, Observable, startWith, tap } from 'rxjs';
-import { CharacterClass } from '../character';
 import { FormControl } from '@angular/forms';
+import { filter, map, Observable } from 'rxjs';
 
+import { CharacterClass } from '../character';
 import { CharacterService } from '../character.service';
 
 @Component({
@@ -14,9 +14,10 @@ export class CharacterSelectAutocompleteComponent implements OnInit {
   @Output() selectedCharacter = new EventEmitter<string>();
 
   myControl = new FormControl(null);
+
   filteredOption$?: Observable<CharacterClass[]>;
 
-  constructor(private characterService: CharacterService) { }
+  constructor(private characterService: CharacterService) {}
 
   ngOnInit(): void {
     this.filteredOption$ = this.myControl.valueChanges.pipe(
@@ -27,7 +28,7 @@ export class CharacterSelectAutocompleteComponent implements OnInit {
       map((filterValue: string) => {
         return this.characterService.getCharactersMatching(filterValue);
       })
-    )
+    );
   }
 
   characterSelected() {

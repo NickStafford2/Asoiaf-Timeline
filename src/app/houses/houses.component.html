@@ -2,5 +2,7 @@
 <app-house-create></app-house-create>
 
 <div>
-  <app-house *ngFor="let house of this.houseService.house$ | async" [house]="house"></app-house>
+  <app-house
+    *ngFor="let house of this.houseService.house$ | async"
+    [house]="house"></app-house>
 </div>

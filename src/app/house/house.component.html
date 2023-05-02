@@ -2,7 +2,9 @@
   <mat-form-field>
     <mat-label>Name</mat-label>
     <input formControlName="name" matInput placeholder="Petyr" />
-    <mat-error *ngIf="updateForm.controls['name']?.errors?.['required']">required</mat-error>
+    <mat-error *ngIf="updateForm.controls['name']?.errors?.['required']"
+      >required</mat-error
+    >
   </mat-form-field>
 
   <mat-form-field>
@@ -13,20 +15,17 @@
     </mat-select>
   </mat-form-field>
 
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!updateForm.valid || updateForm.pristine"
+    (click)="onUpdate()">
+    Update
+  </button>
 
+  <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
 
-    <button mat-raised-button
-            color="primary"
-            [disabled]="!updateForm.valid || updateForm.pristine"
-            (click)="onUpdate()">
-      Update
-    </button>
-
-    <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
-
-
-
-    <!--
+  <!--
     <mat-select [(value)]="selectedProfile">
       <mat-option *ngFor="let p of profiles" [value]="p">
         {{ p.name }}
@@ -45,5 +44,4 @@
       </mat-select>
     </mat-form-field>
     -->
-
 </form>

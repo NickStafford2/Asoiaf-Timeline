@@ -1,7 +1,8 @@
 <h3>Characters</h3>
 <div class="character-list">
-  <app-character *ngFor="let character of this.characterService.character$ | async"
-                 [character]="character">
+  <app-character
+    *ngFor="let character of this.characterService.character$ | async"
+    [character]="character">
   </app-character>
 </div>
 <app-character-create></app-character-create>

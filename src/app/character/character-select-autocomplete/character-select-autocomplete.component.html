@@ -2,19 +2,19 @@
   <mat-form-field>
     <mat-label>House</mat-label>
 
-    <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
-           matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto" />
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Number"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto" />
 
-    <mat-autocomplete #auto="matAutocomplete"
-                      [displayWith]="getOptionText">
-
-      <mat-option *ngFor="let option of filteredOption$ | async"
-                  [value]="option"
-                  (click)="characterSelected()">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="getOptionText">
+      <mat-option
+        *ngFor="let option of filteredOption$ | async"
+        [value]="option"
+        (click)="characterSelected()">
         {{ option.fullName }}
       </mat-option>
     </mat-autocomplete>
