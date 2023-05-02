@@ -16,7 +16,11 @@ export class FilterComponent implements OnInit {
   constructor(public filterService: FilterService,
     public houseService: HouseService,
     public characterService: CharacterService
-  ) { }
+  ) {
+    this.filterService.selectedCharacterId$.subscribe(() => {
+
+    })
+  }
 
   ngOnInit(): void {
   }
@@ -25,4 +29,9 @@ export class FilterComponent implements OnInit {
     this.filterService.setHouseSelected(characterId, $event.checked);
     console.log($event)
   }
+
+  isChecked(characterId: string): boolean {
+    return this.filterService.getHouseSelected(characterId)
+  }
+
 }

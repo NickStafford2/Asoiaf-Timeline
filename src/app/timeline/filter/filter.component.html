@@ -1,3 +1,5 @@
+<!--
+
 <div class="filter-list">
   <h3>Houses</h3>
   <ul>
@@ -8,6 +10,7 @@
     </li>
   </ul>
 </div>
+-->
 
 
 <div class="filter-list">
@@ -15,7 +18,7 @@
   <ul>
     <li *ngFor="let character of characterService.character$ | async">
       <mat-checkbox (change)="onCheckboxClicked($event, character.id)"
-                    [checked]="filterService.getHouseSelected(character.id)">
+                    [checked]="isChecked(character.id)">
         {{this.characterService.getCharacterName(character.id)}}
       </mat-checkbox>
     </li>

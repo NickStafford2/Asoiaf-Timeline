@@ -16,10 +16,11 @@ export class FilterService {
 
   readonly selectedCharacterId$ = this._selectedCharacterId$.asObservable();
 
+  /*
   private _houseId$ = new BehaviorSubject<string[]>([]);
 
   readonly houseId$ = this._houseId$.asObservable();
-  /*
+
   private _visibleHouseId$ = new BehaviorSubject<House[]>([]);
 
   readonly visibleHouseId$ = this._visibleHouseId$.asObservable();
@@ -27,11 +28,11 @@ export class FilterService {
   constructor(private houseService: HouseService,
     private characterService: CharacterService
   ) {
-    this.houseService.house$.subscribe(this.setHouseIds.bind(this));
+    //this.houseService.house$.subscribe(this.setHouseIds.bind(this));
     this.characterService.character$.subscribe(this.setCharacters.bind(this));
     this._characterId$.subscribe(this.setSelectedCharacterIds.bind(this))
   }
-
+  /*
   private setHouseIds(houses: House[]) {
     const ids: string[] = [];
     houses.forEach((house: House) => {
@@ -40,6 +41,7 @@ export class FilterService {
     //copy.sort(houseSortCompareFn)
     this._houseId$.next(ids);
   }
+  */
 
   private setCharacters(characters: CharacterClass[]) {
     const ids: Map<string, boolean> = new Map<string, boolean>();
@@ -64,12 +66,18 @@ export class FilterService {
   setHouseSelected(characterId: string, isSelected: boolean): void {
     const map = this._characterId$.getValue();
     map.set(characterId, isSelected);
-    this._characterId$.next(map);
+    const mapCopy = new Map<string, boolean>();
+    map.forEach((isChecked: boolean, id: string) => {
+      mapCopy.set(id, isChecked);
+    })
+    const x = (mapCopy === map);
+    this._characterId$.next(mapCopy);
   }
 
   getHouseSelected(characterId: string): boolean {
     const map = this._characterId$.getValue();
-    return !!map.get(characterId)?.valueOf;
+    const isSelected = map.get(characterId)?.valueOf();
+    return !!isSelected;
   }
 
   /*
