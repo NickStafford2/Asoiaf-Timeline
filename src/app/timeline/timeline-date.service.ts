@@ -8,9 +8,9 @@ import { TimelineDate } from './timeline.interface';
   providedIn: 'root',
 })
 export class TimelineDateService {
-  readonly defaultStartTimestamp: number = new Date('01/01/2020').getTime();
+  readonly defaultStartTimestamp: number = new Date('01/01/2015').getTime();
 
-  readonly defaultEndTimestamp: number = new Date('01/01/2024').getTime();
+  readonly defaultEndTimestamp: number = new Date('01/01/2018').getTime();
 
   private _month$: BehaviorSubject<TimelineDate[]> = new BehaviorSubject<
     TimelineDate[]

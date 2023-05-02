@@ -43,7 +43,7 @@ export class TimelineService {
     this.timelineDateService.datesChanged$.subscribe(
       this._onDatesChanged.bind(this)
     );
-    this.momentService.moment$.subscribe(this._updateDateRange.bind(this));
+    //this.momentService.moment$.subscribe(this._updateDateRange.bind(this));
   }
 
   getPixelsForTimestamp(timestamp: number): number {

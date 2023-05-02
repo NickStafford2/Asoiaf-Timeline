@@ -15,8 +15,6 @@ export class TimelinePageComponent implements OnInit {
 
   count: any;
 
-  title = 'angularapp';
-
   startDate = new FormControl(new Date());
 
   endDate = new FormControl(new Date());
@@ -40,17 +38,11 @@ export class TimelinePageComponent implements OnInit {
      * called resetDates() { this._datesChanged$.next() }, but that feels icky.'
      */
     this.setDateRangeDefault();
-    this._loadEverything();
   }
 
   private _onDateChanged() {
     this.startDate.setValue(new Date(this.timelineDateService.getStart()));
     this.endDate.setValue(new Date(this.timelineDateService.getEnd()));
-  }
-
-  getMoments() {
-    console.log('test');
-    //this.momentStoreService.loadAllMoments();
   }
 
   setDateRange() {
@@ -69,9 +61,5 @@ export class TimelinePageComponent implements OnInit {
 
   redrawCanvas() {
     this.timelineService.redrawCanvas();
-  }
-
-  private _loadEverything() {
-    //this.momentStoreService.loadAllMoments();
   }
 }

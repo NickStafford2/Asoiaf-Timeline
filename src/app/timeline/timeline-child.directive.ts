@@ -67,7 +67,7 @@ export class TimelineChildDirective implements OnInit {
   ngOnInit() {
     this.xyOffset$?.subscribe((offset: XYOffset) => {
       if (offset) {
-        console.log(offset.yOffset);
+        //console.log(offset.yOffset);
         this._setXYOffset(offset.xOffset, offset.yOffset);
       }
     });

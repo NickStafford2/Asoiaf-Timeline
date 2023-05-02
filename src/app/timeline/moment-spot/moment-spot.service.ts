@@ -38,7 +38,7 @@ export class MomentSpotService {
       });
     });
     this.rowService.row$.subscribe((rows: TimelineCharacterRow[]) => {
-      console.log('===================================', rows);
+      //console.log('===================================', rows);
 
       rows.forEach((row: TimelineCharacterRow) => {
         const momentsWithCharacter = this._moment$
@@ -46,7 +46,7 @@ export class MomentSpotService {
           .filter((m: TimelineMoment) => {
             return m.characterId === row.characterId;
           });
-        console.log('momentsWithCharacter.length', momentsWithCharacter.length);
+        //console.log('momentsWithCharacter.length', momentsWithCharacter.length);
         momentsWithCharacter.forEach((m: TimelineMoment) => {
           const yOffset: number = row.xyOffset$.getValue().yOffset;
           const xOffset = m.xyOffset$.getValue().xOffset;
@@ -54,7 +54,7 @@ export class MomentSpotService {
           const character = this.characterService.getCharacterName(
             row.characterId
           );
-          console.log('setting Moment', character, m.name, yOffset);
+          //console.log('setting Moment', character, m.name, yOffset);
           m.xyOffset$.next({ xOffset, yOffset });
         });
       });
