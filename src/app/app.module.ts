@@ -40,6 +40,8 @@ import { TimelineChildDirective } from './timeline/timeline-child.directive';
 import { TimelineComponent } from './timeline/timeline.component';
 import { YearLabelComponent } from './timeline/year-label/year-label.component';
 import { YearlineComponent } from './timeline/yearline/yearline.component';
+import { CharacterListComponent } from './moment/character-list/character-list.component';
+import { CharacterSelectAutocompleteComponent } from './character/character-select-autocomplete/character-select-autocomplete.component';
 
 //import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
@@ -68,6 +70,8 @@ import { YearlineComponent } from './timeline/yearline/yearline.component';
     HousesComponent,
     CharacterHousesComponent,
     FilterComponent,
+    CharacterListComponent,
+    CharacterSelectAutocompleteComponent,
   ],
   imports: [
     BrowserModule,

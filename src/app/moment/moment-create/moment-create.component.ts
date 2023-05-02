@@ -27,6 +27,7 @@ export class MomentCreateComponent {
       id: 'new',
       name: this.momentForm.value.momentName,
       timestamp: ts.getTime(),
+      characters: [],
     };
     this.momentService.create(newMoment);
   }

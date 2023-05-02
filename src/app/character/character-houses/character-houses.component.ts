@@ -49,7 +49,6 @@ export class CharacterHousesComponent implements OnInit, OnChanges {
         return this._filter(value);
       })
     );
-
     //this.myControl.
   }
 

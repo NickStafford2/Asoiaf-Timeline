@@ -8,18 +8,24 @@ import { NSMoment } from './moment.interface';
   providedIn: 'root',
 })
 export class MomentService {
-  private _moment$: BehaviorSubject<NSMoment[]> = new BehaviorSubject<
-    NSMoment[]
-  >([]);
+  private _moment$ = new BehaviorSubject<NSMoment[]>([]);
 
   readonly moment$: Observable<any> = this._moment$.asObservable();
 
-  constructor(private momentService: MomentHttpService) {}
+  constructor(private momentHttpService: MomentHttpService) {
+    this.fetchData();
+  }
 
-  loadAllMoments() {
-    this.momentService.getMoments().subscribe((response: NSMoment[]) => {
-      this._moment$.next(response);
-      console.log('MomentStore loaded All Moments');
+  update(updatedMoment: NSMoment) {
+    this.momentHttpService.update(updatedMoment).subscribe(() => {
+      this.fetchData();
+    });
+  }
+
+  private fetchData() {
+    this.momentHttpService.getAll().subscribe((results: NSMoment[]) => {
+      console.log(results);
+      this._moment$.next(results);
     });
   }
 

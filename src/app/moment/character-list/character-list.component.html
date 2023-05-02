@@ -1,0 +1,7 @@
+<p>character-list works!</p>
+<ul>
+  <li *ngFor="let id of characterIds">
+    {{characterService.getCharacterName(id)}}
+  </li>
+</ul>
+<app-character-select-autocomplete></app-character-select-autocomplete>

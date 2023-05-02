@@ -10,5 +10,7 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="debug()">Save</button>
+  <app-character-list [characterIds]="moment?.characters"></app-character-list>
+
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
 </form>

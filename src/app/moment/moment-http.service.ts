@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { NSMoment, NSMomentData } from './moment.interface';
+import { ConfigService } from '../config.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MomentHttpService {
-  private readonly url: string = 'api/Moments';
+  //private readonly url: string = 'api/Moments';
+  private static readonly URL: string = 'api/Moments';
 
   constructor(private http: HttpClient) {}
 
@@ -16,9 +19,16 @@ export class MomentHttpService {
     return this.http.get('api/Moments/' + id);
   }
 
+  getAll(): Observable<NSMoment[]> {
+    return this.http.get<NSMoment[]>(MomentHttpService.URL).pipe(
+      tap(() => console.log('getAll')),
+      catchError(ConfigService.handleError<NSMoment[]>('getAll', []))
+    );
+  }
+  /*
   getMoments(): Observable<NSMoment[]> {
     return this.http.get<NSMoment[]>('api/Moments');
-  }
+  }*/
 
   deleteMoment(id: string) {
     return this.http.delete('api/Moments/' + id);
@@ -28,6 +38,7 @@ export class MomentHttpService {
     const copy: NSMomentData = {
       name: newMoment.name,
       timestamp: newMoment.timestamp,
+      characters: newMoment.characters,
     };
     this.http.post<NSMomentData>('api/Moments', copy).subscribe(() => {
       console.log('moment.post');
@@ -35,6 +46,15 @@ export class MomentHttpService {
     /*.pipe(
       catchError(this.handleError('create', newMoment))
     )*/
+  }
+
+  update(moment: NSMoment) {
+    return this.http
+      .put<NSMoment>(MomentHttpService.URL + '/' + moment.id, moment)
+      .pipe(
+        tap(() => console.log('update')),
+        catchError(ConfigService.handleError<NSMoment[]>('update', []))
+      );
   }
 
   /*

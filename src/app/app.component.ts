@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
 
   getMoments() {
     console.log('test');
-    this.momentStoreService.loadAllMoments();
+    //this.momentStoreService.loadAllMoments();
   }
 
   setDateRange() {
@@ -73,6 +73,6 @@ export class AppComponent implements OnInit {
   }
 
   private _loadEverything() {
-    this.momentStoreService.loadAllMoments();
+    //this.momentStoreService.loadAllMoments();
   }
 }

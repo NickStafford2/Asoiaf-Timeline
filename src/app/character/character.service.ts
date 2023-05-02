@@ -65,4 +65,13 @@ export class CharacterService {
     if (character) return character.fullName;
     return '';
   }
+
+  getCharactersMatching(filterValue: string): CharacterClass[] {
+    const s = filterValue.toLowerCase();
+
+    return this._character$.getValue().filter((character: CharacterClass) => {
+      //console.log(option)
+      return character.fullName.toLowerCase().includes(s);
+    });
+  }
 }
