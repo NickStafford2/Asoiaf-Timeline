@@ -14,17 +14,12 @@ export class MomentService {
 
   readonly moment$: Observable<any> = this._moment$.asObservable();
 
-  private _onUpdate$: Subject<void> = new Subject();
-
-  readonly onUpdate$: Observable<void> = this._onUpdate$.asObservable();
-
   constructor(private momentService: MomentHttpService) {}
 
   loadAllMoments() {
     this.momentService.getMoments().subscribe((response: NSMoment[]) => {
       this._moment$.next(response);
       console.log('MomentStore loaded All Moments');
-      this._onUpdate$.next();
     });
   }
 
