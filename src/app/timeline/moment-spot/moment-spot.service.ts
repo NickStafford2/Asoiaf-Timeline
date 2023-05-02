@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { NSMoment } from '../../_library';
+import { NSMoment } from '../../moment/moment.interface';
 import { MomentService } from '../../moment/moment.service';
 import { RowService } from '../row/row.service';
 import { TimeLabelService } from '../time-label.service';

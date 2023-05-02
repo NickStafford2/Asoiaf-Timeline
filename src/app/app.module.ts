@@ -11,14 +11,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { CharacterCreateComponent } from './character/character-create/character-create.component';
+import { CharacterHousesComponent } from './character/character-houses/character-houses.component';
 import { CharacterComponent } from './character/character.component';
 import { HouseComponent } from './house/house.component';
 import { HouseCreateComponent } from './house-create/house-create.component';
@@ -26,6 +29,7 @@ import { HousesComponent } from './houses/houses.component';
 import { MomentCreateComponent } from './moment/moment-create/moment-create.component';
 import { MomentComponent } from './moment/moment.component';
 import { NsEventComponent } from './ns-event/ns-event.component';
+import { FilterComponent } from './timeline/filter/filter.component';
 import { MomentSpotComponent } from './timeline/moment-spot/moment-spot.component';
 import { MonthLabelComponent } from './timeline/month-label/month-label.component';
 import { MonthlineComponent } from './timeline/monthline/monthline.component';
@@ -36,10 +40,7 @@ import { TimelineChildDirective } from './timeline/timeline-child.directive';
 import { TimelineComponent } from './timeline/timeline.component';
 import { YearLabelComponent } from './timeline/year-label/year-label.component';
 import { YearlineComponent } from './timeline/yearline/yearline.component';
-import { MatMenuModule } from '@angular/material/menu'; 
-import { MatSelectModule } from '@angular/material/select';
-import { CharacterHousesComponent } from './character/character-houses/character-houses.component';
-import { FilterComponent } from './timeline/filter/filter.component';
+
 //import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 //testing again

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { NSMoment } from '../_library';
+import { NSMoment } from './moment.interface';
 
 @Component({
   selector: 'app-moment',

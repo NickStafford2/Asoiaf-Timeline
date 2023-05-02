@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { NSMoment, NSMomentData } from '../_library';
+import { NSMoment, NSMomentData } from './moment.interface';
 
 @Injectable({
   providedIn: 'root',

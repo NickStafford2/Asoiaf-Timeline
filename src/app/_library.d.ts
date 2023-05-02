@@ -1,14 +1,6 @@
 // todo: get rid of this file. or rename it to timeline.interface.ts
 
-export interface NSMoment extends NSMomentData {
-  id: string;
-}
-
-export interface NSMomentData {
-  // todo: maybe delete?
-  name: string;
-  timestamp: number;
-}
+import { NSMoment, NSMomentData } from './moment/moment.interface';
 
 export interface NSEvent extends NSMoment {
   duration: number;

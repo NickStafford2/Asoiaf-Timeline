@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { NSMoment } from '../../_library';
 import { MomentHttpService } from '../moment-http.service';
+import { NSMoment } from '../moment.interface';
 
 @Component({
   selector: 'app-moment-create',
