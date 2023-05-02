@@ -54,7 +54,7 @@ import { TimelinePageComponent } from './timeline-page/timeline-page.component';
 
 const routes: Routes = [
   { path: 'import', component: ImportPageComponent },
-  { path: 'timeline', component: TimelinePageComponent },
+  { path: '', component: TimelinePageComponent },
   { path: 'characters', component: CharacterPageComponent },
   { path: 'houses', component: HousePageComponent },
   { path: 'moments', component: MomentPageComponent },
