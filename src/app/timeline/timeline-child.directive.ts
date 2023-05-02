@@ -66,7 +66,10 @@ export class TimelineChildDirective implements OnInit {
 
   ngOnInit() {
     this.xyOffset$?.subscribe((offset: XYOffset) => {
-      if (offset) this._setXYOffset(offset.xOffset, offset.yOffset);
+      if (offset) {
+        console.log(offset.yOffset);
+        this._setXYOffset(offset.xOffset, offset.yOffset);
+      }
     });
     this.width$?.subscribe(x => {
       if (x) this._setWidth(x);

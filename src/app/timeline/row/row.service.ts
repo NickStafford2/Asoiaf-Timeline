@@ -27,16 +27,19 @@ export class RowService {
     private timelineService: TimelineService,
     private filterService: FilterService
   ) {
-    this.filterService.selectedCharacterId$.subscribe((characterIds: string[]) => {
-      //const newRows: TimelineCharacterRow = [];
-      this._row$.next([]);
-      characterIds.forEach((id: string) => {
-        //console.log(character);
-        this.addRow(id);
-      });
-      const height = this.getHeight();
-      this.timelineService.setHeight(height);
-    });
+    this.filterService.selectedCharacterId$.subscribe(
+      // todo: these rows are added sequentially. consider adding them all at once
+      (characterIds: string[]) => {
+        //const newRows: TimelineCharacterRow = [];
+        this._row$.next([]);
+        characterIds.forEach((id: string) => {
+          //console.log(character);
+          this.addRow(id);
+        });
+        const height = this.getHeight();
+        this.timelineService.setHeight(height);
+      }
+    );
   }
 
   private addRow(characterId: string) {
@@ -61,5 +64,16 @@ export class RowService {
       total += row.height$.getValue();
     });
     return total;
+  }
+
+  getCharacterRowYOffset(characterId: string): number {
+    //console.log(this._row$);
+    const row: TimelineCharacterRow | undefined = this._row$
+      .getValue()
+      .find(c => c.characterId === characterId);
+    if (row) {
+      return row.xyOffset$.getValue().yOffset;
+    }
+    return this.defaultHeight;
   }
 }

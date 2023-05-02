@@ -30,4 +30,5 @@ export interface TimelineMoment extends TimelineChild {
   // timestamp = startTime
   id: string;
   name: string;
+  characterId: string;
 }
