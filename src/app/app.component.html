@@ -1,107 +1,20 @@
-<h1 id="tableLabel">ASOIAF Timeline</h1>
-
-<mat-form-field appearance="fill">
-  <mat-label>Enter a date range</mat-label>
-  <mat-date-range-input [rangePicker]="picker">
-    <input matStartDate placeholder="Start date" [formControl]="startDate" />
-    <input matEndDate placeholder="End date" [formControl]="endDate" />
-  </mat-date-range-input>
-  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-date-range-picker #picker></mat-date-range-picker>
-</mat-form-field>
-
-<button mat-raised-button color="primary" (click)="setDateRange()">
-  Set Date Range
-</button>
-<button mat-raised-button color="primary" (click)="redrawCanvas()">
-  Redraw Canvas
-</button>
-
-<div class="timeline-date-controls">
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editStart('subtract', 1, 'year')"
-          class="timeline-date-control-button">
-    -year
+<mat-toolbar color="primary">
+  <button mat-icon-button
+          aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
   </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editStart('subtract', 1, 'month')"
-          class="timeline-date-control-button">
-    -month
-  </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editStart('add', 1, 'month')"
-          class="timeline-date-control-button">
-    +month
-  </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editStart('add', 1, 'year')"
-          class="timeline-date-control-button">
-    +year
-  </button>
+  <span>Bran's Timeline (Iteration #11352)</span>
+  <span class="example-spacer"></span>
 
-  <button mat-raised-button
-          color="primary"
-          (click)="setDateRangeDefault()"
-          class="timeline-date-control-button">
-    Set Default Date Range
-  </button>
+  <a mat-button routerLink="/timeline">Timeline</a>
+  <a mat-button routerLink="/characters">Characters</a>
+  <a mat-button routerLink="/moments">Moments</a>
+  <a mat-button routerLink="/books">Books</a>
+  <a mat-button routerLink="/houses">Houses</a>
+  <a mat-button routerLink="/import">Import Tool</a>
+</mat-toolbar>
 
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editEnd('subtract', 1, 'year')"
-          class="timeline-date-control-button">
-    -year
-  </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editEnd('subtract', 1, 'month')"
-          class="timeline-date-control-button">
-    -month
-  </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editEnd('add', 1, 'month')"
-          class="timeline-date-control-button">
-    +month
-  </button>
-  <button mat-raised-button
-          color="primary"
-          (click)="timelineDateService.editEnd('add', 1, 'year')"
-          class="timeline-date-control-button">
-    +year
-  </button>
-</div>
+<router-outlet></router-outlet>
 
-<br />
-<app-filter></app-filter>
 
-<div class="timeline-containter">
-  <app-timeline></app-timeline>
-</div>
 
-<hr />
-<app-houses></app-houses>
-<hr />
-
-<h3>Characters</h3>
-<div class="character-list">
-  <app-character *ngFor="let character of this.characterService.character$ | async"
-                 [character]="character">
-  </app-character>
-</div>
-<app-character-create></app-character-create>
-
-<app-book></app-book>
-<hr />
-
-<app-moment-create></app-moment-create>
-
-<div class="moment-list">
-  <app-moment *ngFor="let m of momentStoreService.moment$ | async"
-              [moment]="m"></app-moment>
-</div>

@@ -1,0 +1,19 @@
+
+
+.timeline-date-controls {
+  display: flex;
+  width: 100%;
+}
+
+.timeline-date-control-button {
+  flex-grow: 1;
+}
+
+.timeline-container {
+  margin-top: 1em;
+  //display: flex;
+  //flex-flow: row;
+  //width: 100%;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+}

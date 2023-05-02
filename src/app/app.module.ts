@@ -15,19 +15,29 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
+import { BookPageComponent } from './book-page/book-page.component';
 import { CharacterCreateComponent } from './character/character-create/character-create.component';
 import { CharacterHousesComponent } from './character/character-houses/character-houses.component';
+import { CharacterSelectAutocompleteComponent } from './character/character-select-autocomplete/character-select-autocomplete.component';
 import { CharacterComponent } from './character/character.component';
+import { CharacterPageComponent } from './character-page/character-page.component';
 import { HouseComponent } from './house/house.component';
 import { HouseCreateComponent } from './house-create/house-create.component';
+import { HousePageComponent } from './house-page/house-page.component';
 import { HousesComponent } from './houses/houses.component';
+import { ImportPageComponent } from './import-page/import-page.component';
+import { ImportToolComponent } from './import-tool/import-tool.component';
+import { CharacterListComponent } from './moment/character-list/character-list.component';
 import { MomentCreateComponent } from './moment/moment-create/moment-create.component';
 import { MomentComponent } from './moment/moment.component';
+import { MomentPageComponent } from './moment-page/moment-page.component';
 import { NsEventComponent } from './ns-event/ns-event.component';
 import { FilterComponent } from './timeline/filter/filter.component';
 import { MomentSpotComponent } from './timeline/moment-spot/moment-spot.component';
@@ -40,11 +50,16 @@ import { TimelineChildDirective } from './timeline/timeline-child.directive';
 import { TimelineComponent } from './timeline/timeline.component';
 import { YearLabelComponent } from './timeline/year-label/year-label.component';
 import { YearlineComponent } from './timeline/yearline/yearline.component';
-import { CharacterListComponent } from './moment/character-list/character-list.component';
-import { CharacterSelectAutocompleteComponent } from './character/character-select-autocomplete/character-select-autocomplete.component';
+import { TimelinePageComponent } from './timeline-page/timeline-page.component';
 
-//import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-
+const routes: Routes = [
+  { path: 'import', component: ImportPageComponent },
+  { path: 'timeline', component: TimelinePageComponent },
+  { path: 'characters', component: CharacterPageComponent },
+  { path: 'houses', component: HousePageComponent },
+  { path: 'moments', component: MomentPageComponent },
+  { path: 'books', component: BookPageComponent },
+];
 //testing again
 @NgModule({
   declarations: [
@@ -72,8 +87,16 @@ import { CharacterSelectAutocompleteComponent } from './character/character-sele
     FilterComponent,
     CharacterListComponent,
     CharacterSelectAutocompleteComponent,
+    ImportToolComponent,
+    ImportPageComponent,
+    TimelinePageComponent,
+    CharacterPageComponent,
+    HousePageComponent,
+    MomentPageComponent,
+    BookPageComponent,
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     CommonModule,
@@ -93,6 +116,7 @@ import { CharacterSelectAutocompleteComponent } from './character/character-sele
     MatAutocompleteModule,
     MatMenuModule,
     MatSelectModule,
+    MatToolbarModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
