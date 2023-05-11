@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <pattern id="chequy" patternUnits="userSpaceOnUse" width="120" height="120">
+    <path fill="#fc0" d="M0,0V60H120V120H60V0z"/>
+  </pattern>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+</defs>
+<use xlink:href="#shield" fill="#e5e5e5"/>
+<use xlink:href="#shield" fill="url(#chequy)"/>
+<g id="spear" transform="rotate(45,300,300)" fill="#111" stroke="#ddd">
+  <path fill="#000" d="m 307.39153,569.20509 c -0.0567,0.10893 -0.85291,8.27981 -7.34323,8.27981 -5.62811,0 -7.21456,-6.29218 -7.49152,-7.94649 l 0.003,-501.680155 14.87513,0 -0.0424,501.346835 z"/>
+  <path d="m 294.04269,48.80983 -2.28848,18.991796 16.85484,0 -2.25216,-18.80225 -12.3142,-0.189546 z"/>
+  <path d="m 299.89103,-38.226441 0,0.720247 -20.63265,67.741212 c 0,0 4.8956,-0.0085 9.44452,4.738473 4.54894,4.747134 4.94022,9.893928 4.94022,9.893928 l 6.24791,0 0.21795,0 6.24791,0 c 0,0 0.35495,-5.146794 4.90388,-9.893928 4.54892,-4.747135 9.48084,-4.738473 9.48084,-4.738473 l -20.63263,-67.741212 0,-0.720247 -0.10893,0.341169 -0.10906,-0.341169 z"/>
+  <path d="m 300.09238,-18.826814 0,63.690656"/>
+  <path d="m 292.97252,44.863829 14.23977,0 c 1.0958,0 1.97797,0.882169 1.97797,1.977969 0,1.0958 -0.88217,1.97797 -1.97797,1.97797 l -14.23977,0 c -1.0958,0 -1.97798,-0.88217 -1.97798,-1.97797 0,-1.0958 0.88218,-1.977969 1.97798,-1.977969 z"/>
+</g>
+<use xlink:href="#spear" transform="rotate(-90,300,300)"/>
+<use id="shine" xlink:href="#shield" fill="url(#rg)" stroke="#000" stroke-width="3"/>
+</svg>

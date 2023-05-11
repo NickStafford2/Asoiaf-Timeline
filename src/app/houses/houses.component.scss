@@ -1,3 +1,8 @@
 :host {
     //background-color: gray;
 }
+
+.houses-container {
+    display: flex;
+    flex-wrap: wrap;
+}

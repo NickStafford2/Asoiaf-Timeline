@@ -3,7 +3,25 @@ export interface House extends HouseData {
 }
 
 export interface HouseData {
-  name: string;
+  nameFull: string;
+  nameUnique: string;
+  nameShort: string;
+  wikiUrl?: string;
+  overlord?: string;
+  cadetBranchs?: string;
+  seats?: string[];
+  region?: string;
+  titles?: string[];
+  heir?: string;
+  founder?: string;
+  founded?: string;
+  sigilURL?: string;
+  vassals?: string[];
+  blazon?: string;
+  words?: string;
+  notes?: string;
+  ancestrialWeapon?: string;
+  continent?: string;
   type: HouseType;
 }
 
@@ -16,7 +34,7 @@ export enum HouseType {
 }
 
 export function houseSortCompareFn(a: House, b: House): number {
-  if (a.name < b.name) return -1;
-  if (a.name > b.name) return 1;
+  if (a.nameUnique < b.nameUnique) return -1;
+  if (a.nameUnique > b.nameUnique) return 1;
   return 0;
 }

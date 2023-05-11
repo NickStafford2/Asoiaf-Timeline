@@ -45,4 +45,11 @@ export class HouseHttpService {
         catchError(ConfigService.handleError<HouseData[]>('delete', []))
       );
   }
+
+  webParser(): Observable<House[]> {
+    return this.http.get<House[]>(HouseHttpService.URL + '/test').pipe(
+      tap(() => console.log('test')),
+      catchError(ConfigService.handleError<House[]>('test', []))
+    );
+  }
 }

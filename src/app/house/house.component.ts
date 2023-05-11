@@ -19,7 +19,7 @@ export class HouseComponent implements OnChanges {
   constructor(private houseService: HouseService) {}
 
   updateForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]), // add updateOn: 'blur'
+    nameFull: new FormControl('', [Validators.required]), // add updateOn: 'blur'
     type: new FormControl(this.selected, [Validators.required]),
   });
 
@@ -27,7 +27,7 @@ export class HouseComponent implements OnChanges {
     const house: House = changes['house'].currentValue;
     if (house) {
       //console.log(character);
-      this.updateForm.controls['name'].setValue(house.name);
+      this.updateForm.controls['nameFull'].setValue(house.nameFull);
       this.updateForm.controls['type'].setValue(house.type);
       this.selected = house.type;
       this.updateForm.markAsPristine();
@@ -38,12 +38,16 @@ export class HouseComponent implements OnChanges {
     if (this.house) {
       const h: House = {
         id: this.house?.id,
-        name: this.updateForm.controls['name'].value,
+        nameFull: this.updateForm.controls['nameFull'].value,
         type: this.updateForm.controls['type'].value,
+        nameUnique: 'created from web',
+        nameShort: 'created from web',
       };
       this.houseService.update(h);
     } else console.error('house is empty');
   }
 
-  onDelete() {}
+  onDelete() {
+    debugger;
+  }
 }

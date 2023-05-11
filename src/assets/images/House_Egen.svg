@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+  <g id="straight-ray" style="stroke-width:1;stroke-linecap:round;stroke-linejoin:round;">
+    <path style="fill:#ffff00;stroke:none;" d="m 300,75 15.30733,151.08964 h -45.922 z"/>
+    <path style="fill:#d5d500;stroke:none;" d="m 300,75 30.61467,151.08964 h -30.61467 z"/>
+  </g>
+  <g id="wavy-ray" style="stroke-width:1;stroke-linecap:round;stroke-linejoin:round;">
+    <path style="fill:#ffff00;stroke:none;" d="m 319.70309,203.07786 -23.39187,-99.32032 3.68878,-28.75754 c -4.42888,11.67284 -9.13127,23.372841 -11.30585,36.6052 -2.1836,13.28725 -1.42323,27.05334 0.0108,39.90764 1.43399,12.8543 2.96026,24.49667 1.16267,33.13384 -1.79759,8.63717 -6.58433,17.16555 -12.01844,26.63371 -1.70265,2.96661 -6.54949,11.22621 -8.46381,14.80925 -4.69864,8.79449 -6.51353,14.78742 -9.26427,29.53138 l 34.70713,1.0022 z"/>
+    <path style="fill:#d5d500;stroke:none;" d="m 300,75 c -2.522,12.0833 -5.20645,24.3253 -5.43945,36.4082 -0.233,12.084 2.18545,24.167 5.43945,36.25 3.254,12.084 6.82613,24.167 7.20312,36.25 0.376,12.084 -2.75612,24.167 -7.20312,36.25 -4.447,12.084 -9.55323,24.167 -10.24023,36.25 -10e-4,0.0228 10e-4,0.0456 0,0.0684 l 39.77539,1.14844 c -3.14367,-4.45043 -1.07868,-17.69804 1.08007,-31.53516 2.18888,-14.03028 3.58908,-27.35723 0.28516,-43.64648 -3.21456,-15.84869 -9.96161,-27.8548 -15.68555,-38.76172 -5.52864,-10.53477 -10.37165,-20.98378 -12.75,-32.19531 -2.40401,-11.33253 -2.37572,-24.001853 -2.46484,-36.48633 z"/>
+  </g>
+  <g id="sun">
+    <g id="wavy-rays" transform="rotate(22.5,300,300)">
+      <use xlink:href="#wavy-ray" transform="rotate(0,300,300)"/>
+      <use xlink:href="#wavy-ray" transform="rotate(45,300,300)"/>
+      <use xlink:href="#wavy-ray" transform="rotate(90,300,300)"/>
+      <use xlink:href="#wavy-ray" transform="rotate(135,300,300)"/>
+      <use xlink:href="#wavy-ray" transform="rotate(180,300,300)"/>
+      <use xlink:href="#wavy-ray" transform="rotate(225,300,300)"/>
+      <use xlink:href="#wavy-ray" transform="rotate(270,300,300)"/>
+      <use xlink:href="#wavy-ray" transform="rotate(315,300,300)"/>
+    </g>
+    <g id="straight-rays">
+      <use xlink:href="#straight-ray" transform="rotate(0,300,300)"/>
+      <use xlink:href="#straight-ray" transform="rotate(45,300,300)"/>
+      <use xlink:href="#straight-ray" transform="rotate(90,300,300)"/>
+      <use xlink:href="#straight-ray" transform="rotate(135,300,300)"/>
+      <use xlink:href="#straight-ray" transform="rotate(180,300,300)"/>
+      <use xlink:href="#straight-ray" transform="rotate(225,300,300)"/>
+      <use xlink:href="#straight-ray" transform="rotate(270,300,300)"/>
+      <use xlink:href="#straight-ray" transform="rotate(315,300,300)"/>
+    </g>
+    <circle id="disk" style="fill:#ffff00;stroke:#d5d500;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;" cx="300" cy="300" r="80"/>
+  </g>
+</defs>
+<use id="background" xlink:href="#shield" fill="#fff"/>
+<path id="chief" fill="#00c" d="m 2,2 v 198 h 596 v -198 z"/>
+<use xlink:href="#sun" transform="translate(120,100)scale(0.35)translate(-300,-300)"/>
+<g id="crescent">
+  <path style="fill:#ffffff;" d="m 263.1,156.4 c 30.6,0 55.4,-24.8 55.4,-55.4 0,-30.61 -24.8,-55.43 -55.4,-55.43 -6.3,0 -12.6,1.11 -18.5,3.23 10.6,-8.05 23.6,-12.46 37,-12.47 35.7,0 64.7,28.95 64.7,64.67 0,35.7 -29,64.7 -64.7,64.7 -13.5,-0.1 -26.4,-4.5 -37.1,-12.5 6,2.1 12.3,3.2 18.6,3.2 z"/>
+  <path style="fill:#e0e0e0;" d="m 275.4,162.6 c 34,0 61.6,-27.6 61.6,-61.6 0,-34.02 -27.6,-61.59 -61.6,-61.59 -11,0 -21.8,3.32 -30.8,9.39 12.1,-10.03 27.4,-15.55 43.1,-15.55 37.4,0 67.8,30.33 67.8,67.75 0,37.4 -30.4,67.8 -67.8,67.8 -15.8,-0.1 -31,-5.6 -43.2,-15.6 9.1,6.1 19.8,9.3 30.9,9.4 z"/>
+</g>
+<g id="star">
+  <path style="fill:#dddddd;" d="m 488.44,35.887 42.31,130.223 -110.78,-80.48 h 136.94 l -110.77,80.48 z"/>
+  <path style="fill:#bbbbbb;" d="m 420,85.63 68.4,22.27 -16.1,-22.27 z m 26.1,80.47 42.3,-58.2 -26.1,8.5 z m 84.6,0 -42.3,-58.2 v 27.5 z m 26.2,-80.47 -68.5,22.27 26.2,8.5 z m -68.5,-49.62 v 71.89 l 16.2,-22.27 z"/>
+</g>
+<use id="shine" xlink:href="#shield" fill="url(#rg)" stroke="#000" stroke-width="3"/>
+</svg>

@@ -1,10 +1,24 @@
+<img src="{{'assets/images/' + house?.sigilURL}}" alt="{{house?.sigilURL}}" />
+<h1 class="full-name">{{house?.nameFull}}</h1>
+<br />
+<ng-container *ngIf="house?.words"><i>"{{house?.words}}"</i></ng-container>
+<ng-container *ngIf="house?.continent || house?.region"><p>{{house?.continent}}, {{house?.region}}</p></ng-container>
+<ng-container *ngIf="house?.seats?.length"><p>{{house?.seats}}</p></ng-container>
+<ng-container *ngIf="house?.overlord"><p>Overlords: {{house?.overlord}}</p></ng-container>
+<ng-container *ngIf="house?.heir"><p>Heir: {{house?.heir}}</p></ng-container>
+<ng-container *ngIf="house?.ancestrialWeapon"><p>Ancestrial Weapon: {{house?.ancestrialWeapon}}</p></ng-container>
+<ng-container *ngIf="house?.vassals?.length">
+  <p>
+    Vassals:
+    <ng-container *ngFor="let v in house.vassals">{{v}}</ng-container>
+  </p>
+</ng-container>
+<!--
 <form [formGroup]="updateForm">
   <mat-form-field>
     <mat-label>Name</mat-label>
     <input formControlName="name" matInput placeholder="Petyr" />
-    <mat-error *ngIf="updateForm.controls['name']?.errors?.['required']"
-      >required</mat-error
-    >
+    <mat-error *ngIf="updateForm.controls['nameFull']?.errors?.['required']">required</mat-error>
   </mat-form-field>
 
   <mat-form-field>
@@ -15,24 +29,21 @@
     </mat-select>
   </mat-form-field>
 
-  <button
-    mat-raised-button
-    color="primary"
-    [disabled]="!updateForm.valid || updateForm.pristine"
-    (click)="onUpdate()">
+  <button mat-raised-button
+          color="primary"
+          [disabled]="!updateForm.valid || updateForm.pristine"
+          (click)="onUpdate()">
     Update
   </button>
 
   <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
-
-  <!--
+  -->
+<!--
     <mat-select [(value)]="selectedProfile">
       <mat-option *ngFor="let p of profiles" [value]="p">
-        {{ p.name }}
+        {{ p.nameFull }}
       </mat-option>
     </mat-select>
-
-
 
     <mat-form-field >
       <mat-label>Type</mat-label>
@@ -43,5 +54,5 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    -->
-</form>
+
+</form>    -->

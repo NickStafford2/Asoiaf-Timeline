@@ -39,19 +39,19 @@ export class HouseCreateComponent implements OnInit {
 
     return this.options.filter(option => {
       //console.log(option)
-      return option.name.toLowerCase().includes(filterValue);
+      return option.nameFull.toLowerCase().includes(filterValue);
     });
   }
 
   getOptionText(option: House) {
-    if (option) return option.name;
+    if (option) return option.nameFull;
     return '';
   }
 
   createHouse() {
     let x = this.myControl.value;
     console.log('created');
-    this.houseService.createFromName(x);
+    //this.houseService.createFromName(x);
   }
 }
 

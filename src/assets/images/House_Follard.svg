@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#ffffff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#ffffff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+  <path id="spike" style="stroke:#ff0000;stroke-width:0.5;" d="m 100,90.430594 v 46.144056 c 14.44803,0 24.11018,3.15248 33.55917,6.29238 -12.42109,-70.235086 41.02687,-88.320281 42.99759,-56.980933 20.85484,-30.948486 -48.03093,-72.636079 -76.55676,4.544497 z"/>
+  <path id="bottom" style="stroke:#ff0000;stroke-width:0.5;" d="m 100,137.97 v -16.59 c -19.31,0 -32.817,3.26 -39.506,7.88 2.288,6.31 2.599,10.89 3.033,17.08 6.128,-4.57 21.06,-8.37 36.473,-8.37 z"/>
+  <g id="bell" style="fill:#eeeeee;stroke:#888888;stroke-width:0.5;">
+  	<path d="m 23.691,83.24 a 3.407,3.407 0 0 0 -3.408,3.406 3.407,3.407 0 0 0 3.408,3.407 3.407,3.407 0 0 0 3.407,-3.407 3.407,3.407 0 0 0 -3.407,-3.406 z m 0,1.135 a 2.2713,2.2713 0 0 1 2.271,2.271 2.2713,2.2713 0 0 1 -2.271,2.271 2.2713,2.2713 0 0 1 -2.271,-2.271 2.2713,2.2713 0 0 1 2.271,-2.271 z"/>
+  	<path d="m 23.691,88.917 a 9.0855,9.0855 0 0 0 -8.888,7.249 2.2713,2.2713 0 0 1 0.938,1.838 2.2713,2.2713 0 0 1 -0.945,1.839 9.0855,9.0855 0 0 0 8.043,7.197 v -6.93 a 2.2713,2.2713 0 0 1 -1.419,-2.106 2.2713,2.2713 0 0 1 2.271,-2.272 2.2713,2.2713 0 0 1 2.271,2.272 2.2713,2.2713 0 0 1 -1.42,2.106 v 6.93 a 9.0855,9.0855 0 0 0 8.037,-7.205 2.2713,2.2713 0 0 1 -0.939,-1.831 2.2713,2.2713 0 0 1 0.945,-1.838 9.0855,9.0855 0 0 0 -8.894,-7.249 z"/>
+  	<path d="m 23.691,91.189 a 22.713,22.713 0 0 0 -8.03,1.478 9.6529,9.6529 0 0 0 -0.812,1.475 22.713,22.713 0 0 1 8.842,-1.817 22.713,22.713 0 0 1 8.819,1.783 9.6529,9.6529 0 0 0 -0.79,-1.424 22.713,22.713 0 0 0 -8.029,-1.495 z"/>
+  </g>
+</defs>
+<use id="bg" xlink:href="#shield" style="fill:#ff0000;"/>
+<path style="fill:#ffffff;" d="M 2 2 L 2 127.94922 L 300 300 L 127.94922 2 L 2 2 z M 300 300 L 472.05078 2 L 300 2 L 300 300 z M 300 300 L 595.89258 300 C 597.26761 286.74845 598 273.0886 598 259 L 598 127.94922 L 300 300 z M 300 300 L 451.75586 562.84961 C 487.46299 531.86691 522.95277 492.6657 550.03125 444.35547 L 300 300 z M 300 300 L 148.24414 562.84961 C 223.65153 628.27981 300 657 300 657 L 300 300 z M 300 300 L 4.1074219 300 C 9.8265749 355.11717 26.82084 403.0577 49.96875 444.35547 L 300 300 z "/>
+<path id="canton" style="fill:#ffcc00;" d="M 2 2 L 2 200 L 200 200 L 200 2 L 2 2 z " />
+<use xlink:href="#bell"/>
+<use xlink:href="#bell" transform="translate(200)scale(-1,1)"/>
+<use xlink:href="#spike" style="fill:#ffffff;"/>
+<use xlink:href="#spike" style="fill:#ff0000;" transform="translate(200)scale(-1,1)"/>
+<use xlink:href="#bottom" style="fill:#ffffff;"/>
+<use xlink:href="#bottom" style="fill:#ff0000;" transform="translate(200)scale(-1,1)"/>
+<use id="shine" xlink:href="#shield" style="fill:url(#rg);stroke:#000000;stroke-width:3;"/>
+</svg>

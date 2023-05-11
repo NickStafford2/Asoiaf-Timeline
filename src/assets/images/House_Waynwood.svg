@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+</defs>
+<use id="shine" xlink:href="#shield" fill="#008000"/>
+<g id="wheel">
+	<path style="fill:#000000;stroke:#005500;stroke-width:2;" id="spoke" d="m 465.4,273.5 c -13.1,49 -89.6,-9.1 -126.9,24.2 v 4.6 c 37.3,33.3 113.8,-24.8 126.9,24.2 v -20.5 -12 z"/>
+	<use xlink:href="#spoke" transform="rotate(45,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(90,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(135,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(180,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(225,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(270,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(315,300,300)"/>
+	<circle style="fill:none;stroke:#005500;stroke-width:40;" cx="300" cy="300" r="180"/>
+	<circle style="fill:none;stroke:#000000;stroke-width:36;" cx="300" cy="300" r="180"/>
+	<circle style="fill:none;stroke:#005500;stroke-width:34;" cx="300" cy="300" r="35"/>
+	<circle style="fill:none;stroke:#000000;stroke-width:30;" cx="300" cy="300" r="35"/>
+	<path style="fill:#008000" d="m 326.86192,123.64298 41.23284,13.33333 -27.64992,-2.62623 16.88849,16.31659 -4.48705,78.4696 -6.48181,14.73139 18.62048,-14.96709 -6.59966,10.25304 8.01387,-2.35702 -8.72098,12.72792 26.63436,-11.078 75.18256,40.65112 2.34314,-26.78798 11.58291,31.63028 -3.38765,-46.14213 7.13114,23.42114 0.7071,-32.96362 9.69611,31.1254 9.07344,-54.83755 -91.7665,-104.843599 -69.37479,12.300429 20,10.33333 z"/>
+</g>
+<use id="shine" xlink:href="#shield" fill="url(#rg)" stroke="#000" stroke-width="3"/>
+</svg>

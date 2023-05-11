@@ -1,7 +1,7 @@
 <h1>Houses</h1>
 <app-house-create></app-house-create>
 
-<div>
+<div class="houses-container">
   <app-house
     *ngFor="let house of this.houseService.house$ | async"
     [house]="house"></app-house>

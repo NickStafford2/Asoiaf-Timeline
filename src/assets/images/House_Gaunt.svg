@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="660" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#ffffff;stop-opacity:.3" offset="0" />
+    <stop style="stop-color:#ffffff;stop-opacity:.2" offset="0.2" />
+    <stop style="stop-color:#666666;stop-opacity:.1" offset="0.6" />
+    <stop style="stop-color:#000000;stop-opacity:.13" offset="1" />
+  </radialGradient>
+  <path id="shield" d="m 2 2 v 257 c 0 286 298 398 298 398 c 0 0 298 -112 298 -398 V 2 Z" />
+    <g id="lance" style="fill:#000000;stroke:#ff8888;stroke-width:2;">
+        <path d="m 0,450 h 7.4 v 169.5 c 0,4.43562 -2.1267856,5.5354 -7.4,5.5 -5.2732244,0.0354 -7.4,-1.06438 -7.4,-5.5 v -169.5 z" />
+        <path d="m 0,25 -5.5,13 c -6.610834,170.21629 -4.54725,340.39605 -16,420 4.653126,3.72471 10.443786,6 21.5,6 11.0562138687053,0 16.8468738687053,-2.27529 21.5,-6 -11.45275,-79.60395 -9.389166,-249.78371 -16,-420 z" />
+    </g>
+</defs>
+<use id="bg" style="fill:#ff8888;" xlink:href="#shield" />
+<path style="fill:#000000;" d="M 2 2.02539 L 2 259 C 2 354.572 35.2816 430.709 79.5957 489.734 C 158.632 331.662 132.767 134.523 2 2.02539 Z M 598 2.02539 C 467.233 134.523 441.368 331.662 520.404 489.734 C 564.718 430.709 598 354.572 598 259 L 598 2.02539 Z" />
+<use transform="translate(300)" xlink:href="#lance" />
+<use transform="matrix(0.9,0,0,0.9,200,2.5)" xlink:href="#lance" />
+<use transform="matrix(0.9,0,0,0.9,400,2.5)" xlink:href="#lance" />
+<use id="shine" style="fill:url(#rg);stroke:#000000;stroke-width:3;" xlink:href="#shield" />
+</svg>

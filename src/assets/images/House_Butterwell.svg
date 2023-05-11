@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="660" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0" />
+    <stop style="stop-color:#fff;stop-opacity:.2" offset="0.2" />
+    <stop style="stop-color:#666;stop-opacity:.1" offset="0.6" />
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1" />
+  </radialGradient>
+  <clipPath id="clip-shield">
+    <path id="shield" d="m 2 2 v 257 c 0 286 298 398 298 398 c 0 0 298 -112 298 -398 V 2 Z" />
+  </clipPath>
+  <path id="wave" d="m 0,0 v 672 c 20,-6.28318 40,-12 60,-12 20,0 40,5.71682 60,12 20,6.28318 40,12 60,12 20,0 40,-5.71682 60,-12 20,-6.28318 40,-12 60,-12 20,0 40,5.71682 60,12 20,6.28318 40,12 60,12 20,0 40,-5.71682 60,-12 20,-6.28318 40,-12 60,-12 20,0 40,5.71682 60,12 v -672 z"/>
+</defs>
+<g clip-path="url(#clip-shield)">
+	<use fill="#ff0" xlink:href="#wave" y="0" />
+	<use fill="#fff" xlink:href="#wave" y="-76" />
+	<use fill="#080" xlink:href="#wave" y="-152" />
+	<use fill="#ff0" xlink:href="#wave" y="-228" />
+	<use fill="#fff" xlink:href="#wave" y="-304" />
+	<use fill="#080" xlink:href="#wave" y="-380" />
+	<use fill="#ff0" xlink:href="#wave" y="-456" />
+	<use fill="#fff" xlink:href="#wave" y="-532" />
+	<use fill="#080" xlink:href="#wave" y="-608" />
+</g>
+<use id="shine" fill="url(#rg)" stroke="#000" stroke-width="3" xlink:href="#shield" />
+</svg>

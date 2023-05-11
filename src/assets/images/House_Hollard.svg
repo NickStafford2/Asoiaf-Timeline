@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+</defs>
+<use id="background" xlink:href="#shield" style="fill:#cc0000;"/>
+<path style="fill:#0000aa;" d="m 2,2 v 178 h 596 v -178 z"/>
+<path style="fill:#ff5577;" d="m 2.0078,260 c 0.069,28.36 3.0703,55.01 8.4202,80 h 579.142 c 5.35,-24.99 8.35,-51.64 8.42,-80 z m 35.4262,160 c 13.965,29.71 31.198,56.32 50.113,80 h 424.903 c 18.92,-23.68 36.15,-50.29 50.12,-80 z m 131.606,160 c 68.02,53.32 130.96,77 130.96,77 0,0 62.94,-23.68 130.96,-77 z"/>
+<path id="crown" style="fill:#ffdd00;" d="m 218.38,66.517 24.49,57.133 c 40.8,-12.24 73.44,-12.24 114.26,0 l 24.49,-57.133 -28.57,12.244 c 12.23,20.397 -12.24,32.649 -24.49,12.237 -12.25,12.252 -24.49,0 -20.4,-8.157 l 8.15,-8.165 -16.32,-16.324 -16.32,16.324 8.17,8.165 c 4.07,8.157 -8.17,20.409 -20.42,8.157 -12.23,20.412 -36.72,8.16 -24.47,-12.237 z"/>
+<use xlink:href="#crown" x="-190"/>
+<use xlink:href="#crown" x="190"/>
+<use id="shine" xlink:href="#shield" style="fill:url(#rg);stroke:#000000;stroke-width:3;"/>
+</svg>

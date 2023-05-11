@@ -1,6 +1,6 @@
 <mat-list role="list">
   <mat-list-item role="listitem" *ngFor="let house of characterHouses">
-    {{ house.name }}
+    {{ house.nameFull }}
     <mat-icon class="delete-btn" (click)="removeHouse(house)">
       delete_forever
     </mat-icon>
@@ -22,7 +22,7 @@
         *ngFor="let option of filteredOptions | async"
         [value]="option.id"
         (click)="houseSelected($event)">
-        {{ option.name }}
+        {{ option.nameFull }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

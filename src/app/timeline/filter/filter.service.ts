@@ -57,7 +57,7 @@ export class FilterService {
   private setSelectedCharacterIds(ids: Map<string, boolean>) {
     const selectedIds: string[] = [];
     ids.forEach((isSelected, id) => {
-      console.log(id, isSelected);
+      //console.log(id, isSelected);
       if (isSelected) {
         selectedIds.push(id);
       }

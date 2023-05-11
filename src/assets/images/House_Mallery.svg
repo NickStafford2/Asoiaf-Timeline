@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="600"
+   height="660"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Blason_vide_3D_600x660.svg">
+  <metadata
+     id="metadata19">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs17">
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#rg"
+       id="radialGradient4153"
+       gradientUnits="userSpaceOnUse"
+       cx="220"
+       cy="220"
+       r="405" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5195">
+      <path
+         style="fill:#ffff00;stroke:none;stroke-width:3"
+         id="path5197"
+         d="m 2,2 0,257 c 0,286 298,398 298,398 0,0 298,-112 298,-398 L 598,2 Z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5277">
+      <path
+         style="fill:#1a1a1a;stroke:none;stroke-width:3"
+         id="path5279"
+         d="m 599.72861,332.73456 0,257 c 0,286 -298,398 -298,398 0,0 -298,-112 -298,-398 l 0,-257 z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5289">
+      <path
+         style="fill:#dc143c;fill-opacity:1;stroke:none;stroke-width:3"
+         id="path5291"
+         d="m 2,2 0,257 c 0,286 298,398 298,398 0,0 298,-112 298,-398 L 598,2 Z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5469">
+      <path
+         style="fill:#964b00;fill-opacity:1;stroke:none;stroke-width:3"
+         id="path5471"
+         d="m 2,2 0,257 c 0,286 298,398 298,398 0,0 298,-112 298,-398 L 598,2 Z"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="119.33141"
+       height="238.66283"
+       patternTransform="translate(1.8988578,1.8104371)"
+       id="pattern7206">
+      <rect
+         transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+         id="rect7202"
+         height="84.380051"
+         width="84.380051"
+         y="-42.190025"
+         x="42.190025"
+         style="fill:#ff0000;stroke:none" />
+      <rect
+         transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+         id="rect7204"
+         height="84.380051"
+         width="84.380051"
+         y="42.190029"
+         x="126.57008"
+         style="fill:#ff0000;stroke:none" />
+    </pattern>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     id="namedview15"
+     showgrid="false"
+     inkscape:zoom="0.45254834"
+     inkscape:cx="146.06413"
+     inkscape:cy="223.40437"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <radialGradient
+     id="rg"
+     gradientUnits="userSpaceOnUse"
+     cx="220"
+     cy="220"
+     r="405">
+    <stop
+       style="stop-color:#fff;stop-opacity:.3"
+       offset="0"
+       id="stop5" />
+    <stop
+       style="stop-color:#fff;stop-opacity:.2"
+       offset=".2"
+       id="stop7" />
+    <stop
+       style="stop-color:#666;stop-opacity:.1"
+       offset=".6"
+       id="stop9" />
+    <stop
+       style="stop-color:#000;stop-opacity:.13"
+       offset="1"
+       id="stop11" />
+  </radialGradient>
+  <path
+     inkscape:connector-curvature="0"
+     style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:3"
+     id="path7212"
+     d="m 2,2 0,257 c 0,286 298,398 298,398 0,0 298,-112 298,-398 L 598,2 Z" />
+  <path
+     inkscape:connector-curvature="0"
+     style="fill:none;fill-opacity:1;stroke:none;stroke-width:3"
+     id="path7200"
+     d="m 2,2 0,257 c 0,286 298,398 298,398 0,0 298,-112 298,-398 L 598,2 Z" />
+  <g
+     id="g5014"
+     transform="translate(5e-6,0)">
+    <path
+       d="m 300,68.353397 45.72128,140.714723 -119.69953,-86.9668 147.9565,0 -119.69953,86.9668 z"
+       id="path14"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff" />
+    <use
+       height="100%"
+       width="100%"
+       transform="translate(-176.7767,3.2415026e-6)"
+       id="use4982"
+       xlink:href="#path14"
+       y="0"
+       x="0" />
+    <use
+       height="100%"
+       width="100%"
+       transform="translate(176.77669,3.2415026e-6)"
+       id="use4984"
+       xlink:href="#path14"
+       y="0"
+       x="0" />
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       id="path4986"
+       d="m 300,68.353397 45.72127,140.714723 -119.69953,-86.9668 147.95651,0 -119.69954,86.9668 z" />
+  </g>
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path4986"
+     id="use5000"
+     transform="translate(5e-6,355.7631)"
+     width="100%"
+     height="100%" />
+  <g
+     id="g5010"
+     transform="translate(2.209718,-5.524292)">
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path14"
+       id="use5006"
+       transform="translate(86.178634,183.40582)"
+       width="100%"
+       height="100%" />
+    <path
+       d="m 209.40194,251.75922 45.72127,140.71472 -119.69953,-86.9668 147.95651,0 -119.69954,86.9668 z"
+       id="path5008"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff" />
+  </g>
+  <path
+     id="path4147"
+     d="m 2,2 0,257 c 0,286 298,398 298,398 0,0 298,-112 298,-398 L 598,2 Z"
+     style="fill:url(#radialGradient4153);stroke:#000000;stroke-width:3"
+     inkscape:connector-curvature="0" />
+</svg>

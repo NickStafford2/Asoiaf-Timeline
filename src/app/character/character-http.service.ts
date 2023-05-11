@@ -25,6 +25,15 @@ export class CharacterHttpService {
     );
   }
 
+  getPOVs(): Observable<CharacterData[]> {
+    return this.http
+      .get<CharacterData[]>(CharacterHttpService.URL + '/getPovs')
+      .pipe(
+        tap(() => console.log('getAll')),
+        catchError(ConfigService.handleError<CharacterData[]>('getAll', []))
+      );
+  }
+
   create(newCharacter: CharacterCreateData) {
     return this.http
       .post<CharacterCreateData>(CharacterHttpService.URL, newCharacter)

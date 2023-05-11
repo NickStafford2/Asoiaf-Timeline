@@ -69,13 +69,13 @@ export class CharacterHousesComponent implements OnInit, OnChanges {
 
     return allHouses.filter(option => {
       //console.log(option)
-      return option.name.toLowerCase().includes(filterValue);
+      return option.nameFull.toLowerCase().includes(filterValue);
     });
   }
 
   getOptionText(option: House) {
     if (option) {
-      return option.name;
+      return option.nameFull;
     }
     return '';
   }

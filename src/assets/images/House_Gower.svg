@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <clipPath id="clip-shield">
+    <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+  </clipPath>
+  <pattern id="ermine-1" width="90" height="150" patternUnits="userSpaceOnUse">
+    <path transform="translate(22.5,37.5)scale(0.7)" id="ermine-unit" d="m 0.40009,-18.332585 c -4.60101,20.84701 -13.10288,35.56792 -22.40493,46.1743 3.90086,-1.09721 8.20181,-4.02311 12.40273,-6.6747 -2.60057,5.48605 -5.20114,10.1492 -7.70169,14.99522 1.50033,-0.54861 6.4014,-5.39463 13.00285,-12.5265 1.00022,9.78347 2.40053,14.44662 4.50099,21.12132 1.70038,-6.6747 2.90064,-11.15498 4.20093,-21.21275 4.00088,4.48028 7.80171,9.05199 13.2029,12.89223 l -7.50165,-15.54383 c 3.90086,2.46873 8.2018,5.76036 12.40272,7.13188 C 12.70279,16.869605 4.40097,2.514425 0.40009,-18.332585 Z m -11.70257,-5.66893 c -5.20115,0.27431 -10.9024,7.31474 -16.50363,1.37152 3.30072,8.13765 9.20202,4.20597 9.70213,5.48605 5.9013,9.8749 14.70323,1.82869 12.70279,-2.83446 -1.90042,-3.10876 -3.80083,-4.11454 -5.90129,-4.02311 z m 21.80479,-0.0914 c -1.8004,0.18287 -3.50077,1.28008 -5.10112,4.02311 -2.00044,4.66314 6.80149,12.70936 12.80281,2.83446 0.40009,-1.18865 6.30138,2.65159 9.60211,-5.48606 -5.60123,5.8518 -11.30248,-1.09721 -16.50363,-1.37151 -0.30006,0 -0.50011,0 -0.80017,0 z m -11.8026,-20.66414 c 7.00154,8.77769 -12.60277,12.25219 -2.00044,20.48127 4.50099,2.83446 15.10332,-3.29163 5.80128,-10.78924 -1.20026,-0.64004 4.20092,-5.02889 -3.80084,-9.69203 z"/>
+    <use xlink:href="#ermine-unit" transform="translate(45,75)" />
+  </pattern>
+  <pattern id="ermine-2" xlink:href="#ermine-1" patternTransform="translate(375,0)"/>
+  <pattern id="ermine-3" xlink:href="#ermine-1" patternTransform="translate(0,375)"/>
+  <pattern id="ermine-4" xlink:href="#ermine-1" patternTransform="translate(375,375)"/>
+  <g id="trefoil">
+    <path fill="#a80" d="m 334.12379,333.13561 c 3.7921,0.69029 1.70013,11.3132 -1.8727,10.32384 -2.50553,-0.69382 -1.44436,-10.92766 1.8727,-10.32384 z"/>
+    <path fill="#fd0" d="m 307.48281,296.41877 c 12.59731,-34.80584 34.08924,-24.36316 30.39411,-8.02863 13.63969,7.30936 2.21273,38.87027 -32.11453,17.20421 2.77223,12.30742 6.41599,24.2126 28.67369,27.52674 -2.16716,2.97333 -4.57945,5.86495 -2.2939,10.32252 -28.87713,-6.4963 -25.24065,-29.86647 -32.688,-37.27579 -19.30958,35.74252 -44.43836,26.64072 -36.70232,6.30821 -15.05781,-13.52855 -2.1438,-34.06718 30.96758,-17.77768 -28.19487,-20.88831 -19.59827,-40.27156 -2.86737,-33.83495 11.87109,-10.47939 28.53657,-2.86454 16.63074,35.55537 z"/>
+    <path fill="none" stroke="#a80" d="m 299.45418,300.43309 c -11.85308,9.5328 -15.17131,4.44812 -25.80632,9.17558 m 20.64506,-37.89003 c 4.28577,5.8456 3.83411,15.61761 6.16906,23.41404 m 30.53325,-2.15475 c -4.09299,3.68823 -12.32111,5.30892 -20.64505,6.88168 l 0,0.57348 0,0"/>
+  </g>
+<use id="trefoil-reverse" xlink:href="#trefoil" transform="translate(600,0)scale(-1,1)"/>
+</defs>
+<use xlink:href="#shield" style="fill:#ffffff;"/>
+<g clip-path="url(#clip-shield)">
+  <path style="fill:url(#ermine-1);" d="m 0,0 h 300 v 300 h -300 z"/>
+  <path style="fill:url(#ermine-2);" d="m 300,0 h 300 v 300 h -300 z"/>
+  <path style="fill:url(#ermine-3);" d="m 0,300 h 300 v 360 h -300 z"/>
+  <path style="fill:url(#ermine-4);" d="m 300,300 h 300 v 360 h -300 z"/>
+  <path style="fill:none;stroke:#000000;stroke-width:150;" d="m 300,0 v 660 m -300,-360 h 600"/>
+</g>
+<use xlink:href="#trefoil"/>
+<use xlink:href="#trefoil" x="230"/>
+<use xlink:href="#trefoil-reverse" x="115"/>
+<use xlink:href="#trefoil-reverse" x="-115"/>
+<use xlink:href="#trefoil" x="-230"/>
+<use xlink:href="#trefoil" y="230"/>
+<use xlink:href="#trefoil-reverse" y="115"/>
+<use xlink:href="#trefoil-reverse" y="-115"/>
+<use xlink:href="#trefoil" y="-230"/>
+<use id="shine" xlink:href="#shield" fill="url(#rg)" stroke="#000" stroke-width="3"/>
+</svg>

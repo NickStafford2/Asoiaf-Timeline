@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+  <g id="white-wheel" transform="scale(0.6)translate(-300,-300)">
+	<circle cx="300" cy="300" r="160" fill="#0000cc"/>
+	<path id="spoke" d="m 465.4,273.5 c -13.1,49 -89.6,-9.1 -126.9,24.2 v 4.6 c 37.3,33.3 113.8,-24.8 126.9,24.2 v -20.5 -12 z" style="fill:#ffffff;"/>
+	<use xlink:href="#spoke" transform="rotate(45,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(90,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(135,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(180,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(225,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(270,300,300)"/>
+	<use xlink:href="#spoke" transform="rotate(315,300,300)"/>
+	<circle cx="300" cy="300" r="180" style="fill:none;stroke-width:44;stroke:#0000cc;"/>
+	<circle cx="300" cy="300" r="180" style="fill:none;stroke-width:36;stroke:#ffffff;"/>
+	<circle cx="300" cy="300" r="50" style="fill:#ffffff;stroke-width:4;stroke:#0000cc;"/>
+	<circle cx="300" cy="300" r="20" style="fill:#0000cc;"/>
+  </g>
+  <g id="blue-wheel" transform="scale(0.6)translate(-300,-300)">
+	<circle cx="300" cy="300" r="160" fill="#ffffff"/>
+	<path id="spoke2" d="m 465.4,273.5 c -13.1,49 -89.6,-9.1 -126.9,24.2 v 4.6 c 37.3,33.3 113.8,-24.8 126.9,24.2 v -20.5 -12 z" style="fill:#0000cc;"/>
+	<use xlink:href="#spoke2" transform="rotate(45,300,300)"/>
+	<use xlink:href="#spoke2" transform="rotate(90,300,300)"/>
+	<use xlink:href="#spoke2" transform="rotate(135,300,300)"/>
+	<use xlink:href="#spoke2" transform="rotate(180,300,300)"/>
+	<use xlink:href="#spoke2" transform="rotate(225,300,300)"/>
+	<use xlink:href="#spoke2" transform="rotate(270,300,300)"/>
+	<use xlink:href="#spoke2" transform="rotate(315,300,300)"/>
+	<circle cx="300" cy="300" r="180" style="fill:none;stroke-width:44;stroke:#ffffff;"/>
+	<circle cx="300" cy="300" r="180" style="fill:none;stroke-width:36;stroke:#0000cc;"/>
+	<circle cx="300" cy="300" r="50" style="fill:#0000cc;stroke-width:4;stroke:#ffffff;"/>
+	<circle cx="300" cy="300" r="20" style="fill:#ffffff;"/>
+  </g>
+</defs>
+<use id="bg" xlink:href="#shield" fill="#00c"/>
+<path id="top-right" fill="#fff" d="M 300 2 L 300 300 L 595.89258 300 C 597.26761 286.74845 598 273.0886 598 259 L 598 2 L 300 2 z"/>
+<path id="bottom-left" fill="#fff" d="M 4.1074219 300 C 30.645587 555.75613 300 657 300 657 L 300 300 L 4.1074219 300 z"/>
+
+<use xlink:href="#white-wheel" transform="translate(150,150)"/>
+<use xlink:href="#white-wheel" transform="translate(425,430)scale(0.85)"/>
+<use xlink:href="#blue-wheel" transform="translate(450,150)"/>
+<use xlink:href="#blue-wheel" transform="translate(175,430)scale(0.85)"/>
+<use id="shine" xlink:href="#shield" fill="url(#rg)" stroke="#000" stroke-width="3"/>
+</svg>

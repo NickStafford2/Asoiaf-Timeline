@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import * as moment from 'moment';
-import { Papa, ParseMeta, ParseResult } from 'ngx-papaparse';
-import { NSMoment, NSMomentData } from '../moment/moment.interface';
+import { Papa, ParseResult } from 'ngx-papaparse';
+
+import { HouseService } from '../character/house.service';
+import { NSMomentData } from '../moment/moment.interface';
 
 @Component({
   selector: 'app-import-page',
@@ -14,7 +16,11 @@ export class ImportPageComponent {
 
   records = [];
 
-  constructor(private http: HttpClient, private papa: Papa) {
+  constructor(
+    private http: HttpClient,
+    private papa: Papa,
+    public houseService: HouseService
+  ) {
     const csvData = '"Hello","World!"';
 
     this.papa.parse(csvData, {
@@ -101,7 +107,7 @@ export class ImportPageComponent {
     const invalidRows = [];
     const moments = [];
 
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < results.data.length; i++) {
       const row = results.data[i];
       if (this.isRowValid(row)) {
         const dateString = '' + row.M + '-' + row.D + '-' + row.Y;

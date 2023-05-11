@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+  <path id="leaf" style="stroke-width:1;" d="m 0.95496939,-73.516041 c 0,0 -4.37826029,17.350244 -6.03753129,22.374448 -0.5835316,1.766867 -5.1063051,-2.197998 -5.1063051,-2.197998 0,0 -0.367229,16.326378 -1.2864,17.469445 -1.614914,2.008226 -7.458161,-4.261796 -7.458161,-4.261796 -0.386055,13.289832 4.296543,21.51101 7.458161,31.2531902 -12.674518,-4.3550082 -16.272125,-10.5253962 -21.664168,-16.3368932 -0.565705,3.327532 -0.06712,4.392792 -3.196336,4.972094 -4.176464,-3.675956 -8.785758,-5.626645 -11.337025,-7.122655 -5.747506,0.284146 -8.585961,-1.868452 -12.304162,-3.66604 1.10675,2.842265 1.171673,4.75302 1.515467,6.0694 2.201025,5.586579 3.269093,11.550812 7.564572,16.4392484 l -4.261793,1.0654465 c 3.529138,6.1568422 7.058277,9.2136718 10.587382,11.5660954 l -4.684048,2.3044116 c 9.699481,9.5309941 15.163054,7.5460101 22.796707,12.2567371 -6.644112,1.978956 -11.165757,4.780391 -20.847443,12.075101 l -4.904993,1.507357 c 9.315843,9.215851 21.155875,9.07254 26.884975,9.656143 0,0 -2.005322,3.211403 -0.623537,4.175033 3.558409,3.34571 23.2663821,-9.569387 23.2663821,-9.569387 l -0.2683949,37.0027 4.9721074,-0.710307 V 37.290737 C 11.278792,45.785691 18.468816,46.696683 25.4603,46.879791 L 23.195223,42.973147 C 31.808101,40.788836 38.221662,43.880035 49.61049,32.673797 45.100611,33.404666 37.03126,28.203123 27.946354,21.308998 40.219666,20.876065 46.134444,12.494943 52.451717,4.6169501 h -6.037564 c 3.314771,-4.20457078 6.629477,-9.3220098 9.944215,-15.7804531 l -6.747878,1.5744557 c -2.344603,2.2133553 6.590439,-10.3997607 10.366471,-24.5921027 0,0 -21.877892,14.685549 -27.0585,13.582451 -1.254809,-0.267186 -0.355206,-4.261799 -0.355206,-4.261799 L 14.450662,-9.2338996 21.975905,-42.12865 c 0,0 -7.236443,7.771966 -8.235526,6.613655 -0.496656,-0.575792 0.799576,-4.815912 0.779718,-8.912068 -0.01999,-4.096162 -1.355835,-8.048375 -1.355835,-8.048375 l -7.5923266,0.623543 C 6.5372351,-54.06469 4.5909047,-62.100731 0.95496939,-73.516041 Z"/>
+  <path id="veins" style="fill:none;stroke-width:2;stroke-linecap:round;" d="M 42.061166,34.132968 C 25.182821,36.504475 9.5746809,38.078128 0.27803418,29.835271 -17.764811,37.285319 -32.042204,34.445461 -46.370578,32.980769 m -9.505693,-59.05052 C -37.248956,-7.1254878 -18.621631,20.067016 0.00568396,26.643632 16.855329,23.490385 35.301595,2.2423258 54.447374,-26.933905 M 1.157893,-62.652266 0.29373944,30.388302" />
+  <g id="brown-leaf" style="stroke:#592600;">
+    <use xlink:href="#leaf" style="fill:#964b00;"/>
+    <use xlink:href="#veins"/>
+  </g>
+  <g id="green-leaf" style="stroke:#004000;">
+    <use xlink:href="#leaf" style="fill:#228b22;"/>
+    <use xlink:href="#veins"/>
+  </g>
+  <pattern id="leaf-field" patternUnits="userSpaceOnUse" x="-75" y="0" width="300" height="528">
+    <use xlink:href="#brown-leaf" transform="translate(0,0)rotate(15)"/>
+    <use xlink:href="#green-leaf" transform="translate(150,0)rotate(-15)"/>
+    <use xlink:href="#brown-leaf" transform="translate(300,0)rotate(15)"/>
+    
+    <use xlink:href="#brown-leaf" transform="translate(75,132)rotate(-15)"/>
+    <use xlink:href="#green-leaf" transform="translate(225,132)rotate(15)"/>
+    
+    <use xlink:href="#green-leaf" transform="translate(0,264)rotate(-15)"/>
+    <use xlink:href="#brown-leaf" transform="translate(150,264)rotate(15)"/>
+    <use xlink:href="#green-leaf" transform="translate(300,264)rotate(-15)"/>
+    
+    <use xlink:href="#green-leaf" transform="translate(75,396)rotate(15)"/>
+    <use xlink:href="#brown-leaf" transform="translate(225,396)rotate(-15)"/>
+    
+    <use xlink:href="#brown-leaf" transform="translate(0,528)rotate(15)"/>
+    <use xlink:href="#green-leaf" transform="translate(150,528)rotate(-15)"/>
+    <use xlink:href="#brown-leaf" transform="translate(300,528)rotate(15)"/>
+  </pattern>
+</defs>
+<use xlink:href="#shield" fill="#ff0"/>
+<use xlink:href="#shield" fill="url(#leaf-field)"/>
+<use xlink:href="#shield" fill="url(#rg)" stroke="#000" stroke-width="3"/>
+</svg>

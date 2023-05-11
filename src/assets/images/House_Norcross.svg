@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <clipPath id="clip-shield">
+    <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+  </clipPath>
+</defs>
+<use id="background" xlink:href="#shield" fill="#fff"/>
+<path id="cross" fill="#000" d="m 250,2 v 48 h -25 v 50 h 25 v 50 h -25 v 50 h 25 v 50 h -50 v -25 h -50 v 25 h -50 v -25 h -50 v 25 h -48 v 9 c 0,32.56067 3.8731924,62.85844 10.71875,91 h 37.28125 v 25 h 50 v -25 h 50 v 25 h 50 v -25 h 50 v 50 h -25 v 50 h 25 v 50 h -25 v 50 h 25 v 50 h -25 v 18.75391 c 43.01274,26.22284 75,38.24609 75,38.24609 0,0 31.98726,-12.02325 75,-38.24609 v -18.75391 h -25 v -50 h 25 v -50 h -25 v -50 h 25 v -50 h -25 v -50 h 50 v 25 h 50 v -25 h 50 v 25 h 50 v -25 h 37.28125 c 6.84556,-28.14156 10.71875,-58.43933 10.71875,-91 v -9 h -48 v -25 h -50 v 25 h -50 v -25 h -50 v 25 h -50 v -50 h 25 v -50 h -25 v -50 h 25 v -50 h -25 v -48 z"/>
+<use id="shine" xlink:href="#shield" fill="url(#rg)" stroke="#000" stroke-width="3"/>
+</svg>

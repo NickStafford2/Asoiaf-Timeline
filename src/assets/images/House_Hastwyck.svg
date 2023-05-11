@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="660" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#ffffff;stop-opacity:.3" offset="0" />
+    <stop style="stop-color:#ffffff;stop-opacity:.2" offset="0.2" />
+    <stop style="stop-color:#666666;stop-opacity:.1" offset="0.6" />
+    <stop style="stop-color:#000000;stop-opacity:.13" offset="1" />
+  </radialGradient>
+  <path id="shield" d="m 2 2 v 257 c 0 286 298 398 298 398 c 0 0 298 -112 298 -398 V 2 Z" />
+</defs>
+<use id="bg" style="fill:#ffb;" xlink:href="#shield" />
+<path style="fill:#880;" d="M 2 2 L 2 82.5 L 598 82.5 L 598 2 L 2 2 Z M 2 165 L 2 247.5 L 598 247.5 L 598 165 L 2 165 Z M 8.43164 330 C 13.9498 359.74 22.779 387.21 33.998 412.5 L 566.002 412.5 C 577.221 387.21 586.05 359.74 591.568 330 L 8.43164 330 Z M 83.6074 495 C 109.048 527.823 137.807 555.177 165.859 577.5 L 434.141 577.5 C 462.193 555.177 490.952 527.823 516.393 495 L 83.6074 495 Z" />
+<use id="shine" style="fill:url(#rg);stroke:#000000;stroke-width:3;" xlink:href="#shield" />
+</svg>

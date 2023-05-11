@@ -22,7 +22,8 @@ export class CharacterService {
   readonly progress$ = this._progres$.asObservable();
 
   constructor(private characterHttpService: CharacterHttpService) {
-    this.fetchData();
+    //this.fetchData();
+    this.fetchPOVs();
   }
 
   create(newCharacter: CharacterCreateData) {
@@ -44,13 +45,26 @@ export class CharacterService {
   }
 
   private fetchData() {
+    /*
     this.characterHttpService.getAll().subscribe((results: CharacterData[]) => {
       const characters: CharacterClass[] = [];
       results.forEach((r: CharacterData) => {
         characters.push(new CharacterClass(r));
       });
       this._character$.next(characters);
-    });
+    });*/
+  }
+
+  private fetchPOVs() {
+    this.characterHttpService
+      .getPOVs()
+      .subscribe((results: CharacterData[]) => {
+        const characters: CharacterClass[] = [];
+        results.forEach((r: CharacterData) => {
+          characters.push(new CharacterClass(r));
+        });
+        this._character$.next(characters);
+      });
   }
 
   // todo: make a copy if made public

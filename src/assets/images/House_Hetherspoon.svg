@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#fff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+  <pattern id="diamond" patternUnits="userSpaceOnUse" y="0" width="120" height="165">
+    <path fill="#000000" d="M0,82.5 L60,0 L120,82.5 L60,165 z"/>
+  </pattern>
+</defs>
+<use id="shine" xlink:href="#shield" fill="#ff6600"/>
+<use id="shine" xlink:href="#shield" fill="url(#diamond)"/>
+<path fill="#ffffff" d="m 200,130 v 350 a 100,100 0 0 0 200,0 v -350 a 100,100 0 0 0 -200,0 z"/>
+<path fill="#800000" d="m 300,74.662 c -26.99,0 -53.22,26.738 -53.22,68.488 0,30.81 12,52.25 33.66,74.15 5.71,5.78 10.23,12.33 10.13,19.77 l -3.42,287.47 c -0.12,10.36 0.1,14.83 12.85,14.83 12.77,0 12.97,-4.47 12.85,-14.83 l -3.42,-287.47 c -0.1,-7.44 4.42,-13.99 10.13,-19.77 21.66,-21.9 33.66,-43.34 33.66,-74.15 0,-41.75 -26.23,-68.488 -53.22,-68.488 z"/>
+<path fill="#000000" d="m 323.6,175.84 c -7.05,8.48 -15.31,11.16 -23.6,11.16 -15.65,0 -25.94,-25.43 -25.94,-42.11 0,-23.01 7.23,-41.45 26.42,-47.058 -20.34,3.458 -32.02,18.498 -32.02,52.698 0,24.47 17.19,45.11 31.54,45.11 14.75,0 20.14,-11.51 23.6,-19.8 z"/>
+<use id="shine" xlink:href="#shield" fill="url(#rg)" stroke="#000" stroke-width="3"/>
+</svg>

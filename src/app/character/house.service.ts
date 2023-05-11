@@ -16,17 +16,18 @@ export class HouseService {
     this.fetchData();
   }
 
-  createFromName(name: string): void {
+  /*
+    createFromName(nameFull: string): void {
     const newType: HouseType = HouseType.normal;
     const houseData: HouseData = {
-      name,
+      nameFull,
       type: newType,
     };
     this.houseHttpService.create(houseData).subscribe(result => {
       console.log(result);
     });
   }
-
+  */
   update(updatedHouse: House) {
     this.houseHttpService.update(updatedHouse).subscribe(() => {
       this.fetchData();
@@ -71,7 +72,13 @@ export class HouseService {
 
   public getHouseName(id: string): string {
     const house = this.getHouse(id);
-    if (house) return house.name;
+    if (house) return house.nameFull;
     return '';
+  }
+
+  webParser() {
+    this.houseHttpService.webParser().subscribe(x => {
+      console.log(x);
+    });
   }
 }

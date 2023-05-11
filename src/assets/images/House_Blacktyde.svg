@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#ffffff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#ffffff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <pattern id="vair" patternUnits="userSpaceOnUse" x="0" width="150" height="264">
+    <path style="fill:#000000;" d="m75,0 l37.5,37.5 v57 l37.5,37.5 v132 h-75 l37.5,-37.5 v-57 l37.5,-37.5 H0 l37.5,37.5 v57 l37.5,37.5 H0 v-132 l37.5,-37.5 v-57z"/>
+  </pattern>
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+</defs>
+<use id="field" xlink:href="#shield" style="fill:#008800;"/>
+<use xlink:href="#shield" style="fill:url(#vair);"/>
+<use id="shine" xlink:href="#shield" style="fill:url(#rg);stroke:#000000;stroke-width:3;"/>
+</svg>

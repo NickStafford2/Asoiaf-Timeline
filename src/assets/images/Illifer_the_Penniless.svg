@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="660">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#ffffff;stop-opacity:.3" offset="0"/>
+    <stop style="stop-color:#ffffff;stop-opacity:.2" offset=".2"/>
+    <stop style="stop-color:#666666;stop-opacity:.1" offset=".6"/>
+    <stop style="stop-color:#000000;stop-opacity:.13" offset="1"/>
+  </radialGradient>
+  <pattern id="ermine" patternUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+    <path transform="translate(25,25)scale(0.55)" id="ermine-unit" d="m 0.40009,-18.332585 c -4.60101,20.84701 -13.10288,35.56792 -22.40493,46.1743 3.90086,-1.09721 8.20181,-4.02311 12.40273,-6.6747 -2.60057,5.48605 -5.20114,10.1492 -7.70169,14.99522 1.50033,-0.54861 6.4014,-5.39463 13.00285,-12.5265 1.00022,9.78347 2.40053,14.44662 4.50099,21.12132 1.70038,-6.6747 2.90064,-11.15498 4.20093,-21.21275 4.00088,4.48028 7.80171,9.05199 13.2029,12.89223 l -7.50165,-15.54383 c 3.90086,2.46873 8.2018,5.76036 12.40272,7.13188 C 12.70279,16.869605 4.40097,2.514425 0.40009,-18.332585 Z m -11.70257,-5.66893 c -5.20115,0.27431 -10.9024,7.31474 -16.50363,1.37152 3.30072,8.13765 9.20202,4.20597 9.70213,5.48605 5.9013,9.8749 14.70323,1.82869 12.70279,-2.83446 -1.90042,-3.10876 -3.80083,-4.11454 -5.90129,-4.02311 z m 21.80479,-0.0914 c -1.8004,0.18287 -3.50077,1.28008 -5.10112,4.02311 -2.00044,4.66314 6.80149,12.70936 12.80281,2.83446 0.40009,-1.18865 6.30138,2.65159 9.60211,-5.48606 -5.60123,5.8518 -11.30248,-1.09721 -16.50363,-1.37151 -0.30006,0 -0.50011,0 -0.80017,0 z m -11.8026,-20.66414 c 7.00154,8.77769 -12.60277,12.25219 -2.00044,20.48127 4.50099,2.83446 15.10332,-3.29163 5.80128,-10.78924 -1.20026,-0.64004 4.20092,-5.02889 -3.80084,-9.69203 z"/>
+    <use xlink:href="#ermine-unit" transform="translate(50,50)" />
+  </pattern>
+  <pattern id="ermine-1" patternTransform="translate(10,50)" xlink:href="#ermine" />
+  <pattern id="ermine-2" patternTransform="translate(0,5)" xlink:href="#ermine" />
+  <pattern id="ermine-3" patternTransform="translate(35,1)" xlink:href="#ermine" />
+  <pattern id="ermine-4" patternTransform="translate(5,-20)" xlink:href="#ermine" />
+  <path id="shield" d="m2,2v257c0,286 298,398 298,398c0,0 298-112 298-398V2z"/>
+</defs>
+<use id="field" xlink:href="#shield" style="fill:#ffdd00;"/>
+<path style="fill:#ffffff;" d="m 598,2 -298,298 v -298 z m -298,298 h -295.8926 c -1.375,-13.25 -2.1074,-26.91 -2.1074,-41 v -257 z m 0,0 v 357 c 0,0 -119.24,-44.82 -206.863,-150.14 z m 0,0 h 295.89 c -8.88,85.59 -44.95,153.89 -89.03,206.86 z"/>
+<path style="fill:url(#ermine-1);" d="m 300,300 h -295.8926 c -1.375,-13.25 -2.1074,-26.91 -2.1074,-41 v -257 z"/>
+<path style="fill:url(#ermine-2);" d="m 598,2 -298,298 v -298 z"/>
+<path style="fill:url(#ermine-3);" d="m 300,300 h 295.89 c -8.88,85.59 -44.95,153.89 -89.03,206.86 z"/>
+<path style="fill:url(#ermine-4);" d="m 300,300 v 357 c 0,0 -119.24,-44.82 -206.863,-150.14 z"/>
+<use id="shine" xlink:href="#shield" style="fill:url(#rg);stroke:#000000;stroke-width:3;"/>
+</svg>

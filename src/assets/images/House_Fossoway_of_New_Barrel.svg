@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="660" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <radialGradient id="rg" gradientUnits="userSpaceOnUse" cx="220" cy="220" r="405">
+    <stop style="stop-color:#fff;stop-opacity:.3" offset="0" />
+    <stop style="stop-color:#fff;stop-opacity:.2" offset="0.2" />
+    <stop style="stop-color:#666;stop-opacity:.1" offset="0.6" />
+    <stop style="stop-color:#000;stop-opacity:.13" offset="1" />
+  </radialGradient>
+  <path id="shield" d="m 2 2 v 257 c 0 286 298 398 298 398 c 0 0 298 -112 298 -398 V 2 Z" />
+</defs>
+<use id="shine" style="fill:#ffdd00;" xlink:href="#shield" />
+<g style="stroke:#330000;stroke-width:1.5;stroke-linecap:round;">
+  <path style="fill:#33aa33;" d="m 306.2,199.1 c 337.9,-127.65 175.9,388.5 5.5,273.9 -3.3,-2.2 -7.3,-2.8 -12.9,0 -227.47,114 -312.14,-403.7 7.4,-273.9 z" />
+  <path style="fill:#550000;" d="m 317.5,228.6 c -8.3,-37.2 -19,-77.8 -14.7,-115 -1.3,-4.3 -3.1,-8.3 -12.6,-8.9 -4,40.9 0.6,82.1 12,123" />
+  <path style="fill:none;" d="m 290.2,104.7 c 1.8,3.7 3.7,7 12.6,8.9" />
+  <path style="fill:#008020;" d="m 298.5,164 c 26.7,-56.3 79,-71.64 151.9,-55 -43.7,29.2 -63.7,93.4 -151.9,55 z" />
+  <path style="fill:none;" d="m 298.5,164 c 47.3,-38.7 89.5,-34.4 135,-51" />
+  <path style="fill:none;" d="m 274.8,220.3 c 16,7.4 48.6,12.6 64.6,3.4" />
+  <path style="fill:#008020;" d="m 292.6,157.2 c -26.7,-56.2 -79,-71.6 -151.9,-54.7 43.7,28.9 63.7,93.5 151.9,54.7 z" />
+  <path style="fill:none;" d="m 292.6,157.2 c -47.4,-39.1 -89.5,-34.1 -135,-51" />
+</g>
+<use id="shine" fill="url(#rg)" stroke="#000" stroke-width="3" xlink:href="#shield" />
+</svg>

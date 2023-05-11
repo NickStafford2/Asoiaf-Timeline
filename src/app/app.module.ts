@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+//import { NgOptimizedImage } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -100,6 +101,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     CommonModule,
+    // NgOptimizedImage,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
