@@ -23,14 +23,14 @@ export class CharacterCreateComponent {
   onCreate() {
     console.log(this.createForm);
     const f = this.createForm.value;
-    const newCharacter: CharacterCreateData = {
+    /*const newCharacter: CharacterCreateData = {
       firstName: f.firstName,
       lastName: f.lastName,
       nickName: f.nickName,
       isPov: f.isPov,
       houses: f.houses,
     };
-    this.characterService.create(newCharacter);
+    this.characterService.create(newCharacter);*/
   }
 
   get firstName() {

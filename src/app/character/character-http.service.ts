@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { catchError, shareReplay, tap } from 'rxjs/operators';
 
 import {
   CharacterClass,
@@ -16,19 +16,43 @@ import { ConfigService } from '../config.service';
 export class CharacterHttpService {
   private static readonly URL: string = 'api/Characters';
 
+  private getCalls = new Map<string, Observable<CharacterData>>();
+
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<CharacterData[]> {
     return this.http.get<CharacterData[]>(CharacterHttpService.URL).pipe(
+      shareReplay(1),
       tap(() => console.log('getAll')),
       catchError(ConfigService.handleError<CharacterData[]>('getAll', []))
     );
+  }
+
+  get(id: string): Observable<CharacterData> {
+    if (this.getCalls.has(id)) {
+      timer(3000).subscribe(time => {
+        //console.log('timer complete', time);
+        this.getCalls.delete(id);
+      });
+      return this.getCalls.get(id) as Observable<CharacterData>;
+    }
+    const newCall = this.http
+      .get<CharacterData>(CharacterHttpService.URL + '/' + id)
+      .pipe(
+        shareReplay(1),
+        tap(() => console.log('get' + id)),
+        catchError(ConfigService.handleError<CharacterData>('get' + id))
+      );
+    this.getCalls.set(id, newCall);
+
+    return newCall;
   }
 
   getPOVs(): Observable<CharacterData[]> {
     return this.http
       .get<CharacterData[]>(CharacterHttpService.URL + '/getPovs')
       .pipe(
+        shareReplay(1),
         tap(() => console.log('getAll')),
         catchError(ConfigService.handleError<CharacterData[]>('getAll', []))
       );
@@ -66,6 +90,15 @@ export class CharacterHttpService {
       .pipe(
         tap(() => console.log('delete')),
         catchError(ConfigService.handleError<CharacterData[]>('delete', []))
+      );
+  }
+
+  scrapeFromWeb(id: string) {
+    return this.http
+      .get<CharacterData>(CharacterHttpService.URL + '/ScrapeFromWeb/' + id)
+      .pipe(
+        tap(() => console.log('update')),
+        catchError(ConfigService.handleError<CharacterData[]>('update', []))
       );
   }
 

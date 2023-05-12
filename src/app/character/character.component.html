@@ -1,3 +1,59 @@
+<h1>{{character?.name}}</h1>
+<mat-icon *ngIf="!character?.isHuman">pets</mat-icon>
+<mat-icon *ngIf="character?.isPov"
+          matTooltip="POV"
+          [matTooltipPosition]="'right'">
+  edit
+</mat-icon>
+
+<p>{{character?.briefDescription}}</p>
+<!--<p>nameUnique: {{character?.nameUnique}}</p>-->
+<p>personalArms: {{character?.personalArms}}</p>
+<!--
+
+<h3>Houses</h3>
+<ul>
+  <li *ngFor="let house of character?.houses">{{houseService.getHouseName(house)}}</li>
+</ul>
+-->
+<a href="{{character?.wikiUrl}}" target="_blank">Wiki</a>
+<h3>Aliases</h3>
+<ul>
+  <li *ngFor="let x of character?.aliases">{{x}}</li>
+</ul>
+<h3>Allegiances</h3>
+<ng-container *ngFor="let s of sigils">
+  <img src="{{'assets/images/' + s.url}}"
+       alt="{{s.tooltipText}}"
+       matTooltip="{{s.tooltipText}}" />
+</ng-container>
+<h3>Titles</h3>
+<ul>
+  <li *ngFor="let x of character?.titles">{{x}}</li>
+</ul>
+<h3>Races</h3>
+<ul>
+  <li *ngFor="let x of character?.races">{{x}}</li>
+</ul>
+<h3>Cultures</h3>
+<ul>
+  <li *ngFor="let x of character?.cultures">{{x}}</li>
+</ul>
+<h3>References</h3>
+<ul>
+  <li *ngFor="let x of character?.bookReferences"><b>{{bookService.getName(x.bookId)}}</b> ({{x.description}})</li>
+</ul>
+<h3>Relationships</h3>
+<ul>
+  <li *ngFor="let x of character?.relationships">
+    {{x.type}} -
+    {{characterService.getCharacterName(x.characterId)}}
+    <ng-container *ngIf="x.description">{{x.description}}</ng-container>
+  </li>
+</ul>
+
+
+<!--
 <form [formGroup]="updateForm">
   <mat-form-field>
     <mat-label>First Name</mat-label>
@@ -21,52 +77,58 @@
   <app-character-houses
     [houseIds]="character?.houses"
     (changeEvent)="onHouseIdsChanged($event)"></app-character-houses>
-
-  <!--
-  <ng-container formArrayName="houses">
-    <ng-container *ngFor="let houseForm of houses.controls; let i = index">
-      <div class="houses-container" [formGroupName]="i">
-        <mat-form-field appearance="fill">
-          <input matInput formControlName="houseName" placeholder="Baratheon" />
-        </mat-form-field>
-        <mat-icon class="delete-btn" (click)="deleteHouse(i)">
-          delete_forever
-        </mat-icon>
-      </div>
-    </ng-container>
-  </ng-container>
-
   -->
-  <!--
+<!--
+<ng-container formArrayName="houses">
+  <ng-container *ngFor="let houseForm of houses.controls; let i = index">
+    <div class="houses-container" [formGroupName]="i">
+      <mat-form-field appearance="fill">
+        <input matInput formControlName="houseName" placeholder="Baratheon" />
+      </mat-form-field>
+      <mat-icon class="delete-btn" (click)="deleteHouse(i)">
+        delete_forever
+      </mat-icon>
+    </div>
+  </ng-container>
+</ng-container>
 
-  <mat-list >
-    <ng-container>
+-->
+<!--
+
+<mat-list >
+  <ng-container>
+  </ng-container>
+  <mat-list-item>
+    <ng-container [formGroup]="houseForm">
+      <input matInput
+             placeholder="house"
+             formControlName="houseName" />
+      <mat-icon class="delete-btn" (click)="deleteHouse(i)">
+        delete_forever
+      </mat-icon>
+
     </ng-container>
-    <mat-list-item>
-      <ng-container [formGroup]="houseForm">
-        <input matInput
-               placeholder="house"
-               formControlName="houseName" />
-        <mat-icon class="delete-btn" (click)="deleteHouse(i)">
-          delete_forever
-        </mat-icon>
-
-      </ng-container>
-    </mat-list-item>
-  </mat-list>
+  </mat-list-item>
+</mat-list>
 
 
-  <button mat-mini-fab (click)="addHouse()">
-    <mat-icon class="add-course-btn">add</mat-icon>
-  </button>
-    -->
-  <button
-    mat-raised-button
-    color="primary"
-    [disabled]="!updateForm.valid || updateForm.pristine"
-    (click)="onUpdate()">
-    Update
-  </button>
+<button mat-mini-fab (click)="addHouse()">
+  <mat-icon class="add-course-btn">add</mat-icon>
+</button>
+  -->
+<!--
+<button mat-raised-button
+        color="primary"
+        [disabled]="!updateForm.valid || updateForm.pristine"
+        (click)="onUpdate()">
+  Update
+</button>
+  -->
+<button mat-raised-button
+        color="primary"
+        (click)="onUpdate()">
+  Update From Web
+</button>
 
-  <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
-</form>
+<!--<button mat-raised-button color="warn" (click)="onDelete()">Delete</button>-->
+<!--</form>-->

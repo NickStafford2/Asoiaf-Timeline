@@ -6,8 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { CharacterClass, CharacterData } from './character';
+import { CharacterClass } from './character';
 import { CharacterService } from './character.service';
+import { HouseService } from './house.service';
+import { BookService } from '../book/book.service';
 
 @Component({
   selector: 'app-character',
@@ -19,8 +21,10 @@ export class CharacterComponent implements OnChanges {
 
   private houseIdsFromChild: string[] = [];
 
+  sigils: sigilData[] = [];
+
   updateForm: FormGroup = new FormGroup({
-    firstName: new FormControl('', [Validators.required]), // add updateOn: 'blur'
+    name: new FormControl('', [Validators.required]), // add updateOn: 'blur'
     lastName: new FormControl(''),
     nickName: new FormControl(''),
     isPov: new FormControl(false),
@@ -29,18 +33,42 @@ export class CharacterComponent implements OnChanges {
   });
 
   constructor(
-    private characterService: CharacterService,
+    public characterService: CharacterService,
+    public bookService: BookService,
+    public houseService: HouseService,
     private fb: FormBuilder
-  ) {}
+  ) {
+    houseService.house$.subscribe(() => {
+      if (this.character?.allegiances) {
+        this.updateSigils(this.character.allegiances);
+      }
+    });
+  }
+
+  private updateSigils(allegiances: string[]) {
+    allegiances.forEach((houseId: string) => {
+      const h = this.houseService.getHouseFromId(houseId);
+      if (h?.sigilURL) {
+        const s: sigilData = {
+          url: h.sigilURL,
+          tooltipText: h.nameFull,
+        };
+        this.sigils.push(s);
+      }
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     const character: CharacterClass = changes['character'].currentValue;
     if (character) {
+      if (character.allegiances) {
+        this.updateSigils(character.allegiances);
+      }
       //console.log(character);
-      this.updateForm.controls['firstName'].setValue(character.firstName);
-      this.updateForm.controls['lastName'].setValue(character.lastName);
-      this.updateForm.controls['nickName'].setValue(character.nickName);
-      this.updateForm.controls['isPov'].setValue(character.isPov);
+      //this.updateForm.controls['name'].setValue(character.name);
+      //this.updateForm.controls['nameUnique'].setValue(character.nameUnique);
+      //this.updateForm.controls['nickName'].setValue(character.nickName);
+      //this.updateForm.controls['isPov'].setValue(character.isPov);
       //this.updateForm.controls['houses'].setValue(character.houses);
       //this.updateForm.controls['houses'].setValue(['stark', 'lannister', 'baratheon', 'snow']);
       this.updateForm.markAsPristine();
@@ -48,21 +76,23 @@ export class CharacterComponent implements OnChanges {
   }
 
   onUpdate() {
-    console.log(this.updateForm);
-    const c = this.updateForm.value;
-    const updatedCharacter: CharacterData = {
+    this.characterService.scrapeFromWeb(this.character.id);
+    //console.log(this.updateForm);
+    //const c = this.updateForm.value;
+    /*const updatedCharacter: CharacterData = {
       id: this.character.id,
-      firstName: c.firstName,
+      name: c.name,
       lastName: c.lastName,
       nickName: c.nickName,
       isPov: c.isPov,
       houses: this.houseIdsFromChild,
     };
-    this.characterService.update(updatedCharacter);
+    this.characterService.update(updatedCharacter);*/
   }
 
   onDelete() {
-    this.characterService.delete(this.character.id);
+    debugger;
+    //this.characterService.delete(this.character.id);
   }
 
   get firstName() {
@@ -102,4 +132,9 @@ export class CharacterComponent implements OnChanges {
     this.houseIdsFromChild = ids;
     this.updateForm.markAsDirty();
   }
+}
+
+interface sigilData {
+  url: string;
+  tooltipText: string;
 }

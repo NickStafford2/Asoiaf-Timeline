@@ -20,6 +20,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
@@ -52,6 +53,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { YearLabelComponent } from './timeline/year-label/year-label.component';
 import { YearlineComponent } from './timeline/yearline/yearline.component';
 import { TimelinePageComponent } from './timeline-page/timeline-page.component';
+import { CharacterTileComponent } from './character/character-tile/character-tile.component';
 
 const routes: Routes = [
   { path: 'import', component: ImportPageComponent },
@@ -95,6 +97,7 @@ const routes: Routes = [
     HousePageComponent,
     MomentPageComponent,
     BookPageComponent,
+    CharacterTileComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -119,6 +122,7 @@ const routes: Routes = [
     MatMenuModule,
     MatSelectModule,
     MatToolbarModule,
+    MatTooltipModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],

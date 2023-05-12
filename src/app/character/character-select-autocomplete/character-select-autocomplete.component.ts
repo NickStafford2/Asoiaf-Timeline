@@ -39,7 +39,7 @@ export class CharacterSelectAutocompleteComponent implements OnInit {
 
   getOptionText(option: CharacterClass) {
     if (option) {
-      return option.fullName;
+      return option.name;
     }
     return '';
   }

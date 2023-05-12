@@ -2,6 +2,7 @@
   //background-color: azure;
   padding: .2em;
   margin: .2em;
+  width: 400px;
 }
 
 .houses-container {
@@ -13,4 +14,10 @@ form {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
 }

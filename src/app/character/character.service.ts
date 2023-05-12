@@ -68,15 +68,18 @@ export class CharacterService {
   }
 
   // todo: make a copy if made public
-  private getCharacterFromId(id: string): CharacterClass | undefined {
+  private getCharacterFromId(
+    id: string | undefined
+  ): CharacterClass | undefined {
     return this._character$.getValue().find((character: CharacterClass) => {
       return character.id === id;
     });
   }
 
-  getCharacterName(id: string): string {
+  getCharacterName(id: string | undefined): string {
     const character: CharacterClass | undefined = this.getCharacterFromId(id);
-    if (character) return character.fullName;
+    if (character) return character.name;
+    else if (id) this.fetch(id);
     return '';
   }
 
@@ -85,7 +88,34 @@ export class CharacterService {
 
     return this._character$.getValue().filter((character: CharacterClass) => {
       //console.log(option)
-      return character.fullName.toLowerCase().includes(s);
+      return character.name.toLowerCase().includes(s);
+    });
+  }
+
+  scrapeFromWeb(id: string) {
+    this.characterHttpService.scrapeFromWeb(id).subscribe((x: any) => {
+      console.log(x);
+    });
+  }
+
+  private exists(id: string): boolean {
+    return !!this._character$.getValue().find(c => c.id === id);
+  }
+
+  private fetch(id: string) {
+    //console.log('fetch()', id);
+    this.characterHttpService.get(id).subscribe((x: CharacterData) => {
+      //console.log(x);
+      const cs = this._character$.getValue();
+      const existingWithId = cs.find(c => c.id === id);
+      if (existingWithId) {
+        const index = cs.indexOf(existingWithId);
+        if (index > -1) {
+          cs.splice(index, 1);
+        }
+      }
+      cs.push(new CharacterClass(x));
+      this._character$.next(cs);
     });
   }
 }

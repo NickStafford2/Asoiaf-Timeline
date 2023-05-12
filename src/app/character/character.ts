@@ -1,3 +1,6 @@
+import { Reference } from './Reference';
+import { Relationship } from './relationship';
+
 export class CharacterClass {
   private _id: string = '';
 
@@ -13,6 +16,8 @@ export class CharacterClass {
 
   private _houses: string[] = [];
 
+  private _allegiances: string[] = [];
+
   private _titles: string[] = [];
 
   private _races: string[] = [];
@@ -20,6 +25,8 @@ export class CharacterClass {
   private _cultures: string[] = [];
 
   private _bookReferences: Reference[] = [];
+
+  private _relationships: Relationship[] = [];
 
   private _isHuman: boolean = true;
 
@@ -31,144 +38,165 @@ export class CharacterClass {
     if (!data.id) {
       console.error('id does not exist');
     }
-    this.id = data.id;
-    this.wikiUrl = data.wikiUrl;
-    this.nameUnique = data.nameUnique;
-    this.name = data.name;
-    this.aliases = data.aliases;
-    this.isPov = data.isPov;
-    this.houses = data.houses;
-    this.titles = data.titles;
-    this.races = data.races;
-    this.cultures = data.cultures;
-    this.bookReferences = data.bookReferences;
-    this.isHuman = data.isHuman;
-    this.personalArms = data.personalArms;
-    this.briefDescription = data.briefDescription;
+    this.setId(data.id);
+    this.setWikiUrl(data.wikiUrl);
+    this.setNameUnique(data.nameUnique);
+    this.setName(data.name);
+    this.setAliases(data.aliases);
+    this.setIsPov(data.isPov);
+    this.setHouses(data.houses);
+    this.setAllegiances(data.allegiances);
+    this.setTitles(data.titles);
+    this.setRaces(data.races);
+    this.setCultures(data.cultures);
+    this.setBookReferences(data.bookReferences);
+    this.setRelationships(data.relationships);
+    this.setIsHuman(data.isHuman);
+    this.setPersonalArms(data.personalArms);
+    this.setBriefDescription(data.briefDescription);
   }
 
-  private set id(value: string) {
+  private setId(value: string) {
     if (typeof value === 'string') this._id = value;
   }
 
-  public get id(): string {
+  get id(): string {
     return this._id;
   }
 
-  private set wikiUrl(value: string) {
+  private setWikiUrl(value: string) {
     if (typeof value === 'string') this._wikiUrl = value;
   }
 
-  public get wikiUrl(): string {
+  get wikiUrl(): string {
     return this._wikiUrl;
   }
 
-  private set nameUnique(value: string) {
+  private setNameUnique(value: string) {
     if (typeof value === 'string') this._nameUnique = value;
   }
 
-  public get nameUnique(): string {
+  get nameUnique(): string {
     return this._nameUnique;
   }
 
-  private set name(value: string) {
+  private setName(value: string) {
     if (typeof value === 'string') this._name = value;
   }
 
-  public get name(): string {
+  get name(): string {
     return this._name;
   }
 
-  private set isPov(value: boolean) {
+  private setIsPov(value: boolean) {
     if (typeof value === 'boolean') this._isPov = value;
   }
 
-  public get isPov(): boolean {
+  get isPov(): boolean {
     return this._isPov;
   }
 
-  private set aliases(value: string[]) {
+  private setAliases(value: string[]) {
     if (CharacterClass.isStringArray(value)) {
       this._aliases = Object.assign([], value);
     }
   }
 
-  public get aliases(): string[] {
+  get aliases(): string[] {
     return Object.assign([], this._aliases);
   }
 
-  private set houses(value: string[]) {
+  private setHouses(value: string[]) {
     if (CharacterClass.isStringArray(value)) {
       this._houses = Object.assign([], value);
     }
   }
 
-  public get houses(): string[] {
+  get houses(): string[] {
     return Object.assign([], this._houses);
   }
 
-  private set titles(value: string[]) {
+  private setAllegiances(value: string[]) {
+    if (CharacterClass.isStringArray(value)) {
+      this._allegiances = Object.assign([], value);
+    }
+  }
+
+  get allegiances(): string[] {
+    return Object.assign([], this._allegiances);
+  }
+
+  private setTitles(value: string[]) {
     if (CharacterClass.isStringArray(value)) {
       this._titles = Object.assign([], value);
     }
   }
 
-  public get titles(): string[] {
+  get titles(): string[] {
     return Object.assign([], this._titles);
   }
 
-  private set races(value: string[]) {
+  private setRaces(value: string[]) {
     if (CharacterClass.isStringArray(value)) {
       this._races = Object.assign([], value);
     }
   }
 
-  public get races(): string[] {
+  get races(): string[] {
     return Object.assign([], this._races);
   }
 
-  private set cultures(value: string[]) {
+  private setCultures(value: string[]) {
     if (CharacterClass.isStringArray(value)) {
       this._cultures = Object.assign([], value);
     }
   }
 
-  public get cultures(): string[] {
+  get cultures(): string[] {
     return Object.assign([], this._cultures);
   }
 
-  private set bookReferences(value: Reference[]) {
-    if (CharacterClass.isReferenceArray(value)) {
-      this._bookReferences = CharacterClass.copyRefernceArray(value);
-      //this._cultures = Object.assign([], value);
+  private setBookReferences(value: Reference[]) {
+    if (Reference.isReferenceArray(value)) {
+      this._bookReferences = Reference.copyRefernceArray(value);
     }
   }
 
-  public get bookReferences(): Reference[] {
-    return CharacterClass.copyRefernceArray(this._bookReferences);
+  get bookReferences(): Reference[] {
+    return Reference.copyRefernceArray(this._bookReferences);
   }
 
-  private set isHuman(value: boolean) {
+  private setRelationships(value: Relationship[]) {
+    if (Relationship.isRelationshipArray(value)) {
+      this._relationships = Relationship.copyRelationshipArray(value);
+    }
+  }
+
+  get relationships(): Relationship[] {
+    return Relationship.copyRelationshipArray(this._relationships);
+  }
+
+  private setIsHuman(value: boolean) {
     if (typeof value === 'boolean') this._isHuman = value;
   }
 
-  public get isHuman(): boolean {
+  get isHuman(): boolean {
     return this._isHuman;
   }
 
-  private set personalArms(value: string) {
+  private setPersonalArms(value: string) {
     if (typeof value === 'string') this._personalArms = value;
   }
 
-  public get personalArms(): string {
+  get personalArms(): string {
     return this._personalArms;
   }
 
-  private set briefDescription(value: string) {
+  private setBriefDescription(value: string) {
     if (typeof value === 'string') this._briefDescription = value;
   }
 
-  public get briefDescription(): string {
+  get briefDescription(): string {
     return this._briefDescription;
   }
 
@@ -181,10 +209,12 @@ export class CharacterClass {
       aliases: this.aliases,
       isPov: this.isPov,
       houses: this.houses,
+      allegiances: this.allegiances,
       titles: this.titles,
       races: this.races,
       cultures: this.cultures,
       bookReferences: this.bookReferences,
+      relationships: this.relationships,
       isHuman: this.isHuman,
       personalArms: this.personalArms,
       briefDescription: this.briefDescription,
@@ -216,41 +246,6 @@ export class CharacterClass {
     return false;
   }
 
-  private static isReferenceArray(arr: Reference[]): boolean {
-    if (Array.isArray(arr)) {
-      const isRefArray =
-        arr.length > 0 &&
-        arr.every(value => {
-          return CharacterClass.isReference(value);
-        });
-      return isRefArray;
-    }
-    return false;
-  }
-
-  private static isReference(value: any): value is Reference {
-    return (
-      typeof value === 'object' &&
-      typeof value.bookId === 'string' &&
-      typeof value.description === 'string'
-    );
-  }
-
-  private static copyRefernce(value: Reference): Reference {
-    return {
-      bookId: value.bookId,
-      description: value.description,
-    };
-  }
-
-  private static copyRefernceArray(toCopy: Reference[]): Reference[] {
-    const ref: Reference[] = [];
-    toCopy.forEach(value => {
-      ref.push(CharacterClass.copyRefernce(value));
-    });
-    return ref;
-  }
-
   /*
   // i hate visual studio more than life itself.  dasf
   private isValid(): boolean {
@@ -278,6 +273,8 @@ export interface CharacterCreateData {
 
   houses: string[];
 
+  allegiances: string[];
+
   titles: string[];
 
   races: string[];
@@ -285,6 +282,8 @@ export interface CharacterCreateData {
   cultures: string[];
 
   bookReferences: Reference[];
+
+  relationships: Relationship[];
 
   isHuman: boolean;
 
@@ -310,15 +309,4 @@ export enum AliasType {
 export interface CharacterHouse {
   houseId: string;
   isPrimary: boolean;
-}
-
-export interface Relation {
-  type: string;
-  description: string;
-  characterId: string;
-}
-
-export interface Reference {
-  bookId: string;
-  description: string;
 }

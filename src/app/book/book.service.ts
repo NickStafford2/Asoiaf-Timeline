@@ -37,4 +37,9 @@ export class BookService {
     if (a.order > b.order) return 1;
     return 0;
   };
+
+  getName(id: string | undefined): string {
+    const r = this._book$.getValue().find(b => b.id == id);
+    return r?.name || 'Error';
+  }
 }
