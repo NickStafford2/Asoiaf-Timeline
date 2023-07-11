@@ -47,7 +47,7 @@
 <ul>
   <li *ngFor="let x of character?.relationships">
     {{x.type}} -
-    {{characterService.getCharacterName(x.characterId)}}
+    {{x.characterName}}
     <ng-container *ngIf="x.description">{{x.description}}</ng-container>
   </li>
 </ul>

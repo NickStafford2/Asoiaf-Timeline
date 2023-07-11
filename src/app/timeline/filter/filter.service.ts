@@ -17,6 +17,12 @@ export class FilterService {
 
   readonly selectedCharacterId$ = this._selectedCharacterId$.asObservable();
 
+  private _setting$ = new BehaviorSubject<Map<string, boolean>>(
+    new Map<string, boolean>()
+  );
+
+  readonly setting$ = this._setting$.asObservable();
+
   /*
   private _houseId$ = new BehaviorSubject<string[]>([]);
 
@@ -33,6 +39,7 @@ export class FilterService {
     //this.houseService.house$.subscribe(this.setHouseIds.bind(this));
     this.characterService.character$.subscribe(this.setCharacters.bind(this));
     this._characterId$.subscribe(this.setSelectedCharacterIds.bind(this));
+    this.setDefaultSettings();
   }
   /*
   private setHouseIds(houses: House[]) {
@@ -55,10 +62,23 @@ export class FilterService {
   }
 
   private setSelectedCharacterIds(ids: Map<string, boolean>) {
+    //const settings = this._setting$.getValue();
     const selectedIds: string[] = [];
     ids.forEach((isSelected, id) => {
       //console.log(id, isSelected);
       if (isSelected) {
+        //let name = this.characterService.getCharacterName(id);
+        /*
+        if (settings.get('povOnly')) {
+          if (this.characterService.isPov(id)) {
+            //console.log(id + 'pushed');
+            selectedIds.push(id);
+          } else {
+            //console.log(id + 'not pushed');
+          }
+        } else {
+          selectedIds.push(id);
+        }*/
         selectedIds.push(id);
       }
     });
@@ -82,6 +102,16 @@ export class FilterService {
     return !!isSelected;
   }
 
+/*  selectPovOnly() {
+    this._selectedCharacterId$.getValue().forEach((id: string) => {
+      this.characterService.isPov(id);
+    });
+  }
+  */
+  setDefaultSettings() {
+    const m = this._setting$.getValue();
+    m.set('povOnly', true);
+  }
   /*
   private setCharacters(characters: CharacterClass[]) {
     const ids: string[] = [];

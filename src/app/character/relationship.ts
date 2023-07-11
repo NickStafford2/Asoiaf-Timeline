@@ -5,6 +5,8 @@ export class Relationship {
 
   characterId?: string;
 
+  characterName?: string;
+
   static isRelationshipArray(arr: Relationship[]): boolean {
     if (Array.isArray(arr)) {
       const isRefArray =
@@ -22,6 +24,7 @@ export class Relationship {
       typeof value === 'object' &&
       typeof value.type === 'string' &&
       typeof value.characterId === 'string' &&
+      typeof value.characterName === 'string' &&
       typeof value.description === 'string'
     );
   }
@@ -31,6 +34,7 @@ export class Relationship {
       type: value.type,
       description: value.description,
       characterId: value.characterId,
+      characterName: value.characterName,
     };
   }
 

@@ -1,4 +1,4 @@
-import { Reference } from './Reference';
+import { Reference } from './reference';
 import { Relationship } from './relationship';
 
 export class CharacterClass {

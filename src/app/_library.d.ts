@@ -1,14 +1,17 @@
 // todo: get rid of this file. or rename it to timeline.interface.ts
 
-import { NSMoment, NSMomentData } from './moment/moment.interface';
-
-export interface NSEvent extends NSMoment {
-  duration: number;
+export interface NSEvent extends NSEventData {
+  id: number;
 }
 
-export interface NSEventData extends NSMomentData {
+export interface NSEventData {
   // todo: maybe delete?
-  duration: number;
+  //duration: number;
+
+  start: any;
+  end: any;
+  characters: string[];
+  name: string;
 }
 
 export interface Book {

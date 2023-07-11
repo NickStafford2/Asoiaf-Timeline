@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 
 import { CharacterService } from '../character/character.service';
 import { MomentService } from '../moment/moment.service';
+import { NsEventService } from '../ns-event/ns-event.service';
 import { TimelineDateService } from '../timeline/timeline-date.service';
 import { TimelineService } from '../timeline/timeline.service';
 @Component({
@@ -23,7 +24,8 @@ export class TimelinePageComponent implements OnInit {
     public momentStoreService: MomentService,
     public timelineService: TimelineService,
     public timelineDateService: TimelineDateService,
-    public characterService: CharacterService
+    public characterService: CharacterService,
+    public nsEventService: NsEventService
   ) {
     this.timelineDateService.datesChanged$.subscribe(
       this._onDateChanged.bind(this)
